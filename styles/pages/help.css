@@ -1,0 +1,41 @@
+.help{
+    margin-top: 2rem;
+}
+.help h2{
+    
+    text-align: center;
+}
+
+.help .title-help{
+    margin-top: 2rem;
+    color: grey;
+    text-align: center;
+    font-size: 1.2rem;
+}
+.help .compras-help{
+    background-color: white;
+    margin: 0.5rem 1rem;
+    margin: 0 auto;
+    width: 90%;
+    list-style-type:none;
+    padding: 0;
+}
+.help .compras-help li{
+    padding: 1rem;
+    border: 1px solid grey;
+    cursor: pointer;
+}
+.help .compras-help li a{
+    color: rgb(61, 59, 59);
+
+}
+.compras-help li a:hover{
+    color: var(--second-alpha-color);
+}
+
+
+@media screen and (min-width:769px){
+    .help .compras-help{
+        width: 50%;
+    }
+}

@@ -1,0 +1,140 @@
+.reg_seller{
+	display: grid;
+	place-items: center;
+	min-height: 100vh;
+}
+/* General Settings */
+.input-group label{
+	display: block;
+	margin-bottom: 0.5rem;
+}
+.input-group input{
+	display: block;
+	width: 100%;
+	padding: 0.5rem;
+	border: 1px solid #ccc;
+	border-radius: 0.25rem;
+}
+.text-center{
+	text-align: center;
+	color: #2c3e50;
+}
+.width-50{
+	width: 50%;
+}
+.ml-auto{
+	margin-left: auto;
+}
+
+/* Progressbar */
+.progressbar{
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	margin: 2rem 0  4rem 0;
+	counter-reset: step;
+}
+.progressbar::before,
+.progress{
+	content: "";
+	position: absolute;
+	top:50%;
+	transform: translateY(-50%);
+	height: 4px;
+	width: 100%;
+	background-color: #bab9b9;
+
+}
+.progress{
+	background-color: var(--second-alpha-color);
+  width: 0%;
+  transition: 0.3s;
+}
+.progress-step{
+	width: 35px;
+	height: 35px;
+/* 	background-color: #bab9b9; */
+	background: var(--first-color);
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+	/* color: white; */
+}
+.progress-step::before{
+	counter-increment: step;
+	content: counter(step);
+}
+/* .progress{
+	background-color: var(--second-color);
+
+	transition: 0.3s;
+} */
+.progress-step::after{
+	content: attr(data-title);
+	position: absolute;
+	top: calc(100% + 0.5rem);
+	font-size: 0.85rem;
+	color: #666666;
+}
+.progress-step-active{
+	background:var(--second-alpha-color);
+	color: white;
+}
+/* Form */
+.form-reg{
+	margin: 0 auto;
+	width: clamp(320px,30%,430px);
+	border: 1px solid #ccc;
+	border-radius: .35rem;
+	padding: 1.5rem;
+	background: rgb(103, 107, 197,0.2);
+	box-shadow:2px 4px 11px -1px #000
+}
+
+.input-group{
+	margin: 2rem 0;
+}
+
+.form-step{
+	display: none;
+}
+.form-step-active{
+	display: block;
+}
+
+/* Buttons */
+.btn-rgs{
+	padding: 0.75rem;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	background: -webkit-linear-gradient(
+		to right,
+		hsl(238, 45%, 59%, 0.8),
+		hsl(37, 99%, 61%, 0.8)
+	  );
+	background: linear-gradient(
+		to right,
+		hsl(238, 45%, 59%, 0.8),
+		hsl(37, 99%, 61%, 0.8)
+	  );
+	color: black;
+	font-weight: bold;
+	border-radius: 0.25rem;
+	cursor: pointer;
+	transition: all 250ms ease-in-out;
+}
+.btn-rgs:active{
+	transform: scale(.98);
+}
+.btn-rgs:hover{
+	color: white;
+	box-shadow: 0 0 0 2px #fff,0 0 0 3px var(--second-color);
+}
+.btns-group{
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
+	gap:1.5rem;
+}

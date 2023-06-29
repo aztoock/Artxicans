@@ -1,0 +1,119 @@
+/* Custom Properties */
+:root{
+    --first-color: #feb439;
+    --first-alpha-color: #FDD100;
+    --second-color: #7D3C98;
+    --second-alpha-color: #6669c5;
+    --black-color: black;
+    --white-color: white;
+    --black-alpha-color: rgba(0,0,0,0.5);
+    --white-alpha-color: rgba(255,255,255,0.5);
+    --opacity-color: rgba(8,75,138,0.7);
+    --font: "RaleWay",sans-serif;
+    --max-width: 1200px;
+    --header-height: 4.7rem;
+    --link-color: #509ee3;
+    --card-bg:rgb(225,225,235);
+    --card-hover:rgb(255,255,255);
+  }
+  
+  /* Reset */
+  * {
+      padding:0;
+      margin:0;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+  }
+  html{
+    box-sizing: border-box;
+    font-family: var(--font);
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+  
+  *,
+  *::after,
+  *::before{
+    box-sizing: inherit;
+  }
+  body{
+    margin: 0;
+    overflow-x: hidden;
+    color: var(--black-color);
+    background-color: rgb(235, 235, 235);;
+  }
+  a{
+    color: var(--link-color);
+    transition: all 0.5s ease-out; 
+    text-decoration: none;
+  }
+  li{
+    list-style: none;
+  }
+  a:hover{
+    opacity: 0.75;
+  }
+  h1{
+    margin: 0;
+    font-size: 2rem;
+  }
+  h2{
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  h3{
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  h4{
+    margin: 0;
+    font-size: 1rem;
+  }
+  h5{
+    margin: 0;
+    font-size: 0.85rem;
+  }
+  h6{
+    margin: 0;
+    font-size: 0.7rem;
+  }
+  img{
+    max-width: 100%;
+    height: auto;
+  }
+  p{
+    line-height: 1.6;
+  }
+  .grid{
+    display: grid;
+    align-items: center;
+  }
+  
+  .container{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .flex{
+    display: flex;
+    align-items: center;
+  }
+  .btn-i{
+    padding: .4rem 1.5rem;
+    background-color: var(--second-alpha-color);
+    border: none;
+    outline: none;
+    border-radius: 3rem;
+    cursor: pointer;
+  }
+  /* Por si un usuario quiere tiene algun monitor grande o hacen un zoom de > 125% */
+  @media screen and (min-width:2560px){
+      body{
+        zoom:1.7;
+      }
+  }
+  
+
+
+ 
+

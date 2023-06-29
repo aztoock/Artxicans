@@ -1,0 +1,470 @@
+/* Sell */
+
+.sell {
+  width: 100%;
+  height: 30vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+.sell > .overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgb(70, 83, 7);
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  mix-blend-mode: hard-light;
+}
+.sell > img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  object-fit: cover;
+}
+.sellContent {
+  width: 100%;
+  height: max-content;
+  padding: 0 1.5rem 1rem;
+  display: flex;
+  row-gap: 1rem;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  margin: auto;
+  color: var(--white-color);
+  z-index: 100;
+}
+.sell > .sellContent > .textDiv {
+  padding: 1rem 0;
+}
+.sellTitle {
+  font-weight: bold;
+  position: relative;
+  font-size: 1.5rem;
+}
+
+.fancy {
+  position: relative;
+  white-space: nowrap;
+}
+.fancy::after {
+  --deco-height: 1rem;
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 50%;
+  bottom: calc(var(--deco-height) * -0.625);
+  height: var(--deco-height);
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M-17 30.5C-1 22 72-4 54 13 37.9 28.2-2.5 57.5 16 55.5s72-29 104-40' stroke='%2300FDCF' stroke-width='10'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h100v64H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+  background-size: auto 100%;
+  background-repeat: round;
+  background-position: 0em;
+}
+
+.sign-sellers {
+  margin-top: 2rem;
+  width: 80%;
+  display: grid;
+  place-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  margin: 2rem auto;
+  color: white;
+  border-radius: 10px;
+}
+.sign-sellers h3 {
+  font-size: 1.2rem;
+}
+/* ------------------ */
+.underlined {
+  /*   background: red; */
+  position: relative;
+}
+.underline-clip:after {
+  content: "";
+  position: absolute;
+  top: 95%;
+  width: 150%;
+  aspect-ratio: 3 / 1;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 50%;
+  border: 6px solid #09dbaa;
+  /* Use a clip-path to hide and show the bits you want */
+  clip-path: polygon(0 0, 50% 50%, 100% 0);
+}
+.underline-clip1:after {
+  content: "";
+  position: absolute;
+  top: 95%;
+  width: 150%;
+  aspect-ratio: 3 / 1;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 50%;
+  border: 6px solid var(--first-color);
+  /* Use a clip-path to hide and show the bits you want */
+  clip-path: polygon(0 0, 50% 50%, 100% 0);
+}
+
+/* ------------------ */
+
+.sign-sellers > button {
+  margin-top: 1rem;
+}
+.sign-btn {
+  background-image: linear-gradient(
+    92.88deg,
+    #455eb5 9.16%,
+    #5643cc 43.89%,
+    #673fd7 64.72%
+  );
+
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: "Inter UI", "SF Pro Display", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  height: 2rem;
+  width: 5rem;
+
+  /*text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all .5s;
+   */
+}
+.btn-center {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.sign-btn:hover {
+  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+  transition-duration: 0.1s;
+}
+.req h3{
+    font-size: 1.2rem;
+    text-align: center;
+
+}
+.inf-container{
+    margin: 2rem 0.5rem;
+}
+.inf-art h3{
+    color:rgb(172, 167, 167);
+    font-weight: bold;
+    font-size: 1rem;
+}
+.img-cen{
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img-cen img{
+    opacity: 0.8;
+    object-fit: fill;
+    width: 80vw;
+    height: 50vh;
+}
+.info-collapse{
+  margin-top: 2rem;
+}
+
+.title-question{
+  margin-top: 1rem;
+}
+/* .btn-color{
+  background-color: #455eb5 !important;
+} */
+@media screen and (min-width: 768px) {
+  .sell {
+    height: 40vh;
+  }
+  .sellTitle {
+    font-size: 1.8rem;
+    padding: 0 6rem 0 0;
+  }
+  .sign-sellers {
+    margin-top: 3rem;
+  }
+  .sign-sellers h3 {
+    font-size: 2rem;
+  }
+  .sign-btn {
+    width: 8rem;
+  }
+  .req h3{
+    font-size: 1.6rem;
+  }
+  .inf-container{
+    margin: 2rem ;
+  }
+  .img-cen img{
+    width: 50vw;
+    height: 50vh;
+}
+}
+@media screen and (min-width: 1024px) {
+  .sellTitle {
+    font-size: 2rem;
+  }
+  .sign-btn {
+    font-size: 1.4rem;
+    width: 10rem;
+    height: 4rem;
+  }
+}
+
+
+
+
+/* Sellers */
+
+.seller_true{
+  margin-top: 1rem;
+}
+.seller_true h2{
+  text-align: center;
+}
+.t-p-seller{
+  margin: 2rem 1rem;
+}
+
+
+.edit-button .bx{
+  /* color:rgb(169, 169, 25) ;*/
+  color:var(--second-alpha-color); 
+  cursor: pointer;
+}
+.delete-button .bx{
+  color: rgb(185, 34, 34);
+  cursor: pointer;
+}
+.seller-buttons {
+  display: grid;
+  margin: 1rem 4rem;
+  justify-content: center;
+  /* Grid de ?cx?r */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.choose-btn{
+  margin: 2rem 2rem;
+}
+.form-resize{
+  width: 90vw !important;
+}
+
+
+.prod-btns{
+  display:flex; 
+  flex-wrap:wrap; 
+  justify-content:space-between;
+  flex-direction:row;
+  gap:0.7rem
+}
+
+@media screen and (max-width:282px){
+  .prod-btns{
+    margin: 1rem auto;
+    justify-content: center;
+  }
+}
+@media screen and (min-width:768px){
+  .seller_true{
+    margin-top: 2rem;
+  }
+  .t-p-seller{
+    margin:2rem 2rem;
+  }
+  .form-resize{
+    margin-top: 2rem !important;
+    width: 50vw !important;
+  }
+}
+
+/* PayAccount */
+.payaccount{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+.payaccount h2{
+  margin: 1rem;
+  text-align: center;
+}
+.payaccount h5{
+  margin: 1rem;
+  text-align: center;
+  color: rgb(71, 70, 70);
+}
+.form-account{
+  margin: 1rem;
+  width: 90vw;
+}
+.btns-save{
+  display: flex;
+  
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+
+}
+@media screen and (min-width:768px){
+  .form-account{
+    width: 50vw;
+  }
+}
+
+/* Profile seller */
+.profile-seller{
+  width: 100%;
+  height: 20vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0rem auto;
+}
+.profile-seller .overlay-seller{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgb(65, 63, 63);
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  mix-blend-mode: hard-light;
+}
+.profile-seller img{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  object-fit: cover;
+}
+.profileContent{
+
+  width: 100%;
+  height: max-content;
+  padding: 0 1.5rem 1rem;
+  display: flex;
+  /* row-gap: 1rem; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin:0 auto;
+  color: white;
+  z-index: 100;
+}
+
+.title-profile{
+  font-weight: 500;
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+  /* margin: 3rem auto; */
+  font-size: 1.5rem;
+}
+.title-profile strong{
+  font-weight: bold;
+}
+.inf0-seller{
+  margin: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.ubicacion{
+  margin: 0.2rem 2rem;
+}
+.chat{
+  display: grid;
+  place-items: center;
+}
+.btn-edit-profile{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+
+}
+.input-size-1, .input-size{
+  width:90vw;
+}
+.input-size-lada{
+  width: 3rem;
+}
+.marg-1{
+  display: grid;
+  place-items: center;
+}
+.marg-2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.seller-data-2{
+  display: grid;
+  place-items: center;
+}
+.btn-save{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.txt-profile{
+  font-size: 1rem;
+  margin: 0.5rem auto;
+  text-align: center;
+  color: rgb(72, 71, 71);
+}
+.vendor-class{
+  font-size: 1.2rem;
+  color: rgb(67, 66, 66);
+  font-weight: bold;
+}
+.report-seller{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+@media screen and (min-width:768px){
+  .title-profile{
+    font-size:2rem;
+  }
+  .profile-seller{
+    height: 30vh;
+  }
+  .input-size-1{
+    width: 30vw;
+  }
+  .input-size{
+    width: 50vw;
+  }
+  
+
+}

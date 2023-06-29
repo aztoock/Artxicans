@@ -1,0 +1,214 @@
+/* Mobile first */
+.btn-i {
+  padding: 0.4rem 1.5rem;
+  background-color: var(--second-alpha-color);
+  border: none;
+  outline: none;
+  border-radius: 3rem;
+  cursor: pointer;
+}
+
+.header {
+  position: fixed;
+  background: var(--first-color);
+  width: 100%;
+  padding: 0.9rem;
+  z-index: 1000;
+  bottom: 0;
+}
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.burger-btn {
+  display: block;
+  background-color: var(--second-alpha-color);
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: thin solid var(--second-color);
+  padding: 0.5rem 1rem;
+  z-index: 999;
+}
+.burger-btn svg {
+  fill: var(--white-color);
+}
+.icon {
+  display: block;
+  width: 45px;
+  height: 45px;
+}
+.none {
+  display: none;
+}
+.logo a {
+  font-family: "Bungee Inline", cursive;
+  font-size: 1.7rem;
+  text-decoration: none;
+  color: var(--black-color);
+}
+.logo a::first-letter{
+  text-transform: uppercase !important;
+}
+/* .logo > a > img {
+  width: 40px;
+  height: 40px;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+}
+.logo > a > img:hover {
+  clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%);
+}
+
+.rounded-logo:hover {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  -o-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  transition: all 1s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+}
+ */
+@media screen and (max-width: 768px) {
+  .navbar {
+    background-color: hsl(238, 45%, 59%); 
+    position: absolute;
+    height: max-content;
+    padding: 2rem;
+    width: 100%;
+    bottom: 0;
+    right: -500%;
+    box-shadow: 0 2px 4px rgba(209, 209, 209, 0.904);
+    transition: 0.8s ease;
+    z-index: 1000;
+  }
+  .navbar > .navList {
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+  }
+
+  .navbar > .navList > .navItem {
+    padding: 1.2rem 0;
+    text-align: center;
+  }
+  .navbar > .navList > .navItem > a {
+    color: var(--white-color);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .navbar > .navList > .navItem > a:hover {
+    color: var(--first-color);
+    text-decoration: none;
+  }
+  .navbar.is-active {
+    right: 0;
+    margin-bottom: 4.4rem;
+  }
+  .headerBtn {
+    display: none !important;
+  }
+}
+.navbar > .navList > .navItem > a:hover {
+  color: hsl(238, 45%, 59%);
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin: 0;
+  z-index: 5000;
+}
+@media screen and (max-width: 768px) {
+  .dropdown:hover .dropdown-menu {
+    display: none;
+  }
+}
+
+/* Desktop */
+
+@media screen and (min-width: 769px) {
+  .header {
+    position: sticky;
+    top: 0;
+    padding: 0.5rem;
+    height: calc(var(--header-height) - 0.5rem);
+    border-bottom: 3px solid var(--second-alpha-color);
+  }
+  .burger-btn {
+    display: none;
+  }
+
+  .navbar > .navList {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .navbar > .navList > .navItem > a {
+    color: var(--black-color);
+    padding: 0rem 0.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .headerBtn {
+    color: var(--black-color);
+    font-weight: 500;
+  }
+  .loginBtn:hover {
+    transition: 0.2s ease-in-out;
+    background: hsl(238, 45%, 59%, 0.8);
+    color: var(--white-color);
+  }
+  .loginBtn {
+    background: transparent;
+    border: 2px solid var(--second-alpha-color);
+    font-weight: bold;
+    padding: 0 0.8rem;
+    border-radius: 3rem;
+    transition: 0.2s ease-in-out;
+  }
+
+  .signBtn {
+    background: var(--second-alpha-color);
+    border: 2px solid var(--second-alpha-color);
+    color: var(--white-color);
+    padding: 0 0.8rem;
+    border-radius: 3rem;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .signBtn:hover {
+    background: hsla(0, 4%, 63%, 0.3);
+    transition: 0.2s ease-in-out;
+  }
+  .icon {
+    display: none;
+  }
+}
+@media screen and (min-width: 960px) {
+  .navbar > .navList > .navItem {
+    padding: 0 0.9rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  .icon {
+    width: 29px;
+    height: 29px;
+  }
+  .logo a {
+    font-size: 1.2rem;
+  }
+  .logo a img {
+    width: 20px;
+    height: 20px;
+  }
+  .burger-btn {
+    padding: 0.3rem 0.6rem;
+  }
+}
