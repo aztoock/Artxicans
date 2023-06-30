@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-06-2023 a las 05:34:40
+-- Tiempo de generación: 01-07-2023 a las 00:25:03
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -294,7 +294,8 @@ INSERT INTO `products` (`id_product`, `product`, `image1`, `price`, `description
 (15, 'Rebozo de colores llamativos', 'rebozo.jpg', 2000, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo, consectetur? Modi tenetur et sed voluptatibus! Suscipit repellendus aperiam sint optio doloribus quidem, fugit quas, aliquid culpa, quaerat voluptatum asperiores quo.', 'Rebozos', 3, 'rebozo.jpg', 'rebozo.jpg', 11),
 (16, 'Hamaca', 'hamaca.jpg', 1700, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo, consectetur? Modi tenetur et sed voluptatibus! Suscipit repellendus aperiam sint optio doloribus quidem, fugit quas, aliquid culpa, quaerat voluptatum asperiores quo.', 'Otros', 5, 'hamaca.jpg', 'hamaca.jpg', 11),
 (17, 'Juguete de madera, tallado a mano', 'juguetes.jpg', 100, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo, consectetur? Modi tenetur et sed voluptatibus! Suscipit repellendus aperiam sint optio doloribus quidem, fugit quas, aliquid culpa, quaerat voluptatum asperiores quo.', 'Juguetes', 2, 'juguetes.jpg', 'juguetes.jpg', 11),
-(18, 'Playera con estampado', 'playera.jpg', 500, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo, consectetur? Modi tenetur et sed voluptatibus! Suscipit repellendus aperiam sint optio doloribus quidem, fugit quas, aliquid culpa, quaerat voluptatum asperiores quo.', 'Ropa', 4, 'playera.jpg', 'playera.jpg', 11);
+(18, 'Playera con estampado', 'playera.jpg', 500, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo, consectetur? Modi tenetur et sed voluptatibus! Suscipit repellendus aperiam sint optio doloribus quidem, fugit quas, aliquid culpa, quaerat voluptatum asperiores quo.', 'Ropa', 4, 'playera.jpg', 'playera.jpg', 11),
+(19, 'pollo rostizado', '', 15000, 'pollo de hoy con polvos magicos', 'Otros', 5, '', 'pollo rostizado3.jpg', 11);
 
 -- --------------------------------------------------------
 
@@ -698,7 +699,7 @@ ALTER TABLE `pay_account`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `profile_comments`

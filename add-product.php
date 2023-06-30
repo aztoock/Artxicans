@@ -1,13 +1,13 @@
 <?php 
     include 'templates/cabecera.php';
 ?>
-    <section class="add-proudcts">
+    <section class="add-products">
 
 
     <form action="" method="post" class="form-reg form-resize" enctype="multipart/form-data" style="margin-top:2">
 
 <h1 class="text-center">Registro de producto</h1>
-<?php include './global/Sadd-product.php'; ?>
+<?php include 'global/Sadd-product.php'; ?>
 <!-- ProgressBar -->
 
 <div class="progressbar">
@@ -70,12 +70,12 @@
 <div class="input-group">
    <label for="imagen2">Imagen 2:</label>
    <input style="color:red" type="file" name="imagen2" id="imagen2">
-   <small>*Adjunta la tercera imagen de tu producto</small>
+   <small>Adjunta la tercera imagen de tu producto</small>
   </div>
 <div class="input-group">
   <label for="imagen3">Imagen 3:</label>
   <input style="color:red" type="file" name="imagen3" id="imagen3" >
-  <small>*Adjunta la tercera imagen de tu producto</small>
+  <small>Adjunta la tercera imagen de tu producto</small>
 </div>
 
 <div class="btns-group">
