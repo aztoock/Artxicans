@@ -52,6 +52,7 @@
                                             <div class="alert alert-danger">*Imagenes insertadas.</div>
 <?php
                                         }
+                                        #prueba de git add y pull
                                 }
                         }
                 }
