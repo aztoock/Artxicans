@@ -53,6 +53,8 @@
 <?php
                                         }
                                         #prueba de git add y pull
+
+                                        # prueba de regreso para pull en laptop
                                 }
                         }
                 }
