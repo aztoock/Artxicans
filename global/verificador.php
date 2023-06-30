@@ -88,7 +88,7 @@
                     #print_r($listaproductos);
                     while($listaproductos = mysqli_fetch_assoc($resultado))
                         {
-                            $imagen = $listaproductos['image'];
+                            $imagen = $listaproductos['image1'];
                             $nombre = $listaproductos['product'];
                             $id_product = $listaproductos['id_product'];
                             $cantidad = $listaproductos['cantidad'];

@@ -1,4 +1,5 @@
 <?php
+    include_once('conexion.php'); 
     if(@!$_SESSION['user']){
         $mensaje = "vender";
     } else{
