@@ -65,7 +65,7 @@
                 }
             
 ?>
-            <div class="alert alert-danger"><?php echo $idusuario." _ ".$producto." _ ".$descripcion." _ ".$categoria." _ ".$precio." _ ".$cantidad." _ ".$image1." _ ".$image2." _ ".$image3 ?></div>
+            <!--<div class="alert alert-danger"><?php #echo $idusuario." _ ".$producto." _ ".$descripcion." _ ".$categoria." _ ".$precio." _ ".$cantidad." _ ".$image1." _ ".$image2." _ ".$image3 ?></div>-->
 <?php
                 # validacion de campos producto, categoria y precio, si estan vacios se salta al else
             if (!empty($_POST['producto']) && !empty($_POST['categoria']) && !empty($_POST['precio']))
@@ -92,7 +92,7 @@
                                     move_uploaded_file($file_tmp3,$ruta3);
                                 }
 
-                            echo $image1." _ ".$image2." _ ".$image3;
+                            #echo $image1." _ ".$image2." _ ".$image3;
 
                             $sql = ("   INSERT INTO `products` (`id_product`, `product`, `image1`, `price`, `description`, `category`, `stock`, `image2`, `image3`, `ID_registro`) 
                                         VALUES (NULL, '$producto', '$image1', '$precio', '$descripcion', '$categoria', '$cantidad', '$image2', '$image3', '$idusuario');");
