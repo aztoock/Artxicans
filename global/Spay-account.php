@@ -20,7 +20,6 @@
                                 WHERE `pay_account`.`ID_registro` = '$idusuario';");
                     $result = mysqli_query($conn,$query);
                     $men = "*Token actualizado";
-                    git commit -m "termino pay-account.php en back y actualizo base de datos"
                 }
         }
     
