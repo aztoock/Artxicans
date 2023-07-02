@@ -7,7 +7,7 @@
                         WHERE `reg_sellers`.`IDregseller` = '$id_vendedor';");
             $result = mysqli_query($conn,$query);
         }
-    else
+    elseif ( isset($_POST['Rechazar']) )
         {
             $query = (" UPDATE `reg_sellers` 
                         SET `solicitud` = 'Rechazado'
