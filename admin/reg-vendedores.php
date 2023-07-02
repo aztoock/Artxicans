@@ -130,8 +130,9 @@ include('../global/conexion.php');
 
 						<?php 
 
-							$query = mysqli_query($conn,"SELECT * FROM reg_sellers ORDER BY IDregseller DESC");
-							while($data = mysqli_fetch_array($query)){
+							$query = ("SELECT * FROM reg_sellers WHERE solicitud = 'Pendiente'");
+							$resultado = mysqli_query($conn,$query);
+							while($data = mysqli_fetch_array($resultado)){
 						?>
 							<tr>
 								<td>

@@ -1,21 +1,18 @@
 <?php
     $id_vendedor = $_GET['id_vend'];
-    if ( $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['opcion']) )
+    if ( isset($_POST['Aceptar']) )
         {
-            if ( isset($_POST['Aceptar']) )
-                {
-                    $query = (" UPDATE `reg_sellers` 
-                                SET `solicitud` = 'Aprobado'
-                                WHERE `reg_sellers`.`IDregseller` = `$id_vendedor`;");
-                    $result = mysqli_query($conn,$query);
-                }
-            else
-                {
-                    $query = (" UPDATE `reg_sellers` 
-                                SET `solicitud` = 'Rechazado'
-                                WHERE `reg_sellers`.`IDregseller` = '$id_vendedor';");
-                    $result = mysqli_query($conn,$query);
-                }
+            $query = (" UPDATE `reg_sellers` 
+                        SET `solicitud` = 'Aprobado'
+                        WHERE `reg_sellers`.`IDregseller` = '$id_vendedor';");
+            $result = mysqli_query($conn,$query);
+        }
+    else
+        {
+            $query = (" UPDATE `reg_sellers` 
+                        SET `solicitud` = 'Rechazado'
+                        WHERE `reg_sellers`.`IDregseller` = '$id_vendedor';");
+            $result = mysqli_query($conn,$query);
         }
 ?>
 
@@ -41,11 +38,10 @@
                     <p><strong>Domicilio:</strong>&nbsp;<?php echo $data['domicilio']?></p>
                     <p><strong>Codigo Postal:</strong>&nbsp;<?php echo $data['postal']?></p>
                     <form method="POST" class="form-vend">
-						
-					<textarea class="txt-send" placeholder="Escribe un mensaje al usuario."></textarea>
-					<input class="btn-choose decline" type="submit" name="opcion" value="Rechazar">
-					<input class="btn-choose accept" type="submit" name="opcion" value="Aceptar">
-				</form>
+					    <textarea class="txt-send" placeholder="Escribe un mensaje al usuario."></textarea>
+					    <input class="btn-choose decline" type="submit" name="Rechazar" value="Rechazar">
+					    <input class="btn-choose accept" type="submit" name="Aceptar" value="Aceptar">
+				    </form>
 				
                 </div>
 				</div>
