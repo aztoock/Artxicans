@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<?php 
-include('../global/conexion.php');
-?>
+
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -11,9 +9,8 @@ include('../global/conexion.php');
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
 	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="estilos.css">
 
-	<title>Registro de Vendedores</title>
+	<title>Registro de Productos</title>
 </head>
 <body>
 
@@ -57,13 +54,13 @@ include('../global/conexion.php');
 			</li>
 		</ul>
 		<ul class="side-menu">
-			<li class="active">
+			<li >
 				<a href="./reg-vendedores.php">
 					<i class='bx bxs-user-check' ></i>
 					<span class="text">Nuevos vendedores</span>
 				</a>
 			</li>
-			<li>
+			<li class="active">
 				<a href="./reg-productos.php">
 					<i class='bx bxs-select-multiple' ></i>
 					<span class="text">Nuevos productos</span>
@@ -90,38 +87,3 @@ include('../global/conexion.php');
 			
 		</nav>
 		<!-- NAVBAR -->
-
-		<!-- MAIN -->
-		<main>
-			<div class="head-title">
-				<div class="left">
-					<h1></h1>
-					<ul class="breadcrumb">
-						<li>
-							<a href="#">Menu</a>
-						</li>
-						<li><i class='bx bx-chevron-right' ></i></li>
-						<li>
-							<a class="active" href="./reg-vendedores.php">Registro de vendedores</a>
-						</li>
-						<li><i class='bx bx-chevron-right' ></i></li>
-						<li>
-							<a class="active" href="./reg-vendedores.php">Información de solicitud</a>
-						</li>
-					</ul>
-				</div>
-				
-			</div>
-
-		<?php
-			include 'helpers/Sdet-vend.php'; 
-		?>
-		</main>
-		<!-- MAIN -->
-	</section>
-	<!-- CONTENT -->
-	
-
-	<script src="script.js"></script>
-</body>
-</html>
