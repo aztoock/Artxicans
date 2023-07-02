@@ -1,18 +1,38 @@
 <?php
     $id_vendedor = $_GET['id_vend'];
-    if ( isset($_POST['Aceptar']) )
+    if ($_SERVER['REQUEST_METHOD'] === 'POST')
         {
-            $query = (" UPDATE `reg_sellers` 
-                        SET `solicitud` = 'Aprobado'
-                        WHERE `reg_sellers`.`IDregseller` = '$id_vendedor';");
-            $result = mysqli_query($conn,$query);
-        }
-    elseif ( isset($_POST['Rechazar']) )
-        {
-            $query = (" UPDATE `reg_sellers` 
-                        SET `solicitud` = 'Rechazado'
-                        WHERE `reg_sellers`.`IDregseller` = '$id_vendedor';");
-            $result = mysqli_query($conn,$query);
+            if ( isset($_POST['Aceptar']) )
+                {
+                    $mensaje = $_POST['mensaje'];           # Obtengo datos del formulario
+                    $id_usuario = $_POST['id_usuario'];     # Obtengo datos del formulario
+                    $query = (" UPDATE `reg_sellers` 
+                                SET `solicitud` = 'Aprobado'
+                                WHERE `reg_sellers`.`IDregseller` = '$id_vendedor';");
+                        # Actualizo el estatus del vendedor
+                    $result = mysqli_query($conn,$query);
+                    
+                    $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `notification`, `ID_registro`) 
+                                        VALUES (NULL, '$mensaje', '$id_usuario');");
+                        # Se agrega la notificacion a la tbl
+                    $result = mysqli_query($conn,$updatenotify);
+                }
+            elseif ( isset($_POST['Rechazar']) )
+                {
+                    $mensaje = $_POST['mensaje'];       # Obtengo datos del formulario
+                    $id_usuario = $_POST['id_usuario']; # Obtengo datos del formulario
+                    $mensaje = $_POST['mensaje'];
+                    $query = (" UPDATE `reg_sellers` 
+                                SET `solicitud` = 'Rechazado'
+                                WHERE `reg_sellers`.`IDregseller` = '$id_vendedor';");
+                        # Actualizo el estatus del vendedor
+                    $result = mysqli_query($conn,$query);
+
+                    $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `notification`, `ID_registro`) 
+                                        VALUES (NULL, '$mensaje', '$id_usuario');");
+                        # Se agrega la notificacion a la tbl
+                    $result = mysqli_query($conn,$updatenotify);
+                }
         }
 ?>
 
@@ -38,7 +58,8 @@
                     <p><strong>Domicilio:</strong>&nbsp;<?php echo $data['domicilio']?></p>
                     <p><strong>Codigo Postal:</strong>&nbsp;<?php echo $data['postal']?></p>
                     <form method="POST" class="form-vend">
-					    <textarea class="txt-send" placeholder="Escribe un mensaje al usuario."></textarea>
+					    <textarea class="txt-send" name="mensaje" placeholder="Escribe un mensaje al usuario."></textarea>
+                        <input type="hidden" name="id_usuario" value=" <?php echo $data['ID_registro']; ?> ">
 					    <input class="btn-choose decline" type="submit" name="Rechazar" value="Rechazar">
 					    <input class="btn-choose accept" type="submit" name="Aceptar" value="Aceptar">
 				    </form>
