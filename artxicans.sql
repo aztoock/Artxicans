@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-07-2023 a las 05:05:35
+-- Tiempo de generación: 02-07-2023 a las 02:03:30
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -380,7 +380,8 @@ CREATE TABLE `reg_sellers` (
 --
 
 INSERT INTO `reg_sellers` (`IDregseller`, `Nombre`, `apellidos`, `nickname`, `lada`, `telefono`, `telefonoref`, `domicilio`, `postal`, `identificador`, `solicitud`, `ID_registro`) VALUES
-(47, 'Said', 'Castillo Marin', 'Said557', 52, '2212054136', '2212054136', 'de las flores', '34850', 'Said557-identificacion.jpeg', 'Aprobada', 5);
+(47, 'Said', 'Castillo Marin', 'Said557', 52, '2212054136', '2212054136', 'de las flores prueba update', '34850', 'Said557-identificacion.jpeg', 'Rechazado', 5),
+(48, 'panchita', 'pomela', 'pancho', 52, '2229259011', '7986840', 'domicilio prueba 1', '75480', 'pancho-identificacion.jpeg', 'Pendiente', 13);
 
 -- --------------------------------------------------------
 
@@ -721,7 +722,7 @@ ALTER TABLE `registro`
 -- AUTO_INCREMENT de la tabla `reg_sellers`
 --
 ALTER TABLE `reg_sellers`
-  MODIFY `IDregseller` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `IDregseller` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT de la tabla `reports`
