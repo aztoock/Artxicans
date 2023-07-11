@@ -12,3 +12,54 @@
     display: flex;
     justify-content: end;
 }
+
+
+.display-chat{
+    height:300px;
+	background-color:#d69de0;
+	margin-bottom:4%;
+	overflow:auto;
+	padding:15px;
+	}
+ .toChat{
+    margin: 1rem auto;
+    width: 90vw;
+    height: 100vh;
+    background-color: rgb(194, 191, 191);
+    overflow-y: scroll;    
+}
+
+.header-chat{
+    margin: 1rem auto;
+    width: 90vw;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: var(--second-alpha-color);
+    padding: 1rem 0;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+.footer-chat{
+    background-color: var(--first-color);
+    padding: 1rem;
+
+}
+.width-seller,
+.width-user{
+    width: 75vw;
+}
+.container-btn-chat{
+    margin: 1rem auto;
+}
+
+
+@media screen and (min-width:768px){
+    .toChat{
+        width:70vw;
+    }
+    .width-seller,
+    .width-user{
+        width: 40vw;
+    }
+} 

@@ -9,7 +9,8 @@
             $direccion1 = $_POST['direccion1'];         # 
             $direccion2 = $_POST['direccion2'];         # 
             $ciudad = $_POST['ciudad'];                 #
-            $estado = $_POST['estado'];                 # Variables para obtener los datos de los imput
+            $estado = $_POST['estado'];  
+            $pais = $_POST['pais'];               # Variables para obtener los datos de los imput
             $cp = $_POST['cp'];                         # 
             $telefono = $_POST['telefono'];             # 
             $instrucciones = $_POST['instrucciones'];   #
@@ -36,8 +37,8 @@
                         }
                     else
                         {
-                            $sql = (" INSERT INTO direcciones (`id_direccion`, `usuario_id`, `nombre`, `direccion1`, `direccion2`, `ciudad`, `estado`, `codigopostal`, `telefono`, `instrucciones`) 
-                            VALUES (NULL, '$userid', '$nombre', '$direccion1', '$direccion2', '$ciudad', '$estado', '$cp', '$telefono', '$instrucciones' )");
+                            $sql = (" INSERT INTO direcciones (`id_direccion`, `usuario_id`, `nombre`, `direccion1`, `direccion2`, `ciudad`, `estado`,`pais`, `codigopostal`, `telefono`, `instrucciones`) 
+                            VALUES (NULL, '$userid', '$nombre', '$direccion1', '$direccion2', '$ciudad', '$estado', '$pais','$cp', '$telefono', '$instrucciones' )");
                             $result = mysqli_query($conn,$sql);
                             if ($result)
                                 {

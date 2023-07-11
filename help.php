@@ -9,26 +9,31 @@
     <p class="title-help">Compras</p>
     <ul class="compras-help">
     
-        <li><a href="" >Reportar vendedor o producto<i class='bx bxs-chevron-right'> </i></a></li>
-        <li><a href="">Administrar y cancelar compras<i class='bx bxs-chevron-right'> </i></a></li>
-        <li><a href="">Preguntas frecuentes sobre compras<i class='bx bxs-chevron-right'> </i></a></li>   
+        <li><a data-bs-toggle="modal" data-bs-target="#ModalReportU">Reportar vendedor o producto<i class='bx bxs-chevron-right'> </i></a></li>
+        <li><a href="./orders.php">Administrar y cancelar compras<i class='bx bxs-chevron-right'> </i></a></li>
+        <li><a data-bs-toggle="modal" data-bs-target="#ModalQuestion">Preguntas frecuentes sobre compras<i class='bx bxs-chevron-right'> </i></a></li>   
     </ul>
 
-    <!-- esto vendra si es vendedor -->
-    <p class="title-help">Ventas</p>
-    <ul class="compras-help">
-        <li><a href="">Reportar comprador <i class='bx bxs-chevron-right'> </i></a></li>
-        <li><a href="./seller.php">Administrar publicaciones <i class='bx bxs-chevron-right'> </i></a></li>
-        <li><a href="">Preguntas frecuentes sobre ventas <i class='bx bxs-chevron-right'> </i></a></li>
-    </ul>
+   <?php include('./helpers/help.php');?>
+
+   <!-- Modal Reports -->
+   
+   <?php include('./components/ModalReportU.php')?>
+   <?php include('./components/ModalReportS.php')?>
+   
+   <!-- Modal Question -->
+  <?php include('./components/ModalQuestions.php')?>
+  <!-- Modal Question Sellers -->
+  <?php include('./components/ModalQuestionsS.php')?>
 
     <p class="title-help">Ayuda sobre tu cuenta</p>
     <ul class="compras-help">
         <li><a href="./profile.php"> Mi cuenta</a></li>
         <li><a data-bs-toggle="modal" data-bs-target="#ModalPrivacidad" >Aviso de privacidad</a></li>
         <li><a data-bs-toggle="modal" data-bs-target="#ModalPrivacidad" >Términos y condiciones</a></li>
-        <li><a href="">Seguridad</a></li>
+        
     </ul>
+    
 </section>
 
 

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <?php 
-include('../global/conexion.php');
+	include('../global/conexion.php');
+
 ?>
+
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -11,53 +13,52 @@ include('../global/conexion.php');
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
 	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="estilos.css">
 
-	<title>Registro de Vendedores</title>
+	<title>Artxicans -Panel</title>
 </head>
 <body>
 
 
 	<!-- SIDEBAR -->
 	<section id="sidebar">
-		<a href="./index.php" class="brand">
+		<a href="./menu.php" class="brand">
 			<i class='bx bxs-font-color'></i>
 			<span class="text">Artxicans</span>
 		</a>
 		<ul class="side-menu top">
 			<li >
-				<a href="./index.php">
+				<a href="./menu.php">
 					<i class='bx bxs-home' ></i>
 					<span class="text">Inicio</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="./orders.php">
 					<i class='bx bxs-shopping-bag-alt' ></i>
 					<span class="text">Pedidos</span>
 				</a>
 			</li>
-			<li>
-				<a href="#">
-					<i class='bx bxs-send' ></i>
-					<span class="text">Envios</span>
+			<li class="active">
+				<a href="./products.php">
+					<i class='bx bxs-package'></i>
+					<span class="text">Productos</span>
 				</a>
-			</li>
+			</li> 
 			<li>
-				<a href="#">
+				<a href="./sellers.php">
 					<i class='bx bxs-user' ></i>
 					<span class="text">Vendedores</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="./reports.php">
 					<i class='bx bxs-error' ></i>
 					<span class="text">Reportes</span>
 				</a>
 			</li>
 		</ul>
 		<ul class="side-menu">
-			<li class="active">
+			<li>
 				<a href="./reg-vendedores.php">
 					<i class='bx bxs-user-check' ></i>
 					<span class="text">Nuevos vendedores</span>
@@ -98,24 +99,57 @@ include('../global/conexion.php');
 					<h1></h1>
 					<ul class="breadcrumb">
 						<li>
-							<a href="#">Menu</a>
+							<a href="./menu.php">Menu</a>
 						</li>
 						<li><i class='bx bx-chevron-right' ></i></li>
 						<li>
-							<a class="active" href="./reg-vendedores.php">Registro de vendedores</a>
-						</li>
-						<li><i class='bx bx-chevron-right' ></i></li>
-						<li>
-							<a class="active" href="./reg-vendedores.php">Información de solicitud</a>
+							<a class="active" href="./products.php">Productos</a>
 						</li>
 					</ul>
 				</div>
-				
+			
 			</div>
 
-		<?php
-			include 'helpers/Sdet-vend.php'; 
-		?>
+			<div class="table-data">
+				<div class="order">
+					<div class="head">
+						<h3>Lista de Productos</h3>
+						
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th>Producto</th>
+								<th>Propietario</th>
+								<th>Información</th>
+							</tr>
+						</thead>
+						<tbody>
+						<?php 
+							$query = mysqli_query($conn,"SELECT * FROM products INNER JOIN reg_sellers 
+							WHERE products.ID_registro = reg_sellers.ID_registro ORDER BY rand()");
+
+							while($data = mysqli_fetch_array($query)){
+						?>
+					
+							<tr>
+								<td>
+									<img src="../assets/utilities/caja.png">
+									<p><?php echo $data['product']?></p>
+								</td>
+                                <td><?php echo $data['nickname']?></td>
+								
+								<td><a href="./pages/det-prod.php?product=<?php echo $data['id_product']?>"><span class="status completed">Ver info</span></a></td>
+							</tr>
+							
+						<?php }?>
+						</tbody>
+					</table>
+				</div>
+			
+
+
+		
 		</main>
 		<!-- MAIN -->
 	</section>

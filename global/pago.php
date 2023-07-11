@@ -1,4 +1,5 @@
 <?php
+    $id_user = $_SESSION['id'];
     include 'cart.php';
     $total = 0;
     $ids = session_id();
@@ -6,8 +7,8 @@
         {
             $total = $total + ($product['precio'] * $product['cantidad']);
         }
-    $sql = "INSERT INTO `ventas` (`id_venta`, `clavetransaccion`, `paypaldatos`, `fecha`, `correo`, `total`, `estatus`) 
-            VALUES (NULL, '$ids', '', NOW(), '$correo', '$total', 'pendiente');";
+    $sql = "INSERT INTO `ventas` (`id_venta`, `clavetransaccion`, `paypaldatos`, `fecha`, `correo`, `total`, `estatus`,`envio`) 
+            VALUES (NULL, '$ids', '', NOW(), '$correo', '$total', 'pendiente','Pendiente');";
     $result = mysqli_query($conn,$sql);
     $idventa = mysqli_insert_id($conn);
     #echo "<h3>".$total.$idventa."</h3>";
@@ -17,8 +18,8 @@
             $producto = $product['idproduct'];
             $punitario = $product['precio'];
             $cantidad = $product['cantidad'];
-            $sql = "INSERT INTO `detalleventa` (`id`, `id_venta`, `id_producto`, `preciounitario`, `cantidad`) 
-            VALUES (NULL, '$idventa', '$producto', '$punitario', '$cantidad');";
+            $sql = "INSERT INTO `detalleventa` (`id`, `id_venta`, `id_producto`, `preciounitario`, `cantidad`,`ID_registro`) 
+            VALUES (NULL, '$idventa', '$producto', '$punitario', '$cantidad','$id_user');";
             $result = mysqli_query($conn,$sql);
         }
 ?>
@@ -46,13 +47,18 @@
 
 <div class="jumbotron text-center">
     <br><br>
-    <h1 class="display-4">Paso final</h1>
+    <h1 class="display-4">Realiza tu pago</h1>
     <hr class="my-4">
     <p class="lead">Estas en proceso para pagar con Paypal
         $<?php echo number_format($total,2); ?>
         <div id="paypal-button-container"></div>    
     </p>
-    <p>Los detalles se enviaran a <?php echo $correo; ?></p>
+    <!-- <p>Los detalles se enviaran a <?php echo $correo; ?></p> -->
+    <p>
+    <div class="alert alert-success" role="alert">
+        Los detalles se enviaran a <?php echo $correo; ?>
+    </div>
+    </p>
 </div>
 
 <script>

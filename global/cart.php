@@ -12,6 +12,7 @@
             // Obtener el valor del correo
             $correo = $fila['Correo'];          #
             $direccion = $fila['direccion1'];   # variables de obtencion de correo y direccion con los resultados que arroja la query
+            
         }
 
     if(isset($_POST['button-cart']))
@@ -134,7 +135,7 @@
                             }
                     break;
 
-                    case 'cuantos':
+                    case 'Actualizar':
                         $idprod = $_POST['midprod'];                        # variable  que guarda el id posicion del carrito
                         $cuantos = $_POST['cantidad'];                      # variable que guarda la cantidad del producto del carrito
                         $_SESSION['cart'][$idprod]['cantidad'] =$cuantos;   # variable para almacenar la posicion de la cantidad modificada en el carrito

@@ -15,14 +15,14 @@
                         {
                             #print("no pide datos");
 ?>
-                            <button class="go-buy" name="go-buy" type="submit" value="cdirecta" onclick="location.href='pagar.php'">Realizar compra</button>
+                            <button class="go-buy btn btn-success" name="go-buy" type="submit" value="cdirecta" onclick="location.href='pagar.php'">Realizar compra</button>
 <?php
                         }
                     else
                         {
                             #print("directo a meter datos");
 ?>
-                            <button class="go-buy" name="go-buy" type="submit" value="cdireccion"onclick="location.href='datosdireccion.php'">Realizar compra</button>
+                            <button class="go-buy btn btn-success" name="go-buy" type="submit" value="cdireccion"onclick="location.href='datosdireccion.php'">Realizar compra</button>
 <?php
                         }
                 }

@@ -108,51 +108,18 @@
     if($id_user <> $user){?>
     <!-- Boton de chat  -->
     <div class="chat">
-            <p><strong>Contactar:</strong>&nbsp;&nbsp;<button type="button" class="btn btn-info position-relative" data-bs-toggle="modal" data-bs-target="#ModalChat">
+            <p><strong>Contactar:</strong>&nbsp;&nbsp;<button type="button" class="btn btn-info position-relative" onclick="location.href='./toChat.php?seller_data=<?php echo base64_encode($user)?>'" >
                Abrir chat
               <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
               <span class="visually-hidden">New alerts</span>
               </span>
               </button>
             </p>   
-        <!-- Modal chat-->
-                <div class="modal fade" id="ModalChat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-scrollable">
-                    <div class="modal-content">
-                      <div class="modal-header p-3 mb-2 bg-color text-white">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel"><?php echo $data['nickname']?></h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <div class="seller-answer">
-                        <div class="alert alert-dark w-75" role="alert">
-                             A simple dark alert—check it out!  
-                        </div>
-                        </div>
-                        <div class="user-answer">
-                        <div class="alert alert-primary w-75 " role="alert">
-                            A simple primary alert—check it out!
-                        </div>
-                        </div>
-                        
-                      </div>
-                      
-                      <div class="modal-footer">
-                      <div class="mb-3 w-100">
-                          <textarea class="form-control" style="resize:none" id="exampleFormControlTextarea1" rows="3" placeholder="Escribe tu mensaje"></textarea>
-                      </div>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-success">Enviar</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-        <!-- Modal chat -->
-
+        
     </div>
     <?php }else{ # Si es igual las dos ID, entonces es el vendedor el que esta observando el perfil?>
         <div class="chat">
-            <p><strong></strong>&nbsp;&nbsp;<button type="button" class="btn btn-info position-relative" onclick="location.href='./chats.php?seller_data=<?php echo $user?>'">
+            <p><strong></strong>&nbsp;&nbsp;<button type="button" class="btn btn-info position-relative" onclick="location.href='./chats.php?chat=<?php echo base64_encode($user)?>'">
         Abrir mi lista de chats
         <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
             <span class="visually-hidden">New alerts</span>

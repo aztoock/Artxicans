@@ -34,7 +34,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" onclick="location.href='./signup.php'">Registrar</button>
+        <button type="button" class="btn btn-info" onclick="location.href='./signup.php'">Registrar</button>
       </div>
     </div>
   </div>
@@ -55,7 +55,7 @@ Antes de empezar, te recordamos que únicamente se dará autorización a los usu
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" onclick="location.href='./reg_seller.php'">Entendido</button>
+        <button type="button" class="btn btn-info" onclick="location.href='./reg_seller.php'">Entendido</button>
       </div>
     </div>
   </div>

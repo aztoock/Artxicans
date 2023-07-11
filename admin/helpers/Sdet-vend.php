@@ -48,15 +48,54 @@
 					$query = mysqli_query($conn,"SELECT * FROM reg_sellers WHERE IDregseller = $id_vendedor");
 					$data = mysqli_fetch_array($query);
 				?>
-					<img src="../user/files<?php echo $data['identificador']?>" alt="identificacion" style="width:250px;height:140px">
-                    <p><strong>Nombre:</strong>&nbsp;<?php echo $data['Nombre']?></p>
-                    <p><strong>Apellidos:</strong>&nbsp;<?php echo $data['apellidos']?></p>
-                    <p><strong>Nickname:</strong>&nbsp;<?php echo $data['nickname']?></p>
-                    <p><strong>Lada:</strong>&nbsp;+<?php echo $data['lada']?></p>
-                    <p><strong>Telefono:</strong>&nbsp;<?php echo $data['telefono']?></p>
-                    <p><strong>Referencia:</strong>&nbsp;<?php echo $data['telefonoref']?></p>
-                    <p><strong>Domicilio:</strong>&nbsp;<?php echo $data['domicilio']?></p>
-                    <p><strong>Codigo Postal:</strong>&nbsp;<?php echo $data['postal']?></p>
+					<img src="../../user/files<?php echo $data['identificador']?>" alt="identificacion" style="width:250px;height:140px">
+                    
+                    <table class="table-products" >
+                        
+                     <tbody>
+                      <tr>
+                        <td>
+                    		<p><strong>Nombre:</strong>&nbsp;<?php echo $data['Nombre']?></p>
+                    	</td>
+                      </tr>
+                      <tr>
+                        <td>
+							<p><strong>Apellidos:</strong>&nbsp;<?php echo $data['apellidos']?></p>
+						</td>
+                      </tr>
+                      <tr>
+                        <td>
+							<p><strong>Nickname:</strong>&nbsp;<?php echo $data['nickname']?></p>
+						</td>
+                      </tr>
+                      <tr>
+                        <td>
+							<p><strong>Lada:</strong>&nbsp;+<?php echo $data['lada']?></p>
+					    </td>
+                      </tr>
+                      <tr>
+                        <td>
+							<p><strong>Telefono:</strong>&nbsp;<?php echo $data['telefono']?></p>
+						</td>
+                      </tr>
+                      <tr>
+                        <td>
+							<p><strong>Referencia:</strong>&nbsp;<?php echo $data['telefonoref']?></p>
+						</td>
+                      </tr>
+                      <tr>
+                      	<td>
+							<p><strong>Domicilio:</strong>&nbsp;<?php echo $data['domicilio']?></p>
+						</td>
+                      </tr>
+                      <tr>
+                        <td>
+							<p><strong>Codigo Postal:</strong>&nbsp;<?php echo $data['postal']?></p>
+						</td>
+                      </tr>
+                      <tr>
+					  </tbody>
+                    </table>
                     <form method="POST" class="form-vend">
 					    <textarea class="txt-send" name="mensaje" placeholder="Escribe un mensaje al usuario."></textarea>
                         <input type="hidden" name="id_usuario" value=" <?php echo $data['ID_registro']; ?> ">

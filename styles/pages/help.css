@@ -32,7 +32,20 @@
 .compras-help li a:hover{
     color: var(--second-alpha-color);
 }
-
+.container-method{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.container-method div p{
+    font-size: 1.5rem;
+    font-weight: bold;
+    
+}
+.paypal-c .bx{
+    color: #3b7bbf;
+}
 
 @media screen and (min-width:769px){
     .help .compras-help{

@@ -19,16 +19,23 @@
         </div>
       </div>
         
-        <div class="d-grid gap-2 col-6 mx-auto">
-      <?php 
+        <div class="d-grid gap-2 col-4 mx-auto">
+    
+     <?php 
         $query = mysqli_query($conn,"SELECT * FROM registro WHERE ID = '$id_user'");
         $res = mysqli_fetch_array($query);
-              
+      
+      
         if($res['estatus'] == '1'){
       ?>
+       <!-- Boton chats vendedor-->
+     <button class="btn btn-info mt-4" type="button" onclick="location.href='./chooseChat.php'">Chats</button>
       <!-- Boton para perfil de vendedor -->
-      <button type="button" class="btn btn-outline-primary" onclick="location.href='./profile-seller.php?seller_data=<?php echo $id_user?>'">Perfil de vendedor</button>   
-      <?php }?>   
+      <button type="button" class="btn btn-outline-primary mt-4" onclick="location.href='./profile-seller.php?seller_data=<?php echo $id_user?>'">Perfil de vendedor</button>   
+      <?php }else{?> 
+       <!-- Boton chats usuario-->
+     <button class="btn btn-info mt-4" type="button" onclick="location.href='./chats.php'">Chats</button>
+      <?php }?>
       <!-- Boton para notificaciones -->
       <button type="button" class="btn btn-info position-relative mt-4" onclick="location.href='./notifications.php'">
           Notificaciones
@@ -42,8 +49,12 @@
           <span class="visually-hidden">unread messages</span>
           </span>
       </button>
-   <button class="btn btn-outline-success mt-4" type="button">Editar datos</button>
-  <button class="btn btn-danger mt-4" type="button" onclick="location.href='./global/logout.php'">Cerrar Sesion</button>
+    <!-- Boton para pedidos -->
+    <button class="btn btn-info mt-4" type="button" onclick="location.href='./orders.php'">Mis pedidos</button>
+    <!-- Boton para editar datos -->
+   <button class="btn btn-outline-success mt-4" type="button" onclick="location.href='./mydata.php'">Editar datos</button>
+   
+   <button class="btn btn-danger mt-4" type="button" onclick="location.href='./global/logout.php'">Cerrar Sesion</button>
           
 </div>
     </section>

@@ -63,6 +63,10 @@
           <input type="text" name="estado" id="estado" />
         </div>
         <div class="input-group">
+          <label for="pais">Pais</label>
+          <input type="text" name="pais" id="pais" /> 
+        </div>
+        <div class="input-group">
           <label for="cp">Codigo postal</label>
           <input type="text" name="cp" id="cp" />
         </div>

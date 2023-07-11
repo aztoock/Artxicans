@@ -2,8 +2,20 @@
     include('global/conexion.php');
     include('templates/cabecera.php');
     include('global/querycart.php');
-    //obtener id del producto
     include('global/cart.php');
+    //obtener id del producto
+    if(isset($_GET['id_product'])){
+        $query = $conn ->query("SELECT * FROM products WHERE id_product = ".$_GET['id_product']) or die($conn->error);
+
+        if(mysqli_num_rows($query) > 0){
+            $row = mysqli_fetch_row($query);
+        }else{
+            echo("<script>location.href = 'index.php';</script>");
+        }
+
+    }else{
+        echo("<script>location.href = 'index.php';</script>");
+    }
 ?>
   <!-- Card para mostrar los datos del producto detallados. -->
 <div class="card mb-3 mx-auto card-product" style="width: 85vw;margin-top:2rem">
@@ -38,13 +50,15 @@
     </div>
     <?php 
       //Consultar para obtener los datos del vendedor
-      $vendedor = mysqli_query($conn,"SELECT * FROM reg_sellers INNER JOIN products WHERE reg_sellers.ID_registro = products.ID_registro");
+      $p = $row[9];
+      $vendedor = mysqli_query($conn,"SELECT * FROM reg_sellers WHERE ID_registro = $p");
       $resultVendedor = mysqli_fetch_array($vendedor);
 ?>
     <div class="col-md-8">
       <div class="card-body">
         <h3 class="card-title"><?php echo $row[1]?></h3>
         <p class="card-text price">$<?php echo $row[3];?></p>
+        
         <p class="card-text"><small class="text-body-secondary">Vendido por:&nbsp;<strong><a href="profile-seller.php?seller_data=<?php echo $resultVendedor['ID_registro']?>"><?php echo $resultVendedor['nickname']?></a></strong></small></p>
         <p class="card-text"><?php echo $row[4]?></p>
         <p class="card-text stars-pointer">Calificación: 
@@ -98,17 +112,21 @@
           
         
         </p>
+
+      
         <form action="" method="post">
-          <input type="hidden" name="image" value="<?php echo openssl_encrypt($row[2],COD,KEY);?>"/>
-          <input type="hidden" name="idproduct" value="<?php echo openssl_encrypt($row[0],COD,KEY);?>">
-          <input type="hidden" name="product" value="<?php echo openssl_encrypt($row[1],COD,KEY);?>">
-          <input type="hidden" name="precio" value="<?php echo openssl_encrypt($row[3],COD,KEY);?>">
-          <input type="hidden" name="cantidad" value="<?php echo openssl_encrypt(1,COD,KEY);?>">
-          <div class="choose">
-            <button type="submit" class="btn btn-info" name="button-cart" value="Agregar" >Comprar <i class="bx bxs-cart"></i></button>
-          <!-- <button type="button" class="btn btn-success" onclick="location.href=''">Comprar ahora</button> -->
-          </div>
-        </form>
+
+        <input type="hidden" name="image" value="<?php echo openssl_encrypt($row[2],COD,KEY);?>"/>
+                    <input type="hidden" name="idproduct" value="<?php echo openssl_encrypt($row[0],COD,KEY);?>">
+                    <input type="hidden" name="product" value="<?php echo openssl_encrypt($row[1],COD,KEY);?>">
+                    <input type="hidden" name="precio" value="<?php echo openssl_encrypt($row[3],COD,KEY);?>">
+                    <input type="hidden" name="cantidad" value="<?php echo openssl_encrypt(1,COD,KEY);?>">
+        <div class="choose">
+          <button type="submit" class="btn btn-info" name="button-cart" value="Agregar" >Comprar <i class="bx bxs-cart"></i></button>
+        <!-- <button type="button" class="btn btn-success" onclick="location.href=''">Comprar ahora</button> -->
+       
+        </div>
+            </form>
     </div>
     
     <a  data-bs-toggle="modal" data-bs-target="#ModalProductReport-<?php echo $row[0]?>" style="display:flex;justify-content: end; padding :1rem;cursor:pointer;" class="report-container"><i class='bx bx-error bx-md'></i></a>
@@ -304,8 +322,9 @@
           <div class="com-cointer"> 
             
         <p class="stars-score"><strong><?php echo $data['Nombre']?></strong>&nbsp;&nbsp; 
+
               <?php
-             
+              
               switch($data['star']){
                 case '1': echo "<i class='bx bxs-star bx-5'></i><i class='bx bxs-star bx-10'></i><i class='bx bxs-star bx-10'></i><i class='bx bxs-star bx-10'></i><i class='bx bxs-star bx-10'></i>";
                 break;

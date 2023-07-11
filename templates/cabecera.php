@@ -15,6 +15,7 @@
     
     
     <!-- Styles -->
+   
     <link rel="stylesheet" href="./styles/bootstrap-5.2.3-dist/css/bootstrap.min.css">  
     <link rel="stylesheet" href="styles/pages/signup-login.css?v=2" />
     <link rel="stylesheet" href="./styles/home/products.css?v=2">
@@ -31,6 +32,8 @@
     <link rel="stylesheet" href="./styles/pages/help.css?v=2" />
     <link rel="stylesheet" href="./styles/pages/profile.css?v=2" />
     <link rel="stylesheet" href="./styles/pages/chats.css?v=2" />
+    <link rel="stylesheet" href="./styles/pages/about.css?v=2" />
+    <link rel="stylesheet" href="./styles/pages/cart.css?v=2" />
     <link rel="stylesheet" href="index.css?v=2" />
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
@@ -40,6 +43,8 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
     />
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+   
 
     <title>Artxicans</title>
   </head>
@@ -48,7 +53,7 @@
     <header class="header">
       <nav class="navigation">
         <div class="logo">
-          <a href="index.html"><!-- <img src="./assets/imgimg.jpg" /> -->Artxicans</a>
+          <a href="index.php"> <img src="./assets/logo/3.png"  "/> </a>
         </div>
         <button class="burger-btn">
           <svg
@@ -97,8 +102,7 @@
             </li>
             <li class="navItem mob-categories"><a href="categories.php">Categorias</a></li>
             <li class="navItem"><a href="cart.php">Carrito(<?php echo (empty($_SESSION['cart']))?0: count($_SESSION['cart']); ?>)</a></li>
-            <?php include "global/mensaje.php"?>
-            <li class="navItem"><a href="helpers/validate-seller.php"><?php echo $mensaje;?></a></li>
+            <li class="navItem"><a href="helpers/validate-seller.php">Vender</a></li>
             <li class="navItem"><a href="help.php">Ayuda</a></li>
             <li class="navItem"><a data-bs-toggle="modal" data-bs-target="#translateModal" style="cursor:pointer;">Idioma</a></li> 
             <?php if(@!$_SESSION['user']){?>

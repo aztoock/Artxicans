@@ -30,7 +30,7 @@
     <form class="form-account" method="post">
     <?php 
         # Consulta para saber si el usuario ya cuenta con un token
-        $query = mysqli_query($conn,"SELECT * FROM pay_account WHERE ID_registro = $id_user");
+        $query = mysqli_query($conn,"SELECT * FROM pay_account WHERE ID_registro = $idusuario");
         $data = mysqli_fetch_array($query);
         if($query->num_rows > 0)
             {
@@ -63,6 +63,5 @@
         </div>
     </form>
 
-    <div class="alert alert-danger"><?php echo $men; ?></div>
+    <!-- <div class="alert alert-danger"><?php echo $men; ?></div> -->
 </section>
-

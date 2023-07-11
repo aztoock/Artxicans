@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-07-2023 a las 05:38:27
+-- Tiempo de generación: 07-07-2023 a las 06:36:53
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -30,10 +30,34 @@ SET time_zone = "+00:00";
 CREATE TABLE `chats` (
   `id_chat` int(11) NOT NULL,
   `chat` varchar(150) NOT NULL,
-  `fecha` date NOT NULL,
   `seller` int(11) DEFAULT NULL,
-  `ID` int(11) DEFAULT NULL
+  `ID_registro` int(11) DEFAULT NULL,
+  `sent` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `chats`
+--
+
+INSERT INTO `chats` (`id_chat`, `chat`, `seller`, `ID_registro`, `sent`) VALUES
+(3, 'Hola', 5, 6, 'User'),
+(4, 'Como estas?', 5, 6, 'User'),
+(5, '?', 5, 6, 'User'),
+(9, 'Bien', 5, 6, 'User'),
+(10, 'Bien bien', 5, 6, 'User'),
+(11, 'iowdmaodawd\r\n', 5, 6, 'User'),
+(12, 'makodnaondosda', 5, 6, 'User'),
+(13, 'asdnoaindwawd', 5, 6, 'User'),
+(14, 'Hi! ', 5, 7, 'User'),
+(15, 'Hola', 5, 6, 'Seller'),
+(16, 'como estas', 5, 6, 'Seller'),
+(17, 'Bien', 5, 6, 'Seller'),
+(18, 'nice', 5, 6, 'Seller'),
+(19, 'hola', 5, 7, 'Seller'),
+(20, 'Hola', 7, 5, 'User'),
+(21, 'Hey!', 7, 5, 'Seller'),
+(22, 'Como estas?', 7, 5, 'Seller'),
+(23, 'Hola', 5, 8, 'User');
 
 -- --------------------------------------------------------
 
@@ -46,146 +70,148 @@ CREATE TABLE `detalleventa` (
   `id_venta` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL,
   `preciounitario` decimal(20,2) NOT NULL,
-  `cantidad` int(11) NOT NULL
+  `cantidad` int(11) NOT NULL,
+  `ID_registro` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `detalleventa`
 --
 
-INSERT INTO `detalleventa` (`id`, `id_venta`, `id_producto`, `preciounitario`, `cantidad`) VALUES
-(1, 1, 17, 950.00, 1),
-(2, 2, 17, 950.00, 1),
-(3, 2, 10, 2000.00, 4),
-(4, 3, 17, 950.00, 1),
-(5, 3, 10, 2000.00, 4),
-(6, 4, 17, 950.00, 1),
-(7, 4, 10, 2000.00, 4),
-(8, 5, 17, 950.00, 1),
-(9, 5, 10, 2000.00, 4),
-(10, 6, 17, 950.00, 1),
-(11, 6, 10, 2000.00, 4),
-(12, 7, 17, 950.00, 2),
-(13, 7, 10, 2000.00, 4),
-(14, 8, 17, 950.00, 2),
-(15, 8, 10, 2000.00, 4),
-(16, 9, 17, 950.00, 2),
-(17, 9, 10, 2000.00, 4),
-(18, 10, 17, 950.00, 2),
-(19, 10, 10, 2000.00, 4),
-(20, 11, 17, 950.00, 1),
-(21, 11, 10, 2000.00, 1),
-(22, 12, 17, 950.00, 1),
-(23, 12, 10, 2000.00, 1),
-(24, 13, 17, 950.00, 1),
-(25, 13, 10, 2000.00, 1),
-(26, 13, 14, 1500.00, 100),
-(27, 14, 17, 950.00, 1),
-(28, 14, 10, 2000.00, 1),
-(29, 14, 14, 1500.00, 100),
-(30, 15, 17, 950.00, 1),
-(31, 15, 10, 2000.00, 1),
-(32, 15, 14, 1500.00, 100),
-(33, 16, 17, 950.00, 1),
-(34, 16, 10, 2000.00, 1),
-(35, 16, 14, 1500.00, 100),
-(36, 17, 17, 950.00, 1),
-(37, 17, 10, 2000.00, 1),
-(38, 17, 14, 1500.00, 100),
-(39, 18, 17, 950.00, 1),
-(40, 18, 10, 2000.00, 1),
-(41, 18, 14, 1500.00, 100),
-(42, 19, 17, 950.00, 1),
-(43, 19, 10, 2000.00, 1),
-(44, 19, 14, 1500.00, 100),
-(45, 20, 17, 950.00, 1),
-(46, 20, 10, 2000.00, 1),
-(47, 20, 14, 1500.00, 100),
-(48, 21, 17, 950.00, 1),
-(49, 21, 10, 2000.00, 1),
-(50, 21, 14, 1500.00, 100),
-(51, 22, 17, 950.00, 1),
-(52, 22, 10, 2000.00, 1),
-(53, 22, 14, 1500.00, 100),
-(54, 23, 17, 950.00, 1),
-(55, 23, 10, 2000.00, 1),
-(56, 23, 14, 1500.00, 100),
-(57, 24, 17, 950.00, 1),
-(58, 24, 10, 2000.00, 1),
-(59, 24, 14, 1500.00, 100),
-(60, 25, 17, 950.00, 1),
-(61, 25, 10, 2000.00, 1),
-(62, 25, 14, 1500.00, 100),
-(63, 26, 17, 950.00, 1),
-(64, 26, 10, 2000.00, 1),
-(65, 26, 14, 1500.00, 100),
-(66, 26, 7, 400.00, 1),
-(67, 27, 17, 950.00, 1),
-(68, 27, 10, 2000.00, 1),
-(69, 27, 14, 1500.00, 100),
-(70, 27, 7, 400.00, 1),
-(71, 28, 7, 400.00, 1),
-(72, 29, 7, 400.00, 1),
-(73, 30, 7, 400.00, 1),
-(74, 30, 16, 800.00, 1),
-(75, 31, 7, 400.00, 1),
-(76, 31, 16, 800.00, 1),
-(77, 32, 7, 400.00, 1),
-(78, 33, 7, 400.00, 1),
-(79, 34, 15, 2500.00, 1),
-(80, 34, 18, 1700.00, 1),
-(81, 35, 15, 2500.00, 1),
-(82, 35, 18, 1700.00, 1),
-(83, 36, 15, 2500.00, 1),
-(84, 36, 18, 1700.00, 2),
-(85, 37, 15, 2500.00, 1),
-(86, 37, 18, 1700.00, 2),
-(87, 38, 18, 1700.00, 2),
-(88, 39, 18, 1700.00, 2),
-(89, 40, 20, 500.00, 1),
-(90, 43, 20, 500.00, 1),
-(91, 44, 20, 500.00, 1),
-(92, 45, 2, 450.00, 4),
-(93, 46, 2, 450.00, 4),
-(94, 47, 2, 450.00, 4),
-(95, 47, 4, 1300.00, 3),
-(96, 47, 13, 2000.00, 1),
-(97, 48, 2, 450.00, 4),
-(98, 48, 4, 1300.00, 3),
-(99, 48, 13, 2000.00, 1),
-(100, 49, 2, 450.00, 4),
-(101, 49, 13, 2000.00, 1),
-(102, 50, 15, 2500.00, 1),
-(103, 51, 15, 2500.00, 1),
-(104, 52, 15, 2500.00, 1),
-(105, 53, 15, 2500.00, 1),
-(106, 54, 15, 2500.00, 1),
-(107, 55, 15, 2500.00, 1),
-(108, 56, 15, 2500.00, 1),
-(109, 57, 15, 2500.00, 1),
-(110, 58, 15, 2500.00, 1),
-(111, 59, 15, 2500.00, 1),
-(112, 60, 16, 800.00, 100),
-(113, 61, 15, 2500.00, 1),
-(114, 62, 2, 450.00, 1),
-(115, 63, 13, 2000.00, 1),
-(116, 64, 5, 1100.00, 1),
-(117, 64, 2, 450.00, 1),
-(118, 65, 5, 1100.00, 3),
-(119, 65, 2, 450.00, 1),
-(120, 66, 5, 1100.00, 3),
-(121, 66, 2, 450.00, 5),
-(122, 67, 2, 450.00, 5),
-(123, 68, 2, 450.00, 5),
-(124, 69, 2, 450.00, 4),
-(125, 70, 2, 450.00, 1),
-(126, 71, 13, 2000.00, 1),
-(127, 72, 5, 1100.00, 1),
-(128, 73, 3, 300.00, 1),
-(129, 74, 17, 100.00, 1),
-(130, 74, 14, 2000.00, 1),
-(131, 74, 15, 2000.00, 1),
-(132, 75, 19, 15000.00, 4);
+INSERT INTO `detalleventa` (`id`, `id_venta`, `id_producto`, `preciounitario`, `cantidad`, `ID_registro`) VALUES
+(1, 1, 17, 950.00, 1, NULL),
+(2, 2, 17, 950.00, 1, NULL),
+(3, 2, 10, 2000.00, 4, NULL),
+(4, 3, 17, 950.00, 1, NULL),
+(5, 3, 10, 2000.00, 4, NULL),
+(6, 4, 17, 950.00, 1, NULL),
+(7, 4, 10, 2000.00, 4, NULL),
+(8, 5, 17, 950.00, 1, NULL),
+(9, 5, 10, 2000.00, 4, NULL),
+(10, 6, 17, 950.00, 1, NULL),
+(11, 6, 10, 2000.00, 4, NULL),
+(12, 7, 17, 950.00, 2, NULL),
+(13, 7, 10, 2000.00, 4, NULL),
+(14, 8, 17, 950.00, 2, NULL),
+(15, 8, 10, 2000.00, 4, 8),
+(16, 9, 17, 950.00, 2, NULL),
+(17, 9, 10, 2000.00, 4, NULL),
+(18, 10, 17, 950.00, 2, 8),
+(19, 10, 10, 2000.00, 4, NULL),
+(20, 11, 17, 950.00, 1, NULL),
+(21, 11, 10, 2000.00, 1, NULL),
+(22, 12, 17, 950.00, 1, NULL),
+(23, 12, 10, 2000.00, 1, 8),
+(24, 13, 17, 950.00, 1, 8),
+(25, 13, 10, 2000.00, 1, 8),
+(26, 13, 14, 1500.00, 100, NULL),
+(27, 14, 17, 950.00, 1, NULL),
+(28, 14, 10, 2000.00, 1, NULL),
+(29, 14, 14, 1500.00, 100, NULL),
+(30, 15, 17, 950.00, 1, NULL),
+(31, 15, 10, 2000.00, 1, NULL),
+(32, 15, 14, 1500.00, 100, NULL),
+(33, 16, 17, 950.00, 1, NULL),
+(34, 16, 10, 2000.00, 1, NULL),
+(35, 16, 14, 1500.00, 100, NULL),
+(36, 17, 17, 950.00, 1, NULL),
+(37, 17, 10, 2000.00, 1, NULL),
+(38, 17, 14, 1500.00, 100, NULL),
+(39, 18, 17, 950.00, 1, NULL),
+(40, 18, 10, 2000.00, 1, NULL),
+(41, 18, 14, 1500.00, 100, NULL),
+(42, 19, 17, 950.00, 1, NULL),
+(43, 19, 10, 2000.00, 1, NULL),
+(44, 19, 14, 1500.00, 100, NULL),
+(45, 20, 17, 950.00, 1, NULL),
+(46, 20, 10, 2000.00, 1, NULL),
+(47, 20, 14, 1500.00, 100, NULL),
+(48, 21, 17, 950.00, 1, NULL),
+(49, 21, 10, 2000.00, 1, NULL),
+(50, 21, 14, 1500.00, 100, NULL),
+(51, 22, 17, 950.00, 1, NULL),
+(52, 22, 10, 2000.00, 1, NULL),
+(53, 22, 14, 1500.00, 100, NULL),
+(54, 23, 17, 950.00, 1, NULL),
+(55, 23, 10, 2000.00, 1, NULL),
+(56, 23, 14, 1500.00, 100, NULL),
+(57, 24, 17, 950.00, 1, NULL),
+(58, 24, 10, 2000.00, 1, NULL),
+(59, 24, 14, 1500.00, 100, NULL),
+(60, 25, 17, 950.00, 1, NULL),
+(61, 25, 10, 2000.00, 1, NULL),
+(62, 25, 14, 1500.00, 100, NULL),
+(63, 26, 17, 950.00, 1, NULL),
+(64, 26, 10, 2000.00, 1, NULL),
+(65, 26, 14, 1500.00, 100, NULL),
+(66, 26, 7, 400.00, 1, NULL),
+(67, 27, 17, 950.00, 1, NULL),
+(68, 27, 10, 2000.00, 1, NULL),
+(69, 27, 14, 1500.00, 100, NULL),
+(70, 27, 7, 400.00, 1, NULL),
+(71, 28, 7, 400.00, 1, NULL),
+(72, 29, 7, 400.00, 1, NULL),
+(73, 30, 7, 400.00, 1, NULL),
+(74, 30, 16, 800.00, 1, NULL),
+(75, 31, 7, 400.00, 1, NULL),
+(76, 31, 16, 800.00, 1, NULL),
+(77, 32, 7, 400.00, 1, NULL),
+(78, 33, 7, 400.00, 1, NULL),
+(79, 34, 15, 2500.00, 1, NULL),
+(80, 34, 18, 1700.00, 1, NULL),
+(81, 35, 15, 2500.00, 1, NULL),
+(82, 35, 18, 1700.00, 1, NULL),
+(83, 36, 15, 2500.00, 1, NULL),
+(84, 36, 18, 1700.00, 2, NULL),
+(85, 37, 15, 2500.00, 1, NULL),
+(86, 37, 18, 1700.00, 2, NULL),
+(87, 38, 18, 1700.00, 2, NULL),
+(88, 39, 18, 1700.00, 2, NULL),
+(89, 40, 20, 500.00, 1, NULL),
+(90, 43, 20, 500.00, 1, NULL),
+(91, 44, 20, 500.00, 1, NULL),
+(92, 45, 2, 450.00, 4, NULL),
+(93, 46, 2, 450.00, 4, NULL),
+(94, 47, 2, 450.00, 4, NULL),
+(95, 47, 4, 1300.00, 3, NULL),
+(96, 47, 13, 2000.00, 1, NULL),
+(97, 48, 2, 450.00, 4, NULL),
+(98, 48, 4, 1300.00, 3, NULL),
+(99, 48, 13, 2000.00, 1, NULL),
+(100, 49, 2, 450.00, 4, NULL),
+(101, 49, 13, 2000.00, 1, NULL),
+(102, 50, 15, 2500.00, 1, NULL),
+(103, 51, 15, 2500.00, 1, NULL),
+(104, 52, 15, 2500.00, 1, NULL),
+(105, 53, 15, 2500.00, 1, NULL),
+(106, 54, 15, 2500.00, 1, NULL),
+(107, 55, 15, 2500.00, 1, NULL),
+(108, 56, 15, 2500.00, 1, NULL),
+(109, 57, 15, 2500.00, 1, NULL),
+(110, 58, 15, 2500.00, 1, NULL),
+(111, 59, 15, 2500.00, 1, NULL),
+(112, 60, 16, 800.00, 100, NULL),
+(113, 61, 15, 2500.00, 1, NULL),
+(114, 62, 2, 450.00, 1, NULL),
+(115, 63, 13, 2000.00, 1, NULL),
+(116, 64, 5, 1100.00, 1, NULL),
+(117, 64, 2, 450.00, 1, NULL),
+(118, 65, 5, 1100.00, 3, NULL),
+(119, 65, 2, 450.00, 1, NULL),
+(120, 66, 5, 1100.00, 3, NULL),
+(121, 66, 2, 450.00, 5, NULL),
+(122, 67, 2, 450.00, 5, NULL),
+(123, 68, 2, 450.00, 5, NULL),
+(124, 69, 2, 450.00, 4, NULL),
+(125, 70, 2, 450.00, 1, NULL),
+(126, 71, 13, 2000.00, 1, NULL),
+(127, 72, 5, 1100.00, 3, 8),
+(128, 73, 3, 300.00, 1, 8),
+(129, 74, 8, 900.00, 1, NULL),
+(130, 75, 8, 900.00, 1, 8),
+(131, 76, 8, 900.00, 1, NULL),
+(132, 77, 8, 900.00, 1, NULL),
+(133, 78, 4, 50.00, 1, 8);
 
 -- --------------------------------------------------------
 
@@ -201,6 +227,7 @@ CREATE TABLE `direcciones` (
   `direccion2` varchar(200) NOT NULL,
   `ciudad` varchar(200) NOT NULL,
   `estado` varchar(200) NOT NULL,
+  `pais` varchar(90) NOT NULL,
   `codigopostal` varchar(10) NOT NULL,
   `telefono` varchar(10) NOT NULL,
   `instrucciones` text NOT NULL
@@ -210,13 +237,14 @@ CREATE TABLE `direcciones` (
 -- Volcado de datos para la tabla `direcciones`
 --
 
-INSERT INTO `direcciones` (`id_direccion`, `usuario_id`, `nombre`, `direccion1`, `direccion2`, `ciudad`, `estado`, `codigopostal`, `telefono`, `instrucciones`) VALUES
-(8, 2, 'cristian jordan nahuatlato', 'tlaxcala #10263, Col. Popular', 'apartamento 2 planta 3', 'puebla', 'Puebla', '72470', '2229259615', 'casa de dos pisos rustica, ubicada en la esquin exacta'),
-(10, 12, 'beto', 'prueba de direccion beto', 'pdireccion b', 'puebla', 'puebla', '72470', '2229259644', 'pinstrucciones b'),
-(11, 5, 'sadi1', 'saiddirec1', '', 'oaxaca', 'oaxaca', '72470', '2229259619', 'prueba de direccion para said 28'),
-(12, 6, 'Said Castillo', 'calle las flores #16', '', 'Tehuacan', 'Puebla', '68540', '2212054136', 'Casa de dos pisos con porton blanco, hay un perro que ladra mucho'),
-(13, 6, 'Said Castillo', 'calle las flores #16', '', 'Tehuacan', 'Puebla', '68540', '2212054136', 'Casa de dos pisos con porton blanco, hay un perro que ladra mucho'),
-(14, 11, 'cristian jordan nahuatlato', 'direccion de prueba 1', '', 'puebla', 'puebla', '72470', '2229259615', 'prueba de direccion para cristian 1');
+INSERT INTO `direcciones` (`id_direccion`, `usuario_id`, `nombre`, `direccion1`, `direccion2`, `ciudad`, `estado`, `pais`, `codigopostal`, `telefono`, `instrucciones`) VALUES
+(8, 2, 'cristian jordan nahuatlato', 'tlaxcala #10263, Col. Popular', 'apartamento 2 planta 3', 'puebla', 'Puebla', '', '72470', '2229259615', 'casa de dos pisos rustica, ubicada en la esquin exacta'),
+(10, 12, 'beto', 'prueba de direccion beto', 'pdireccion b', 'puebla', 'puebla', '', '72470', '2229259644', 'pinstrucciones b'),
+(11, 5, 'sadi1', 'saiddirec1', '', 'oaxaca', 'oaxaca', '', '72470', '2229259619', 'prueba de direccion para said 28'),
+(12, 6, 'Said Castillo', 'calle las flores #16', '', 'Tehuacan', 'Puebla', '', '68540', '2212054136', 'Casa de dos pisos con porton blanco, hay un perro que ladra mucho'),
+(13, 6, 'Said Castillo', 'calle las flores #16', '', 'Tehuacan', 'Puebla', '', '68540', '2212054136', 'Casa de dos pisos con porton blanco, hay un perro que ladra mucho'),
+(15, 8, 'Said', 'calle las flores #16', '', 'Tehuacan', 'Puebla', '', '68540', '1221910', 'Casa de dos pisos con porton blanco, hay un perro que ladra mucho'),
+(16, 9, 'Said', 'calle las flores #16', 'centro', 'Tehuacan', 'Puebla', 'Mexico', '68540', '2212054136', 'Casa de dos pisos con porton blanco, hay un perro que ladra mucho');
 
 -- --------------------------------------------------------
 
@@ -237,9 +265,7 @@ CREATE TABLE `notifications` (
 INSERT INTO `notifications` (`id_notif`, `notification`, `ID_registro`) VALUES
 (1, 'Solicitud de Vendedor Aceptada', 5),
 (2, 'Reporte de perfil', 5),
-(10, 'prueba de sentencia sql', 13),
-(11, 'prueba de sentencia sql', 13),
-(12, 'prueba sentencia sql rechazado', 13);
+(3, 'Aceptado bites', 11);
 
 -- --------------------------------------------------------
 
@@ -258,8 +284,7 @@ CREATE TABLE `pay_account` (
 --
 
 INSERT INTO `pay_account` (`id_account`, `token`, `ID_registro`) VALUES
-(1, 'gutctycuyctyc7t5res45s43a324astcjejerje', 5),
-(4, 'token1234jejereje', 11);
+(1, 'gutctycuyctyc7t5res45s43a324astc', 5);
 
 -- --------------------------------------------------------
 
@@ -287,21 +312,12 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id_product`, `product`, `image1`, `price`, `description`, `category`, `stock`, `image2`, `image3`, `ID_registro`) VALUES
 (2, 'Vestido Bordado', 'blackdress.jpg', 500, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Ropa', 5, 'blackdress.jpg', 'blackdress.jpg', 5),
 (3, 'Collar de Ambar', 'ambar.jpg', 300, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Joyeria', 2, 'ambar.jpg', 'ambar.jpg', 5),
-(4, 'Guayabera azul', 'guayabera1.jpg', 450, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Ropa', 5, 'guayabera1.jpg', 'guayabera1.jpg', 5),
+(4, 'Guayabera azul', 'guayabera1.jpg', 50, 'Lorem ipsum dolor sit amet, consectetur adipiscing ', 'Ropa', 2, 'guayabera1.jpg', 'guayabera1.jpg', 7),
 (5, 'Corazon', 'corazon.jpg', 800, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Alebrije', 3, 'corazon.jpg', 'corazon.jpg', 5),
 (6, 'Armadillo gris', 'alebrije2.jpg', 600, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Alebrije', 4, 'alebrije2.jpg', 'alebrije2.jpg', 5),
-(8, 'Blusa Bordada', 'blouse.jpg', 900, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Ropa', 2, 'blouse.jpg', 'blouse.jpg', 5),
+(8, 'Blusa Bordada', 'blouse.jpg', 900, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Ropa', -13, 'blouse.jpg', 'blouse.jpg', 5),
 (9, 'Gato Alebrije Gris', 'alebrije1.jpg', 400, 'Gato alebrije de madera ', 'Alebrije', 2, 'alebrije1.jpg', 'alebrije1.jpg', 5),
-(11, 'Sombrero Rojo', 'sombrero.jpg', 200, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Sombrero', 8, 'sombrero.jpg', 'sombrero.jpg', 5),
-(12, 'Corazon', 'corazon.jpg', 800, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Alebrije', 3, 'corazon.jpg', 'corazon.jpg', 5),
-(13, 'Elefante', 'huichol.jpg', 1100, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum commodo leo et malesuada. Donec consectetur porttitor consectetur.', 'Huichol', 9, 'huichol.jpg', 'huichol.jpg', 11),
-(14, 'Alebrije de Coco', 'pepita.jpg', 2000, 'Pepita alebrije de la pelicula de coco', 'Alebrije', 5, 'pepita.jpg', 'pepita.jpg', 11),
-(15, 'Rebozo de colores llamativos', 'rebozo.jpg', 2000, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo, consectetur? Modi tenetur et sed voluptatibus! Suscipit repellendus aperiam sint optio doloribus quidem, fugit quas, aliquid culpa, quaerat voluptatum asperiores quo.', 'Rebozos', 3, 'rebozo.jpg', 'rebozo.jpg', 11),
-(16, 'Hamaca', 'hamaca.jpg', 1700, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo, consectetur? Modi tenetur et sed voluptatibus! Suscipit repellendus aperiam sint optio doloribus quidem, fugit quas, aliquid culpa, quaerat voluptatum asperiores quo.', 'Otros', 5, 'hamaca.jpg', 'hamaca.jpg', 11),
-(17, 'Juguete de madera, tallado a mano', 'juguetes.jpg', 100, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo, consectetur? Modi tenetur et sed voluptatibus! Suscipit repellendus aperiam sint optio doloribus quidem, fugit quas, aliquid culpa, quaerat voluptatum asperiores quo.', 'Juguetes', 2, 'juguetes.jpg', 'juguetes.jpg', 11),
-(18, 'Playera con estampado', 'playera.jpg', 500, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo, consectetur? Modi tenetur et sed voluptatibus! Suscipit repellendus aperiam sint optio doloribus quidem, fugit quas, aliquid culpa, quaerat voluptatum asperiores quo.', 'Ropa', 4, 'playera.jpg', 'playera.jpg', 11),
-(19, 'pollo rostizado', '', 15000, 'pollo de hoy con polvos magicos', 'Otros', 1, '', 'pollo rostizado3.jpg', 11),
-(20, 'lechuga', 'lechuga1.jpg', 4000, 'lechuga fresca', 'Ropa', 1, '', '', 11);
+(11, 'Sombrero Rojo', 'sombrero.jpg', 200, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Sombrero', 8, 'sombrero.jpg', 'sombrero.jpg', 5);
 
 -- --------------------------------------------------------
 
@@ -349,13 +365,11 @@ INSERT INTO `registro` (`ID`, `Nombre`, `Correo`, `Contraseña`, `estatus`, `dir
 (4, 'mohamed', 'as@gmail.com', '123456', 0, 0),
 (5, 'said', 'said557@gmail.com', 'said12345', 1, 0),
 (6, 'Emmanuel', 'said1@gmail.com', 'said12345', 0, 1),
-(7, 'Castillo ', 'said2@gmail.com', 'said12345', 0, 0),
-(8, 'Marin', 'said3@gmail.com', 'said12345', 0, 0),
-(9, 'said cm', 'said5@gmail.com', 'said12345', 0, 0),
+(7, 'Castillo ', 'said2@gmail.com', 'said12345', 1, 0),
+(8, 'Marin', 'said3@gmail.com', 'said12345', 0, 1),
+(9, 'said cm', 'said5@gmail.com', 'said12345', 0, 1),
 (10, 'said', 'hola1@gmail.com', 'hola12345', 0, 0),
-(11, 'cristian', 'cristian@correo.com', '123456', 1, 1),
-(12, 'beto', 'beto@correo.com', '123456', 1, 0),
-(13, 'pancho', 'pancho@correo.com', '123456', 0, 0);
+(11, 'said cm', 'said4@gmail.com', 'said12345', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -383,8 +397,9 @@ CREATE TABLE `reg_sellers` (
 --
 
 INSERT INTO `reg_sellers` (`IDregseller`, `Nombre`, `apellidos`, `nickname`, `lada`, `telefono`, `telefonoref`, `domicilio`, `postal`, `identificador`, `solicitud`, `ID_registro`) VALUES
-(47, 'Said', 'Castillo Marin', 'Said557', 52, '2212054136', '2212054136', 'de las flores prueba update', '34850', 'Said557-identificacion.jpeg', 'Aprobado', 5),
-(48, 'panchita', 'pomela', 'pancho', 52, '2229259011', '7986840', 'domicilio prueba 1', '75480', 'pancho-identificacion.jpeg', 'Rechazado', 13);
+(47, 'Said', 'Castillo Marin', 'Said557', 52, '2212054136', '2212054136', 'de las flores', '34850', 'Said557-identificacion.jpeg', 'Aprobado', 5),
+(48, 'Emmanuel', 'Castillo Marin', 'Castillo55', 52, '2212054136', '2212054136', 'de las flores', '34850', 'Castillo55-identificacion.jpeg', 'Aprobado', 7),
+(49, 'emmanuel', 'Castillo Marin', 'Deivi', 52, '1221910', '2212054136', 'de las flores', '34850', 'Deivi-identificacion.jpeg', 'Pendiente', 11);
 
 -- --------------------------------------------------------
 
@@ -400,23 +415,24 @@ CREATE TABLE `reports` (
   `id_product` int(11) DEFAULT NULL,
   `id_star` int(11) DEFAULT NULL,
   `id_comment` int(11) DEFAULT NULL,
-  `seller` int(11) DEFAULT NULL
+  `seller` int(11) DEFAULT NULL,
+  `buyer` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `reports`
 --
 
-INSERT INTO `reports` (`id_report`, `report`, `type`, `ID_registro`, `id_product`, `id_star`, `id_comment`, `seller`) VALUES
-(5, '', 'Comentario', 5, 2, 1, NULL, NULL),
-(9, 'hola', 'Producto', 5, 2, NULL, NULL, NULL),
-(10, 'hola', 'Producto', 5, 2, NULL, NULL, NULL),
-(11, 'Hola', 'Producto', 5, 8, NULL, NULL, NULL),
-(12, '', 'Comentario Perfil', 5, NULL, NULL, 3, NULL),
-(13, '', 'Comentario Perfil', 5, NULL, NULL, 1, NULL),
-(14, '', 'Comentario Perfil', 5, NULL, NULL, 2, NULL),
-(15, 'hola hola', 'Vendedor', 7, NULL, NULL, NULL, 5),
-(16, 'HOLA', 'Vendedor', 7, NULL, NULL, NULL, 5);
+INSERT INTO `reports` (`id_report`, `report`, `type`, `ID_registro`, `id_product`, `id_star`, `id_comment`, `seller`, `buyer`) VALUES
+(5, '', 'Comentario', 5, 2, 1, NULL, NULL, NULL),
+(9, 'hola', 'Producto', 5, 2, NULL, NULL, NULL, NULL),
+(10, 'hola', 'Producto', 5, 2, NULL, NULL, NULL, NULL),
+(11, 'Hola', 'Producto', 5, 8, NULL, NULL, NULL, NULL),
+(12, '', 'Comentario Perfil', 5, NULL, NULL, 3, NULL, NULL),
+(13, '', 'Comentario Perfil', 5, NULL, NULL, 1, NULL, NULL),
+(14, '', 'Comentario Perfil', 5, NULL, NULL, 2, NULL, NULL),
+(15, 'hola hola', 'Vendedor', 7, NULL, NULL, NULL, 5, NULL),
+(16, 'HOLA', 'Vendedor', 7, NULL, NULL, NULL, 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -483,90 +499,94 @@ CREATE TABLE `ventas` (
   `fecha` datetime NOT NULL,
   `correo` varchar(5000) NOT NULL,
   `total` decimal(60,2) NOT NULL,
-  `estatus` varchar(250) NOT NULL
+  `estatus` varchar(250) NOT NULL,
+  `envio` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `ventas`
 --
 
-INSERT INTO `ventas` (`id_venta`, `clavetransaccion`, `paypaldatos`, `fecha`, `correo`, `total`, `estatus`) VALUES
-(1, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:09:52', 'said@correo.com', 950.00, 'pendiente'),
-(2, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:22:57', 'said@correo.com', 8950.00, 'pendiente'),
-(3, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:25:11', 'said@correo.com', 8950.00, 'pendiente'),
-(4, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:25:28', 'said@correo.com', 8950.00, 'pendiente'),
-(5, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:26:00', 'said@correo.com', 8950.00, 'pendiente'),
-(6, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:26:02', 'said@correo.com', 8950.00, 'pendiente'),
-(7, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:29:19', 'said@correo.com', 9900.00, 'pendiente'),
-(8, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:29:43', 'said@correo.com', 9900.00, 'pendiente'),
-(9, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:29:46', 'said@correo.com', 9900.00, 'pendiente'),
-(10, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:30:26', 'said@correo.com', 9900.00, 'pendiente'),
-(11, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:30:40', 'said@correo.com', 2950.00, 'pendiente'),
-(12, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:54:25', 'said@correo.com', 2950.00, 'pendiente'),
-(13, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:54:37', 'said@correo.com', 152950.00, 'pendiente'),
-(14, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:55:47', 'said@correo.com', 152950.00, 'pendiente'),
-(15, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:55:49', 'said@correo.com', 152950.00, 'pendiente'),
-(16, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:55:50', 'said@correo.com', 152950.00, 'pendiente'),
-(17, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:55:50', 'said@correo.com', 152950.00, 'pendiente'),
-(18, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:55:50', 'said@correo.com', 152950.00, 'pendiente'),
-(19, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:55:50', 'said@correo.com', 152950.00, 'pendiente'),
-(20, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:55:50', 'said@correo.com', 152950.00, 'pendiente'),
-(21, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:55:51', 'said@correo.com', 152950.00, 'pendiente'),
-(22, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:55:51', 'said@correo.com', 152950.00, 'pendiente'),
-(23, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:56:01', 'said@correo.com', 152950.00, 'pendiente'),
-(24, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:56:06', 'said@correo.com', 152950.00, 'pendiente'),
-(25, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:57:25', 'said@correo.com', 152950.00, 'pendiente'),
-(26, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:57:32', 'said@correo.com', 153350.00, 'pendiente'),
-(27, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:59:29', 'said@correo.com', 153350.00, 'pendiente'),
-(28, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:59:41', 'said@correo.com', 400.00, 'pendiente'),
-(29, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:02:06', 'said@correo.com', 400.00, 'pendiente'),
-(30, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:02:22', 'said@correo.com', 1200.00, 'pendiente'),
-(31, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:04:17', 'said@correo.com', 1200.00, 'pendiente'),
-(32, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:04:23', 'said@correo.com', 400.00, 'pendiente'),
-(33, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:10:19', 'said@correo.com', 400.00, 'pendiente'),
-(34, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:10:30', 'said@correo.com', 4200.00, 'pendiente'),
-(35, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:34:52', 'said@correo.com', 4200.00, 'pendiente'),
-(36, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:34:58', 'said@correo.com', 5900.00, 'pendiente'),
-(37, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:41:13', 'said@correo.com', 5900.00, 'pendiente'),
-(38, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:53:18', 'said@correo.com', 3400.00, 'pendiente'),
-(39, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:57:07', 'said@correo.com', 3400.00, 'pendiente'),
-(40, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:57:31', 'cristian@correo.com', 500.00, 'pendiente'),
-(41, '', '', '2023-06-24 23:16:43', '', 0.00, 'pendiente'),
-(42, '', '', '2023-06-24 23:16:49', '', 0.00, 'pendiente'),
-(43, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSL43SQ7XK81869XP449180C\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"13L09510G5667963G\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"500.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"500.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $500.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#M5HdgJ6q417ovCI5Rj+Ivw==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"3AH089157A5913332\",\"state\":\"completed\",\"amount\":{\"total\":\"500.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"500.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"21.00\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"500.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSL43SQ7XK81869XP449180C\",\"create_time\":\"2023-06-25T05:17:06Z\",\"update_time\":\"2023-06-25T05:17:06Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/3AH089157A5913332\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/3AH089157A5913332/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL43SQ7XK81869XP449180C\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-25T05:16:58Z\",\"update_time\":\"2023-06-25T05:17:06Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL43SQ7XK81869XP449180C\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-24 23:16:54', 'cristian@correo.com', 500.00, 'aprobado'),
-(44, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:02:07', 'cristian@correo.com', 500.00, 'pendiente'),
-(45, ' 1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSL5Q2Y69599143D38028627\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"8CR926801S9609304\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"1800.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"1800.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $1,800.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#oTF+i0KtLb1UC4Cqg8bnhQ==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"57G94211XV8867049\",\"state\":\"completed\",\"amount\":{\"total\":\"1800.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"1800.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"65.20\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"1800.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSL5Q2Y69599143D38028627\",\"create_time\":\"2023-06-25T06:02:26Z\",\"update_time\":\"2023-06-25T06:02:26Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/57G94211XV8867049\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/57G94211XV8867049/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL5Q2Y69599143D38028627\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-25T06:02:19Z\",\"update_time\":\"2023-06-25T06:02:26Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL5Q2Y69599143D38028627\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 00:02:17', 'cristian@correo.com', 1800.00, 'aprobado'),
-(46, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:29:51', 'cristian@correo.com', 1800.00, 'pendiente'),
-(47, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSL554I71S313021P273715D\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"7431552535965973M\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"7700.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"7700.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $7,700.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#yP026c2IrDyc8KTnLxGJcA==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"22N14479XC920404H\",\"state\":\"completed\",\"amount\":{\"total\":\"7700.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"7700.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"265.80\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"7700.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSL554I71S313021P273715D\",\"create_time\":\"2023-06-25T06:30:17Z\",\"update_time\":\"2023-06-25T06:30:17Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/22N14479XC920404H\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/22N14479XC920404H/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL554I71S313021P273715D\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-25T06:30:09Z\",\"update_time\":\"2023-06-25T06:30:17Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL554I71S313021P273715D\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 00:30:06', 'cristian@correo.com', 7700.00, 'completo'),
-(48, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:30:58', 'cristian@correo.com', 7700.00, 'pendiente'),
-(49, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSL56KA6WK439632Y856832W\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"8NY205262A876234V\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"3800.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"3800.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $3,800.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#Wx4JahjXYAEBq6yXH0tkFQ==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"3LX958790T868611E\",\"state\":\"completed\",\"amount\":{\"total\":\"3800.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"3800.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"133.20\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"3800.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSL56KA6WK439632Y856832W\",\"create_time\":\"2023-06-25T06:31:09Z\",\"update_time\":\"2023-06-25T06:31:09Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/3LX958790T868611E\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/3LX958790T868611E/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL56KA6WK439632Y856832W\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-25T06:31:04Z\",\"update_time\":\"2023-06-25T06:31:09Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL56KA6WK439632Y856832W\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 00:31:02', 'cristian@correo.com', 3800.00, 'completo'),
-(50, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:37:26', 'beto@correo.com', 2500.00, 'pendiente'),
-(51, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:37:53', 'beto@correo.com', 2500.00, 'pendiente'),
-(52, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:38:22', 'beto@correo.com', 2500.00, 'pendiente'),
-(53, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:38:22', 'beto@correo.com', 2500.00, 'pendiente'),
-(54, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:38:23', 'beto@correo.com', 2500.00, 'pendiente'),
-(55, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:38:23', 'beto@correo.com', 2500.00, 'pendiente'),
-(56, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:38:23', 'beto@correo.com', 2500.00, 'pendiente'),
-(57, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:38:23', 'beto@correo.com', 2500.00, 'pendiente'),
-(58, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:38:23', 'beto@correo.com', 2500.00, 'pendiente'),
-(59, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSL6BYQ4FN26353608084459\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"39D83663H37391616\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"2500.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"2500.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $2,500.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#APEBVMprAjKKgvkviLmyMg==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"6N508707M5694753N\",\"state\":\"completed\",\"amount\":{\"total\":\"2500.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"2500.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"89.00\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"2500.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSL6BYQ4FN26353608084459\",\"create_time\":\"2023-06-25T06:38:30Z\",\"update_time\":\"2023-06-25T06:38:30Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/6N508707M5694753N\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/6N508707M5694753N/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL6BYQ4FN26353608084459\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-25T06:38:26Z\",\"update_time\":\"2023-06-25T06:38:30Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL6BYQ4FN26353608084459\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 00:38:24', 'beto@correo.com', 2500.00, 'completo'),
-(60, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSL6CVI1CJ2089674243720E\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"7K939439F3560553J\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"80000.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"80000.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $80,000.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#PnEyjtt+pc1/UVrUokI5UQ==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"8TD204858X404903T\",\"state\":\"completed\",\"amount\":{\"total\":\"80000.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"80000.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"2724.00\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"80000.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSL6CVI1CJ2089674243720E\",\"create_time\":\"2023-06-25T06:40:26Z\",\"update_time\":\"2023-06-25T06:40:26Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/8TD204858X404903T\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/8TD204858X404903T/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL6CVI1CJ2089674243720E\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-25T06:40:21Z\",\"update_time\":\"2023-06-25T06:40:26Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL6CVI1CJ2089674243720E\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 00:40:19', 'beto@correo.com', 80000.00, 'completo'),
-(61, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSMMOBY26N852967J9440532\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"5VA57152PS451592Y\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"2500.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"2500.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $2,500.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#jmhW485N3rzY3gwbP7+xNg==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"09M72270TX133810E\",\"state\":\"completed\",\"amount\":{\"total\":\"2500.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"2500.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"89.00\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"2500.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSMMOBY26N852967J9440532\",\"create_time\":\"2023-06-25T23:00:32Z\",\"update_time\":\"2023-06-25T23:00:32Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/09M72270TX133810E\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/09M72270TX133810E/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMMOBY26N852967J9440532\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-25T23:00:23Z\",\"update_time\":\"2023-06-25T23:00:32Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMMOBY26N852967J9440532\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 17:00:19', 'cristian@correo.com', 2500.00, 'completo'),
-(62, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSMNDUI1LH486139Y132374L\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"5P947257JC897225C\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"450.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"450.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $450.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#PQfUH7RKUsYuny5WFWQP/w==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"36G25329HN735431A\",\"state\":\"completed\",\"amount\":{\"total\":\"450.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"450.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"19.30\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"450.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSMNDUI1LH486139Y132374L\",\"create_time\":\"2023-06-25T23:46:33Z\",\"update_time\":\"2023-06-25T23:46:33Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/36G25329HN735431A\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/36G25329HN735431A/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMNDUI1LH486139Y132374L\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-25T23:46:25Z\",\"update_time\":\"2023-06-25T23:46:33Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMNDUI1LH486139Y132374L\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 17:46:22', 'cristian@correo.com', 450.00, 'completo'),
-(63, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSMNTQA4H8505858V466003U\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"3M308912E9167544H\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"2000.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"2000.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $2,000.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#nAmns6dRnLpzGlsZqA5mZA==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"3KX70190NM2640945\",\"state\":\"completed\",\"amount\":{\"total\":\"2000.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"2000.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"72.00\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"2000.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSMNTQA4H8505858V466003U\",\"create_time\":\"2023-06-26T00:20:21Z\",\"update_time\":\"2023-06-26T00:20:21Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/3KX70190NM2640945\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/3KX70190NM2640945/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMNTQA4H8505858V466003U\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-26T00:20:16Z\",\"update_time\":\"2023-06-26T00:20:21Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMNTQA4H8505858V466003U\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 18:19:31', 'cristian@correo.com', 2000.00, 'completo'),
-(64, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSMN3YI17N15377WS5296031\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"1MB561413Y698483H\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"1550.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"1550.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $1,550.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#lK5hKRxNqyqjh5Od93xZIg==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"2UA51533XN368871B\",\"state\":\"completed\",\"amount\":{\"total\":\"1550.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"1550.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"56.70\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"1550.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSMN3YI17N15377WS5296031\",\"create_time\":\"2023-06-26T00:38:00Z\",\"update_time\":\"2023-06-26T00:38:00Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/2UA51533XN368871B\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/2UA51533XN368871B/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMN3YI17N15377WS5296031\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-26T00:37:53Z\",\"update_time\":\"2023-06-26T00:38:00Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMN3YI17N15377WS5296031\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 18:37:46', 'cristian@correo.com', 1550.00, 'completo'),
-(65, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSMONBY4HA412395D866154V\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"663690151F6913714\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"3750.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"3750.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $3,750.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#mb8nSqIEqLQDHRfIE/Vvqw==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"81B4429344136114G\",\"state\":\"completed\",\"amount\":{\"total\":\"3750.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"3750.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"131.50\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"3750.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSMONBY4HA412395D866154V\",\"create_time\":\"2023-06-26T01:15:03Z\",\"update_time\":\"2023-06-26T01:15:03Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/81B4429344136114G\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/81B4429344136114G/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMONBY4HA412395D866154V\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-26T01:14:47Z\",\"update_time\":\"2023-06-26T01:15:03Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMONBY4HA412395D866154V\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 19:14:45', 'cristian@correo.com', 3750.00, 'completo'),
-(66, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSMOOHA3E887295G3827682D\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"3H778311W7112821V\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"5550.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"5550.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $5,550.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#VKzWYlZAeqkfi4y5txzQtA==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"4B302250RS551680B\",\"state\":\"completed\",\"amount\":{\"total\":\"5550.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"5550.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"192.70\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"5550.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSMOOHA3E887295G3827682D\",\"create_time\":\"2023-06-26T01:17:21Z\",\"update_time\":\"2023-06-26T01:17:21Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/4B302250RS551680B\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/4B302250RS551680B/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMOOHA3E887295G3827682D\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-26T01:17:16Z\",\"update_time\":\"2023-06-26T01:17:21Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMOOHA3E887295G3827682D\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 19:17:13', 'cristian@correo.com', 5550.00, 'completo'),
-(67, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 19:21:50', 'cristian@correo.com', 2250.00, 'pendiente'),
-(68, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 19:21:59', 'cristian@correo.com', 2250.00, 'pendiente'),
-(69, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSMOQ2A1N75070950190704P\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"2YV100319T297183T\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"1800.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"1800.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $1,800.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#a4WaBxDN2jU92Na2lgA2SA==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"3EA7533700598710X\",\"state\":\"completed\",\"amount\":{\"total\":\"1800.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"1800.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"65.20\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"1800.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSMOQ2A1N75070950190704P\",\"create_time\":\"2023-06-26T01:22:53Z\",\"update_time\":\"2023-06-26T01:22:53Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/3EA7533700598710X\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/3EA7533700598710X/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMOQ2A1N75070950190704P\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-26T01:22:48Z\",\"update_time\":\"2023-06-26T01:22:53Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMOQ2A1N75070950190704P\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 19:22:45', 'cristian@correo.com', 1800.00, 'completo'),
-(70, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSMORFQ41176019UG893325E\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"0A0541290K785883J\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"450.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"450.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $450.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#hlIjc/TOcZNxBVKovBQ1Tg==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"0V012358SS7789942\",\"state\":\"completed\",\"amount\":{\"total\":\"450.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"450.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"19.30\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"450.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSMORFQ41176019UG893325E\",\"create_time\":\"2023-06-26T01:23:39Z\",\"update_time\":\"2023-06-26T01:23:39Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/0V012358SS7789942\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/0V012358SS7789942/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMORFQ41176019UG893325E\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-26T01:23:34Z\",\"update_time\":\"2023-06-26T01:23:39Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMORFQ41176019UG893325E\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 19:23:30', 'cristian@correo.com', 450.00, 'completo'),
-(71, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSMOWRY5XM36999PP190604H\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"97Y25017HS6866705\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"2000.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"2000.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $2,000.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#+hg44NSWafUcECoMvR4C/Q==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"05641400CM8131542\",\"state\":\"completed\",\"amount\":{\"total\":\"2000.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"2000.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"72.00\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"2000.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSMOWRY5XM36999PP190604H\",\"create_time\":\"2023-06-26T01:35:10Z\",\"update_time\":\"2023-06-26T01:35:10Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/05641400CM8131542\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/05641400CM8131542/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMOWRY5XM36999PP190604H\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-26T01:35:03Z\",\"update_time\":\"2023-06-26T01:35:10Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMOWRY5XM36999PP190604H\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 19:35:01', 'cristian@correo.com', 2000.00, 'completo');
-INSERT INTO `ventas` (`id_venta`, `clavetransaccion`, `paypaldatos`, `fecha`, `correo`, `total`, `estatus`) VALUES
-(72, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSMOWXQ8YF037144B2134030\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"76R83403ND120450E\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"1100.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"1100.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $1,100.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#viYFR9vfzMo90a6wgFcctw==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"5MV93662AJ3392235\",\"state\":\"completed\",\"amount\":{\"total\":\"1100.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"1100.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"41.40\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"1100.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSMOWXQ8YF037144B2134030\",\"create_time\":\"2023-06-26T01:35:31Z\",\"update_time\":\"2023-06-26T01:35:31Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/5MV93662AJ3392235\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/5MV93662AJ3392235/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMOWXQ8YF037144B2134030\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-26T01:35:26Z\",\"update_time\":\"2023-06-26T01:35:31Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMOWXQ8YF037144B2134030\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 19:35:23', 'cristian@correo.com', 1100.00, 'completo'),
-(73, 'uhb4j8ra0nqn7a07g46h0qpns9', '', '2023-06-27 14:57:44', 'said1@gmail.com', 300.00, 'pendiente'),
-(74, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSPEXSI82258372A0205403Y\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"5T012096UF603191W\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"4100.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"4100.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $4,100.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#I4wofYl8zb6ft0Nev7X6TQ==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"6E483371N62786811\",\"state\":\"completed\",\"amount\":{\"total\":\"4100.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"4100.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"143.40\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"4100.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSPEXSI82258372A0205403Y\",\"create_time\":\"2023-06-30T03:28:18Z\",\"update_time\":\"2023-06-30T03:28:18Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/6E483371N62786811\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/6E483371N62786811/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSPEXSI82258372A0205403Y\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-30T03:28:09Z\",\"update_time\":\"2023-06-30T03:28:18Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSPEXSI82258372A0205403Y\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-29 21:28:07', 'cristian@correo.com', 4100.00, 'completo'),
-(75, '5d2t6fpecrr5psru9ogdc98b2k', '{\"id\":\"PAYID-MSPVOHI0ER75180BN473614B\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"3FE9402262767870E\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"60000.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"60000.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $60,000.00\",\"custom\":\" 5d2t6fpecrr5psru9ogdc98b2k#CVKzTa3atgaUjqKemDXgxw==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"3M976173ES282413G\",\"state\":\"completed\",\"amount\":{\"total\":\"60000.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"60000.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"2044.00\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"60000.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSPVOHI0ER75180BN473614B\",\"create_time\":\"2023-06-30T22:29:06Z\",\"update_time\":\"2023-06-30T22:29:06Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/3M976173ES282413G\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/3M976173ES282413G/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSPVOHI0ER75180BN473614B\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-30T22:28:45Z\",\"update_time\":\"2023-06-30T22:29:06Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSPVOHI0ER75180BN473614B\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-30 16:28:40', 'cristian@correo.com', 60000.00, 'completo');
+INSERT INTO `ventas` (`id_venta`, `clavetransaccion`, `paypaldatos`, `fecha`, `correo`, `total`, `estatus`, `envio`) VALUES
+(1, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:09:52', 'said@correo.com', 950.00, 'pendiente', ''),
+(2, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:22:57', 'said@correo.com', 8950.00, 'pendiente', ''),
+(3, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:25:11', 'said@correo.com', 8950.00, 'pendiente', ''),
+(4, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:25:28', 'said@correo.com', 8950.00, 'pendiente', ''),
+(5, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:26:00', 'said@correo.com', 8950.00, 'pendiente', ''),
+(6, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:26:02', 'said@correo.com', 8950.00, 'pendiente', ''),
+(7, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:29:19', 'said@correo.com', 9900.00, 'pendiente', ''),
+(8, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:29:43', 'said@correo.com', 9900.00, 'pendiente', ''),
+(9, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:29:46', 'said@correo.com', 9900.00, 'pendiente', ''),
+(10, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:30:26', 'said@correo.com', 9900.00, 'pendiente', ''),
+(11, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:30:40', 'said@correo.com', 2950.00, 'pendiente', ''),
+(12, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:54:25', 'said@correo.com', 2950.00, 'pendiente', ''),
+(13, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:54:37', 'said@correo.com', 152950.00, 'pendiente', ''),
+(14, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:55:47', 'said@correo.com', 152950.00, 'pendiente', ''),
+(15, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:55:49', 'said@correo.com', 152950.00, 'pendiente', ''),
+(16, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:55:50', 'said@correo.com', 152950.00, 'pendiente', ''),
+(17, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:55:50', 'said@correo.com', 152950.00, 'pendiente', ''),
+(18, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:55:50', 'said@correo.com', 152950.00, 'pendiente', ''),
+(19, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:55:50', 'said@correo.com', 152950.00, 'pendiente', ''),
+(20, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:55:50', 'said@correo.com', 152950.00, 'pendiente', ''),
+(21, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:55:51', 'said@correo.com', 152950.00, 'pendiente', ''),
+(22, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:55:51', 'said@correo.com', 152950.00, 'pendiente', ''),
+(23, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:56:01', 'said@correo.com', 152950.00, 'pendiente', ''),
+(24, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:56:06', 'said@correo.com', 152950.00, 'pendiente', ''),
+(25, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:57:25', 'said@correo.com', 152950.00, 'pendiente', ''),
+(26, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:57:32', 'said@correo.com', 153350.00, 'pendiente', ''),
+(27, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:59:29', 'said@correo.com', 153350.00, 'pendiente', ''),
+(28, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 21:59:41', 'said@correo.com', 400.00, 'pendiente', ''),
+(29, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:02:06', 'said@correo.com', 400.00, 'pendiente', ''),
+(30, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:02:22', 'said@correo.com', 1200.00, 'pendiente', ''),
+(31, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:04:17', 'said@correo.com', 1200.00, 'pendiente', ''),
+(32, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:04:23', 'said@correo.com', 400.00, 'pendiente', ''),
+(33, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:10:19', 'said@correo.com', 400.00, 'pendiente', ''),
+(34, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:10:30', 'said@correo.com', 4200.00, 'pendiente', ''),
+(35, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:34:52', 'said@correo.com', 4200.00, 'pendiente', ''),
+(36, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:34:58', 'said@correo.com', 5900.00, 'pendiente', ''),
+(37, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:41:13', 'said@correo.com', 5900.00, 'pendiente', ''),
+(38, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:53:18', 'said@correo.com', 3400.00, 'pendiente', ''),
+(39, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:57:07', 'said@correo.com', 3400.00, 'pendiente', ''),
+(40, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-24 22:57:31', 'cristian@correo.com', 500.00, 'pendiente', ''),
+(41, '', '', '2023-06-24 23:16:43', '', 0.00, 'pendiente', ''),
+(42, '', '', '2023-06-24 23:16:49', '', 0.00, 'pendiente', ''),
+(43, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSL43SQ7XK81869XP449180C\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"13L09510G5667963G\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"500.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"500.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $500.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#M5HdgJ6q417ovCI5Rj+Ivw==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"3AH089157A5913332\",\"state\":\"completed\",\"amount\":{\"total\":\"500.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"500.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"21.00\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"500.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSL43SQ7XK81869XP449180C\",\"create_time\":\"2023-06-25T05:17:06Z\",\"update_time\":\"2023-06-25T05:17:06Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/3AH089157A5913332\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/3AH089157A5913332/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL43SQ7XK81869XP449180C\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-25T05:16:58Z\",\"update_time\":\"2023-06-25T05:17:06Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL43SQ7XK81869XP449180C\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-24 23:16:54', 'cristian@correo.com', 500.00, 'aprobado', ''),
+(44, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:02:07', 'cristian@correo.com', 500.00, 'pendiente', ''),
+(45, ' 1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSL5Q2Y69599143D38028627\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"8CR926801S9609304\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"1800.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"1800.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $1,800.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#oTF+i0KtLb1UC4Cqg8bnhQ==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"57G94211XV8867049\",\"state\":\"completed\",\"amount\":{\"total\":\"1800.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"1800.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"65.20\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"1800.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSL5Q2Y69599143D38028627\",\"create_time\":\"2023-06-25T06:02:26Z\",\"update_time\":\"2023-06-25T06:02:26Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/57G94211XV8867049\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/57G94211XV8867049/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL5Q2Y69599143D38028627\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-25T06:02:19Z\",\"update_time\":\"2023-06-25T06:02:26Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL5Q2Y69599143D38028627\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 00:02:17', 'cristian@correo.com', 1800.00, 'aprobado', ''),
+(46, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:29:51', 'cristian@correo.com', 1800.00, 'pendiente', ''),
+(47, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSL554I71S313021P273715D\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"7431552535965973M\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"7700.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"7700.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $7,700.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#yP026c2IrDyc8KTnLxGJcA==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"22N14479XC920404H\",\"state\":\"completed\",\"amount\":{\"total\":\"7700.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"7700.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"265.80\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"7700.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSL554I71S313021P273715D\",\"create_time\":\"2023-06-25T06:30:17Z\",\"update_time\":\"2023-06-25T06:30:17Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/22N14479XC920404H\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/22N14479XC920404H/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL554I71S313021P273715D\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-25T06:30:09Z\",\"update_time\":\"2023-06-25T06:30:17Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL554I71S313021P273715D\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 00:30:06', 'cristian@correo.com', 7700.00, 'completo', ''),
+(48, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:30:58', 'cristian@correo.com', 7700.00, 'pendiente', ''),
+(49, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSL56KA6WK439632Y856832W\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"8NY205262A876234V\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"3800.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"3800.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $3,800.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#Wx4JahjXYAEBq6yXH0tkFQ==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"3LX958790T868611E\",\"state\":\"completed\",\"amount\":{\"total\":\"3800.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"3800.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"133.20\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"3800.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSL56KA6WK439632Y856832W\",\"create_time\":\"2023-06-25T06:31:09Z\",\"update_time\":\"2023-06-25T06:31:09Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/3LX958790T868611E\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/3LX958790T868611E/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL56KA6WK439632Y856832W\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-25T06:31:04Z\",\"update_time\":\"2023-06-25T06:31:09Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL56KA6WK439632Y856832W\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 00:31:02', 'cristian@correo.com', 3800.00, 'completo', ''),
+(50, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:37:26', 'beto@correo.com', 2500.00, 'pendiente', ''),
+(51, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:37:53', 'beto@correo.com', 2500.00, 'pendiente', ''),
+(52, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:38:22', 'beto@correo.com', 2500.00, 'pendiente', ''),
+(53, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:38:22', 'beto@correo.com', 2500.00, 'pendiente', ''),
+(54, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:38:23', 'beto@correo.com', 2500.00, 'pendiente', ''),
+(55, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:38:23', 'beto@correo.com', 2500.00, 'pendiente', ''),
+(56, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:38:23', 'beto@correo.com', 2500.00, 'pendiente', ''),
+(57, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:38:23', 'beto@correo.com', 2500.00, 'pendiente', ''),
+(58, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 00:38:23', 'beto@correo.com', 2500.00, 'pendiente', ''),
+(59, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSL6BYQ4FN26353608084459\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"39D83663H37391616\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"2500.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"2500.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $2,500.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#APEBVMprAjKKgvkviLmyMg==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"6N508707M5694753N\",\"state\":\"completed\",\"amount\":{\"total\":\"2500.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"2500.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"89.00\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"2500.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSL6BYQ4FN26353608084459\",\"create_time\":\"2023-06-25T06:38:30Z\",\"update_time\":\"2023-06-25T06:38:30Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/6N508707M5694753N\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/6N508707M5694753N/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL6BYQ4FN26353608084459\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-25T06:38:26Z\",\"update_time\":\"2023-06-25T06:38:30Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL6BYQ4FN26353608084459\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 00:38:24', 'beto@correo.com', 2500.00, 'completo', ''),
+(60, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSL6CVI1CJ2089674243720E\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"7K939439F3560553J\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"80000.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"80000.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $80,000.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#PnEyjtt+pc1/UVrUokI5UQ==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"8TD204858X404903T\",\"state\":\"completed\",\"amount\":{\"total\":\"80000.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"80000.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"2724.00\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"80000.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSL6CVI1CJ2089674243720E\",\"create_time\":\"2023-06-25T06:40:26Z\",\"update_time\":\"2023-06-25T06:40:26Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/8TD204858X404903T\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/8TD204858X404903T/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL6CVI1CJ2089674243720E\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-25T06:40:21Z\",\"update_time\":\"2023-06-25T06:40:26Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSL6CVI1CJ2089674243720E\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 00:40:19', 'beto@correo.com', 80000.00, 'completo', ''),
+(61, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSMMOBY26N852967J9440532\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"5VA57152PS451592Y\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"2500.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"2500.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $2,500.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#jmhW485N3rzY3gwbP7+xNg==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"09M72270TX133810E\",\"state\":\"completed\",\"amount\":{\"total\":\"2500.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"2500.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"89.00\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"2500.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSMMOBY26N852967J9440532\",\"create_time\":\"2023-06-25T23:00:32Z\",\"update_time\":\"2023-06-25T23:00:32Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/09M72270TX133810E\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/09M72270TX133810E/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMMOBY26N852967J9440532\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-25T23:00:23Z\",\"update_time\":\"2023-06-25T23:00:32Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMMOBY26N852967J9440532\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 17:00:19', 'cristian@correo.com', 2500.00, 'completo', ''),
+(62, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSMNDUI1LH486139Y132374L\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"5P947257JC897225C\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"450.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"450.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $450.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#PQfUH7RKUsYuny5WFWQP/w==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"36G25329HN735431A\",\"state\":\"completed\",\"amount\":{\"total\":\"450.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"450.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"19.30\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"450.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSMNDUI1LH486139Y132374L\",\"create_time\":\"2023-06-25T23:46:33Z\",\"update_time\":\"2023-06-25T23:46:33Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/36G25329HN735431A\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/36G25329HN735431A/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMNDUI1LH486139Y132374L\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-25T23:46:25Z\",\"update_time\":\"2023-06-25T23:46:33Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMNDUI1LH486139Y132374L\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 17:46:22', 'cristian@correo.com', 450.00, 'completo', ''),
+(63, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSMNTQA4H8505858V466003U\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"3M308912E9167544H\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"2000.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"2000.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $2,000.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#nAmns6dRnLpzGlsZqA5mZA==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"3KX70190NM2640945\",\"state\":\"completed\",\"amount\":{\"total\":\"2000.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"2000.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"72.00\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"2000.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSMNTQA4H8505858V466003U\",\"create_time\":\"2023-06-26T00:20:21Z\",\"update_time\":\"2023-06-26T00:20:21Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/3KX70190NM2640945\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/3KX70190NM2640945/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMNTQA4H8505858V466003U\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-26T00:20:16Z\",\"update_time\":\"2023-06-26T00:20:21Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMNTQA4H8505858V466003U\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 18:19:31', 'cristian@correo.com', 2000.00, 'completo', ''),
+(64, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSMN3YI17N15377WS5296031\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"1MB561413Y698483H\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"1550.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"1550.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $1,550.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#lK5hKRxNqyqjh5Od93xZIg==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"2UA51533XN368871B\",\"state\":\"completed\",\"amount\":{\"total\":\"1550.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"1550.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"56.70\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"1550.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSMN3YI17N15377WS5296031\",\"create_time\":\"2023-06-26T00:38:00Z\",\"update_time\":\"2023-06-26T00:38:00Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/2UA51533XN368871B\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/2UA51533XN368871B/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMN3YI17N15377WS5296031\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-26T00:37:53Z\",\"update_time\":\"2023-06-26T00:38:00Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMN3YI17N15377WS5296031\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 18:37:46', 'cristian@correo.com', 1550.00, 'completo', ''),
+(65, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSMONBY4HA412395D866154V\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"663690151F6913714\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"3750.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"3750.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $3,750.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#mb8nSqIEqLQDHRfIE/Vvqw==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"81B4429344136114G\",\"state\":\"completed\",\"amount\":{\"total\":\"3750.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"3750.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"131.50\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"3750.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSMONBY4HA412395D866154V\",\"create_time\":\"2023-06-26T01:15:03Z\",\"update_time\":\"2023-06-26T01:15:03Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/81B4429344136114G\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/81B4429344136114G/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMONBY4HA412395D866154V\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-26T01:14:47Z\",\"update_time\":\"2023-06-26T01:15:03Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMONBY4HA412395D866154V\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 19:14:45', 'cristian@correo.com', 3750.00, 'completo', ''),
+(66, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSMOOHA3E887295G3827682D\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"3H778311W7112821V\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"5550.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"5550.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $5,550.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#VKzWYlZAeqkfi4y5txzQtA==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"4B302250RS551680B\",\"state\":\"completed\",\"amount\":{\"total\":\"5550.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"5550.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"192.70\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"5550.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSMOOHA3E887295G3827682D\",\"create_time\":\"2023-06-26T01:17:21Z\",\"update_time\":\"2023-06-26T01:17:21Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/4B302250RS551680B\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/4B302250RS551680B/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMOOHA3E887295G3827682D\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-26T01:17:16Z\",\"update_time\":\"2023-06-26T01:17:21Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMOOHA3E887295G3827682D\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 19:17:13', 'cristian@correo.com', 5550.00, 'completo', ''),
+(67, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 19:21:50', 'cristian@correo.com', 2250.00, 'pendiente', ''),
+(68, '1v5298n3kkhg8vl74v512e94n0', '', '2023-06-25 19:21:59', 'cristian@correo.com', 2250.00, 'pendiente', ''),
+(69, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSMOQ2A1N75070950190704P\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"2YV100319T297183T\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"1800.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"1800.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $1,800.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#a4WaBxDN2jU92Na2lgA2SA==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"3EA7533700598710X\",\"state\":\"completed\",\"amount\":{\"total\":\"1800.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"1800.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"65.20\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"1800.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSMOQ2A1N75070950190704P\",\"create_time\":\"2023-06-26T01:22:53Z\",\"update_time\":\"2023-06-26T01:22:53Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/3EA7533700598710X\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/3EA7533700598710X/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMOQ2A1N75070950190704P\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-26T01:22:48Z\",\"update_time\":\"2023-06-26T01:22:53Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMOQ2A1N75070950190704P\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 19:22:45', 'cristian@correo.com', 1800.00, 'completo', ''),
+(70, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSMORFQ41176019UG893325E\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"0A0541290K785883J\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"450.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"450.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $450.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#hlIjc/TOcZNxBVKovBQ1Tg==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"0V012358SS7789942\",\"state\":\"completed\",\"amount\":{\"total\":\"450.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"450.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"19.30\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"450.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSMORFQ41176019UG893325E\",\"create_time\":\"2023-06-26T01:23:39Z\",\"update_time\":\"2023-06-26T01:23:39Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/0V012358SS7789942\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/0V012358SS7789942/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMORFQ41176019UG893325E\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-26T01:23:34Z\",\"update_time\":\"2023-06-26T01:23:39Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMORFQ41176019UG893325E\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 19:23:30', 'cristian@correo.com', 450.00, 'completo', ''),
+(71, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSMOWRY5XM36999PP190604H\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"97Y25017HS6866705\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"2000.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"2000.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $2,000.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#+hg44NSWafUcECoMvR4C/Q==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"05641400CM8131542\",\"state\":\"completed\",\"amount\":{\"total\":\"2000.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"2000.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"72.00\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"2000.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSMOWRY5XM36999PP190604H\",\"create_time\":\"2023-06-26T01:35:10Z\",\"update_time\":\"2023-06-26T01:35:10Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/05641400CM8131542\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/05641400CM8131542/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMOWRY5XM36999PP190604H\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-26T01:35:03Z\",\"update_time\":\"2023-06-26T01:35:10Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMOWRY5XM36999PP190604H\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 19:35:01', 'cristian@correo.com', 2000.00, 'completo', '');
+INSERT INTO `ventas` (`id_venta`, `clavetransaccion`, `paypaldatos`, `fecha`, `correo`, `total`, `estatus`, `envio`) VALUES
+(72, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSMOWXQ8YF037144B2134030\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"76R83403ND120450E\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"1100.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"1100.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $1,100.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#viYFR9vfzMo90a6wgFcctw==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"5MV93662AJ3392235\",\"state\":\"completed\",\"amount\":{\"total\":\"1100.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"1100.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"41.40\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"1100.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSMOWXQ8YF037144B2134030\",\"create_time\":\"2023-06-26T01:35:31Z\",\"update_time\":\"2023-06-26T01:35:31Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/5MV93662AJ3392235\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/5MV93662AJ3392235/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMOWXQ8YF037144B2134030\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-06-26T01:35:26Z\",\"update_time\":\"2023-06-26T01:35:31Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSMOWXQ8YF037144B2134030\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-06-25 19:35:23', 'cristian@correo.com', 1100.00, 'completo', 'Pendiente'),
+(73, 'uhb4j8ra0nqn7a07g46h0qpns9', '', '2023-06-27 14:57:44', 'said1@gmail.com', 300.00, 'pendiente', ''),
+(74, 'hd9gufktn5vpjl8oueh863tfsj', '', '2023-07-02 12:28:37', 'said3@gmail.com', 900.00, 'pendiente', ''),
+(75, 'hd9gufktn5vpjl8oueh863tfsj', '', '2023-07-02 12:30:26', 'said3@gmail.com', 900.00, 'pendiente', ''),
+(76, 'hd9gufktn5vpjl8oueh863tfsj', '', '2023-07-02 12:32:37', 'said3@gmail.com', 900.00, 'pendiente', ''),
+(77, 'hd9gufktn5vpjl8oueh863tfsj', '{\"id\":\"PAYID-MSQ4EDQ6NB507046F7024129\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"2MA75923NC632410V\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"900.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"900.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $900.00\",\"custom\":\" hd9gufktn5vpjl8oueh863tfsj#zAzapGxLfD6RkVWP8qUJpg==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"0D215319U9000792H\",\"state\":\"completed\",\"amount\":{\"total\":\"900.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"900.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"34.60\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"900.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSQ4EDQ6NB507046F7024129\",\"create_time\":\"2023-07-02T20:06:32Z\",\"update_time\":\"2023-07-02T20:06:32Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/0D215319U9000792H\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/0D215319U9000792H/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSQ4EDQ6NB507046F7024129\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-07-02T18:29:34Z\",\"update_time\":\"2023-07-02T20:06:32Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSQ4EDQ6NB507046F7024129\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-07-02 12:33:07', 'said3@gmail.com', 900.00, 'completo', 'Pendiente'),
+(78, 'g91hk1kq3ehmj7e1a6u745jr29', '{\"id\":\"PAYID-MSREDNQ51233789LS302082A\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"0LW84173X9438213H\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"50.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"50.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $50.00\",\"custom\":\" g91hk1kq3ehmj7e1a6u745jr29#ckC10JPNFnba21zb2jSQSQ==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"16H241353M283561H\",\"state\":\"completed\",\"amount\":{\"total\":\"50.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"50.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"5.70\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"50.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSREDNQ51233789LS302082A\",\"create_time\":\"2023-07-03T03:37:00Z\",\"update_time\":\"2023-07-03T03:37:00Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/16H241353M283561H\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/16H241353M283561H/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSREDNQ51233789LS302082A\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-07-03T03:34:14Z\",\"update_time\":\"2023-07-03T03:37:00Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSREDNQ51233789LS302082A\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-07-02 21:38:14', 'said3@gmail.com', 50.00, 'completo', 'Enviado');
 
 --
 -- Índices para tablas volcadas
@@ -577,7 +597,7 @@ INSERT INTO `ventas` (`id_venta`, `clavetransaccion`, `paypaldatos`, `fecha`, `c
 --
 ALTER TABLE `chats`
   ADD PRIMARY KEY (`id_chat`),
-  ADD KEY `ID` (`ID`),
+  ADD KEY `ID` (`ID_registro`),
   ADD KEY `seller` (`seller`);
 
 --
@@ -586,7 +606,8 @@ ALTER TABLE `chats`
 ALTER TABLE `detalleventa`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_venta` (`id_venta`),
-  ADD KEY `id_producto` (`id_producto`);
+  ADD KEY `id_producto` (`id_producto`),
+  ADD KEY `ID_registro` (`ID_registro`);
 
 --
 -- Indices de la tabla `direcciones`
@@ -646,7 +667,8 @@ ALTER TABLE `reports`
   ADD KEY `id_star` (`id_star`),
   ADD KEY `id_comment` (`id_comment`),
   ADD KEY `ID` (`ID_registro`),
-  ADD KEY `seller` (`seller`);
+  ADD KEY `seller` (`seller`),
+  ADD KEY `buyer` (`buyer`);
 
 --
 -- Indices de la tabla `sellers_data`
@@ -677,37 +699,37 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `chats`
 --
 ALTER TABLE `chats`
-  MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `detalleventa`
 --
 ALTER TABLE `detalleventa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 
 --
 -- AUTO_INCREMENT de la tabla `direcciones`
 --
 ALTER TABLE `direcciones`
-  MODIFY `id_direccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_direccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id_notif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_notif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `pay_account`
 --
 ALTER TABLE `pay_account`
-  MODIFY `id_account` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_account` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `profile_comments`
@@ -719,7 +741,7 @@ ALTER TABLE `profile_comments`
 -- AUTO_INCREMENT de la tabla `registro`
 --
 ALTER TABLE `registro`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `reg_sellers`
@@ -749,7 +771,7 @@ ALTER TABLE `stars`
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- Restricciones para tablas volcadas
@@ -759,8 +781,14 @@ ALTER TABLE `ventas`
 -- Filtros para la tabla `chats`
 --
 ALTER TABLE `chats`
-  ADD CONSTRAINT `chats_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `registro` (`ID`),
+  ADD CONSTRAINT `chats_ibfk_1` FOREIGN KEY (`ID_registro`) REFERENCES `registro` (`ID`),
   ADD CONSTRAINT `chats_ibfk_2` FOREIGN KEY (`seller`) REFERENCES `registro` (`ID`);
+
+--
+-- Filtros para la tabla `detalleventa`
+--
+ALTER TABLE `detalleventa`
+  ADD CONSTRAINT `detalleventa_ibfk_1` FOREIGN KEY (`ID_registro`) REFERENCES `registro` (`ID`);
 
 --
 -- Filtros para la tabla `notifications`
@@ -802,7 +830,8 @@ ALTER TABLE `reports`
   ADD CONSTRAINT `reports_ibfk_3` FOREIGN KEY (`id_star`) REFERENCES `stars` (`id_star`),
   ADD CONSTRAINT `reports_ibfk_4` FOREIGN KEY (`id_comment`) REFERENCES `profile_comments` (`id_comment`),
   ADD CONSTRAINT `reports_ibfk_5` FOREIGN KEY (`ID_registro`) REFERENCES `registro` (`ID`),
-  ADD CONSTRAINT `reports_ibfk_6` FOREIGN KEY (`seller`) REFERENCES `registro` (`ID`);
+  ADD CONSTRAINT `reports_ibfk_6` FOREIGN KEY (`seller`) REFERENCES `registro` (`ID`),
+  ADD CONSTRAINT `reports_ibfk_7` FOREIGN KEY (`buyer`) REFERENCES `registro` (`ID`);
 
 --
 -- Filtros para la tabla `sellers_data`

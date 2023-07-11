@@ -15,6 +15,47 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+/* My data */
+.my-data{
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.telefonos{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+.input-width{
+    width: 90vw;
+}
+.input-short{
+    width: 30vw;
+}
+.input-medium{
+    width: 60vw;
+}
+.buttons-data{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: nowrap;
+}
+@media screen and (min-width:768px){
+    .input-width{
+        width: 25vw;
+    }
+    .input-short{
+        width: 8vw;
+    }
+    .input-medium{
+        width: 17vw;
+    }
+}
 /* .profile-btn-1{
     display: block;
 }
