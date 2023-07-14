@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-07-2023 a las 04:03:13
+-- Tiempo de generación: 14-07-2023 a las 06:07:55
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -195,26 +195,27 @@ CREATE TABLE `products` (
   `stock` int(11) NOT NULL,
   `image2` varchar(30) NOT NULL,
   `image3` varchar(30) NOT NULL,
-  `ID_registro` int(11) DEFAULT NULL
+  `ID_registro` int(11) DEFAULT NULL,
+  `estatus` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `products`
 --
 
-INSERT INTO `products` (`id_product`, `product`, `image1`, `price`, `description`, `category`, `stock`, `image2`, `image3`, `ID_registro`) VALUES
-(1, 'Vestido Bordado', 'blackdress.jpg', 500, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Ropa', 5, 'blackdress.jpg', 'blackdress.jpg', 5),
-(2, 'Collar de Ambar', 'ambar.jpg', 300, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Joyeria', 2, 'ambar.jpg', 'ambar.jpg', 5),
-(3, 'Guayabera azul', 'guayabera1.jpg', 50, 'Lorem ipsum dolor sit amet, consectetur adipiscing ', 'Ropa', 2, 'guayabera1.jpg', 'guayabera1.jpg', 7),
-(4, 'Corazon', 'corazon.jpg', 800, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Alebrije', 3, 'corazon.jpg', 'corazon.jpg', 5),
-(5, 'Armadillo gris', 'alebrije2.jpg', 600, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Alebrije', 4, 'alebrije2.jpg', 'alebrije2.jpg', 5),
-(6, 'Blusa Bordada', 'blouse.jpg', 900, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Ropa', 10, 'blouse.jpg', 'blouse.jpg', 5),
-(7, 'Gato Alebrije Gris', 'alebrije1.jpg', 400, 'Gato alebrije de madera ', 'Alebrije', 2, 'alebrije1.jpg', 'alebrije1.jpg', 5),
-(8, 'Sombrero Rojo', 'sombrero.jpg', 200, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Sombrero', 8, 'sombrero.jpg', 'sombrero.jpg', 5),
-(9, 'Elefante', 'huichol.jpg', 1100, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum commodo leo et malesuada. Donec consectetur porttitor consectetur.', 'Huichol', -9, 'huichol.jpg', 'huichol.jpg', 5),
-(10, 'Rebozo de colores llamativos', 'rebozo.jpg', 2000, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo, consectetur? Modi tenetur et sed voluptatibus! Suscipit repellendus aperiam sint optio doloribus quidem, fugit quas, aliquid culpa, quaerat voluptatum asperiores quo.', 'Rebozos', 8, 'rebozo.jpg', 'rebozo.jpg', 5),
-(11, 'zapatos tejidos v:', 'zapatos.jpg', 1500, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo, consectetur? Modi tenetur et sed voluptatibus! Suscipit repellendus aperiam sint optio doloribus quidem, fugit quas, aliquid culpa, quaerat voluptatum asperiores quo.', 'Zapatos', 0, 'zapatos.jpg', 'zapatos.jpg', 5),
-(12, 'pollo rostizado', 'pollo.jpg', 8000, 'pollo de hoy con polvos magicos ', 'Otros', 1, 'pollo rostizado2.jpg', '', 12);
+INSERT INTO `products` (`id_product`, `product`, `image1`, `price`, `description`, `category`, `stock`, `image2`, `image3`, `ID_registro`, `estatus`) VALUES
+(1, 'Vestido Bordado', 'blackdress.jpg', 500, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Ropa', 5, 'blackdress.jpg', 'blackdress.jpg', 5, 'Aprobado'),
+(2, 'Collar de Ambar', 'ambar.jpg', 300, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Joyeria', 2, 'ambar.jpg', 'ambar.jpg', 5, 'Aprobado'),
+(3, 'Guayabera azul', 'guayabera1.jpg', 50, 'Lorem ipsum dolor sit amet, consectetur adipiscing ', 'Ropa', 2, 'guayabera1.jpg', 'guayabera1.jpg', 7, 'Aprobado'),
+(4, 'Corazon', 'corazon.jpg', 800, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Alebrije', 3, 'corazon.jpg', 'corazon.jpg', 5, 'Aprobado'),
+(5, 'Armadillo gris', 'alebrije2.jpg', 600, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Alebrije', 4, 'alebrije2.jpg', 'alebrije2.jpg', 5, 'Aprobado'),
+(6, 'Blusa Bordada', 'blouse.jpg', 900, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Ropa', 10, 'blouse.jpg', 'blouse.jpg', 5, 'Aprobado'),
+(7, 'Gato Alebrije Gris', 'alebrije1.jpg', 400, 'Gato alebrije de madera ', 'Alebrije', 2, 'alebrije1.jpg', 'alebrije1.jpg', 5, 'Aprobado'),
+(8, 'Sombrero Rojo', 'sombrero.jpg', 200, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Sombrero', 8, 'sombrero.jpg', 'sombrero.jpg', 5, 'Aprobado'),
+(9, 'Elefante', 'huichol.jpg', 1100, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum commodo leo et malesuada. Donec consectetur porttitor consectetur.', 'Huichol', 10, 'huichol.jpg', 'huichol.jpg', 5, 'Aprobado'),
+(10, 'Rebozo de colores llamativos', 'rebozo.jpg', 2000, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo, consectetur? Modi tenetur et sed voluptatibus! Suscipit repellendus aperiam sint optio doloribus quidem, fugit quas, aliquid culpa, quaerat voluptatum asperiores quo.', 'Rebozos', 8, 'rebozo.jpg', 'rebozo.jpg', 5, 'Aprobado'),
+(11, 'zapatos tejidos v:', 'zapatos.jpg', 1500, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo, consectetur? Modi tenetur et sed voluptatibus! Suscipit repellendus aperiam sint optio doloribus quidem, fugit quas, aliquid culpa, quaerat voluptatum asperiores quo.', 'Zapatos', 0, 'zapatos.jpg', 'zapatos.jpg', 5, 'Aprobado'),
+(12, 'pollo rostizado', 'pollo.jpg', 8000, 'pollo de hoy con polvos magicos ', 'Otros', 0, 'pollo rostizado2.jpg', '', 12, 'Aprobado');
 
 -- --------------------------------------------------------
 
@@ -298,7 +299,7 @@ INSERT INTO `reg_sellers` (`IDregseller`, `Nombre`, `apellidos`, `nickname`, `la
 (47, 'Said', 'Castillo Marin', 'Said557', 52, '2212054136', '2212054136', 'de las flores', '34850', 'Said557-identificacion.jpeg', 'Aprobado', 5),
 (48, 'Emmanuel', 'Castillo Marin', 'Castillo55', 52, '2212054136', '2212054136', 'de las flores', '34850', 'Castillo55-identificacion.jpeg', 'Aprobado', 7),
 (49, 'emmanuel', 'Castillo Marin', 'Deivi', 52, '1221910', '2212054136', 'de las flores', '34850', 'Deivi-identificacion.jpeg', 'Pendiente', 11),
-(50, 'david', 'prueba1', 'davidprueba1', 52, '2229259400', '2229257544', 'domicilio prueba 1', '72470', 'davidprueba1-identificacion.jpeg', 'Aprobado', 12);
+(51, 'david', 'prueba1', 'davidcokie69', 52, '2229259615', '2229259615', 'domicilio de prueba para david', '72470', 'casa 1 piso rustica', 'Aprobado', 12);
 
 -- --------------------------------------------------------
 
@@ -323,7 +324,7 @@ CREATE TABLE `reports` (
 --
 
 INSERT INTO `reports` (`id_report`, `report`, `type`, `ID_registro`, `id_product`, `id_star`, `id_comment`, `seller`, `buyer`) VALUES
-(1, '', 'Comentario', 5, 2, 0, NULL, NULL, NULL),
+(1, 'prueba de reporte 1', 'Comentario', 5, 2, 21, NULL, NULL, NULL),
 (2, 'hola', 'Producto', 5, 2, NULL, NULL, NULL, NULL),
 (3, 'hola', 'Producto', 5, 2, NULL, NULL, NULL, NULL),
 (4, 'Hola', 'Producto', 5, 8, NULL, NULL, NULL, NULL),
@@ -660,7 +661,7 @@ ALTER TABLE `registro`
 -- AUTO_INCREMENT de la tabla `reg_sellers`
 --
 ALTER TABLE `reg_sellers`
-  MODIFY `IDregseller` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `IDregseller` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT de la tabla `reports`
