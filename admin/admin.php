@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php 
-
 include('../global/conexion.php');
 ?>
 <html lang="en">
@@ -131,18 +130,11 @@ include('../global/conexion.php');
 								<th>Eliminar</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-								<td>
-									<img src="../assets/utilities/administrador.png">
-									<p>Said castillo</p>
-								</td>
-								<td>said@gmail.com</td>
-								<td><a href="./"><img src="../assets/utilities/cerrar.png"></a></td>
-							</tr>
-							
-						</tbody>
+						<?php 
+							include('helpers/Sadmin.php');
+						?>
 					</table>
+						
 				</div>
 
 		

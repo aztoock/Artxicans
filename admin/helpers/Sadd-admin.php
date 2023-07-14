@@ -35,7 +35,7 @@
                         $result = mysqli_query($conn,$sql);
                         if ($result)
                             {
-                                echo("<script>location.href = 'admin.php';</script>");
+                                echo("<script>location.href = '../admin.php';</script>");
                             }
                     }
             }
