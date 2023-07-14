@@ -11,6 +11,12 @@
                                 WHERE `reg_sellers`.`IDregseller` = '$id_vendedor';");
                         # Actualizo el estatus del vendedor
                     $result = mysqli_query($conn,$query);
+
+                    $query = (" UPDATE `registro` 
+                                SET `estatus` = '1'
+                                WHERE `ID` = '$id_usuario';");
+                        # Actualizo el estatus del vendedor
+                    $result = mysqli_query($conn,$query);
                     
                     $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `notification`, `ID_registro`) 
                                         VALUES (NULL, '$mensaje', '$id_usuario');");
