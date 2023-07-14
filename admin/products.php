@@ -127,7 +127,7 @@
 						<tbody>
 						<?php 
 							$query = mysqli_query($conn,"SELECT * FROM products INNER JOIN reg_sellers 
-							WHERE products.ID_registro = reg_sellers.ID_registro ORDER BY rand()");
+							WHERE products.ID_registro = reg_sellers.ID_registro AND stock > 0 ORDER BY rand()");
 
 							while($data = mysqli_fetch_array($query)){
 						?>
@@ -139,7 +139,7 @@
 								</td>
                                 <td><?php echo $data['nickname']?></td>
 								
-								<td><a href="./pages/det-prod.php?product=<?php echo $data['id_product']?>"><span class="status completed">Ver info</span></a></td>
+								<td><a href="pages/det-prod.php?product=<?php echo $data['id_product']?>"><span class="status completed">Ver info</span></a></td>
 							</tr>
 							
 						<?php }?>

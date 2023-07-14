@@ -1,5 +1,11 @@
 <?php 
 $id_product = $_GET['product'];
+if(isset($_POST['delete-seller']))
+    {
+        $id_product = $_POST['delete-seller'];
+        $conn->query("UPDATE `products` SET `stock` = '0' WHERE `products`.`id_product` = $id_product");
+        header("Location: ../products.php");
+    }
 ?>
 
 <div class="table-data">
@@ -20,8 +26,6 @@ $id_product = $_GET['product'];
                         <img src="../../assets/products/<?php echo $data['image3']?>" alt="">
 
                     </div>
-
-                   
                     <table class="table-products">
                         
                         <tbody>
@@ -47,10 +51,8 @@ $id_product = $_GET['product'];
                         </tr>
                         </tbody>
                     </table>
-                    
-                    
-				    <button class="btn-choose decline" name="delete-seller" onclick="location.href=''">Eliminar producto</button>
-				   
-				
+                    <form method="post">
+				    <button type="submit" class="btn-choose decline" name="delete-seller" value="<?php echo $data['id_product']; ?>">Eliminar producto</button>
+                    </form>
                 </div>
 				</div>
