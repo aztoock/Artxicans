@@ -1,6 +1,55 @@
 <?php
+    $mensaje = "";
     $id_reporte = $_GET['report'];
     
+    if (isset($_POST['Aceptar']))
+        {
+            $boton = $_POST['Aceptar'];
+            if ($boton == 1)
+                {
+                    echo "Aceptado 1";
+                }
+            elseif ($boton == 2)
+                {
+                    echo "Aceptado 2";
+                }
+            elseif ($boton == 3)
+                {
+                    echo "Aceptado 3";
+                }
+            elseif ($boton == 4)
+                {
+                    echo "Aceptado 4";                
+                }
+            elseif ($boton == 5)
+                {
+                    echo "Aceptado 5";
+                }
+        }
+    else if (isset($_POST['Rechazar']))
+        {
+            $boton = $_POST['Rechazar'];
+            if ($boton == 1)
+                {
+                    echo "rechazado 1";
+                }
+                elseif ($boton == 2)
+                {
+                    echo "rechazado 2";
+                }
+            elseif ($boton == 3)
+                {
+                    echo "rechazado 3";
+                }
+            elseif ($boton == 4)
+                {
+                    echo "rechazado 4";                
+                }
+            elseif ($boton == 5)
+                {
+                    echo "rechazado 5";
+                }
+        }
 ?>
 
 <div class="table-data">
@@ -20,7 +69,6 @@
                     $usuario = $data['ID_registro'];
                     $query2 = mysqli_query($conn,"SELECT * FROM registro WHERE ID = $usuario");
                     $data2 = mysqli_fetch_array($query2);
-                                                             
 				?>
                     <h2 class="title-report">Tipo de reporte:&nbsp;<strong><?php echo $tipo?></strong></h2>
                     <p class="data-report">El usuario&nbsp;<strong ><?php echo $data2['Nombre']?></strong> hizo un reporte.</p>
@@ -29,6 +77,7 @@
                         <?php 
                             switch($tipo){
                             case 'Comentario': 
+                                    $mensaje = 1;
                                     # Obtener informacion de los comentarios
                                     $star=$data['id_star'];
                                     $getStars = mysqli_query($conn,"SELECT * FROM stars WHERE id_star = $star");
@@ -37,6 +86,7 @@
                                     echo "y su información del comentario reportado:<br><center><strong>Comentario:</strong>&nbsp;".$data_star['comment']."</center>";
                             break;
                             case 'Producto': 
+                                $mensaje = 2;
                                     # Obtener informacion de los productos
                                     $product = $data['id_product'];
                                     $getProducts = mysqli_query($conn,"SELECT * FROM products WHERE id_product = $product");
@@ -58,7 +108,8 @@
                                         </div>
                                     </article>";
                             break;  
-                            case 'Comentario Perfil': 
+                            case 'Comentario Perfil':
+                                    $mensaje = 3; 
                                     # Obtener informacion de los comentarios a perfiles
                                     $comment = $data['id_comment'];
                                     $getComments = mysqli_query($conn,"SELECT * FROM profile_comments WHERE id_comment = $comment");
@@ -68,6 +119,7 @@
                                     echo "&nbsp;y su información del comentario reportado:<br><center><strong>Comentario:</strong>&nbsp;".$data_comment['comment']."</center>";
                             break;
                             case 'Vendedor': 
+                                    $mensaje = 4;
                                     # Obtener informacion de los vendedores
                                     $seller = $data['seller'];
                                     $getSellers = mysqli_query($conn,"SELECT * FROM reg_sellers WHERE ID_registro = $seller");
@@ -82,6 +134,7 @@
                                         </article>";
                             break;
                             case 'Comprador': 
+                                    $mensaje = 5;
                                     # Obtener informacion los compradores.
                                     $buyer = $data['buyer'];
                                     $getBuyer = mysqli_query($conn,"SELECT * FROM registro WHERE ID = $buyer");
@@ -113,9 +166,8 @@
                     
                     <form method="POST">
                     <div class="report-buttons">
-                        
-                        <input class="btn-choose decline" type="submit" name="Rechazar" value="Rechazar">
-					    <input class="btn-choose accept" type="submit" name="Aceptar" value="Aceptar">
+                        <button class="btn-choose decline" type="submit" name="Rechazar" value="<?php echo $mensaje;?>">Rechazar</button>
+					    <button class="btn-choose accept" type="submit" name="Aceptar" value="<?php echo $mensaje;?>">Aceptar</button>
                     </div>
                     </form>
 				
