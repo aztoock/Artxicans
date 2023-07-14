@@ -120,25 +120,9 @@ include('../../global/conexion.php');
 						
 					</div>
                     <center>
-					<form class="form-admin" method="POST">
-                        <label for="nombre">Nombre</label>
-                        <div class="">
-                            <input type="text" name="nombre" id="nombre" class="input-admin"/>
-                        </div>
-                        <label for="correo">Correo</label>
-                        <div class="">
-                            <input type="email" name="correo" id="correo" class="input-admin"/>
-                        </div>
-                        <label for="password">Contraseña</label>
-                        <div class="">
-                            <input type="password" name="contrasena" id="contrasena" class="input-admin"/>
-                        </div>
-						<div class="buttons-admin">
-                        <a class="btn-back" href='../admin.php'>Cancelar</a>
-                        <button class="btn-reg" type="submit">Registar</button>
-                    </div>
-                    </form>
-                  
+						<?php 
+							include('../helpers/Sadd-admin.php');
+						?>
                     </center>
 				</div>
 		</main>
