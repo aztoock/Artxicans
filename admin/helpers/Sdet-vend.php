@@ -16,6 +16,7 @@
                                         VALUES (NULL, '$mensaje', '$id_usuario');");
                         # Se agrega la notificacion a la tbl
                     $result = mysqli_query($conn,$updatenotify);
+                    echo("<script>location.href = '../reg-vendedores.php';</script>");
                 }
             elseif ( isset($_POST['Rechazar']) )
                 {
@@ -32,6 +33,7 @@
                                         VALUES (NULL, '$mensaje', '$id_usuario');");
                         # Se agrega la notificacion a la tbl
                     $result = mysqli_query($conn,$updatenotify);
+                    echo("<script>location.href = '../reg-vendedores.php';</script>");
                 }
         }
 ?>
