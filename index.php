@@ -63,7 +63,7 @@
   
    <div class='mainContent grid' id="mainContent">    
    <?php 
-         $result = $conn ->query("SELECT * FROM products WHERE stock > 0 ORDER BY rand() LIMIT 8") or die ($conn->error);
+         $result = $conn ->query("SELECT * FROM products WHERE stock > 0 AND estatus = 'Aprobado' ORDER BY rand() LIMIT 8") or die ($conn->error);
          while($row = mysqli_fetch_assoc($result)){
   ?>    
 
