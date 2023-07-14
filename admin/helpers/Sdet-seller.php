@@ -1,8 +1,12 @@
 <?php 
 $id_vendedor = $_GET['seller'];
-  
+if(isset($_POST['delete-seller']))
+    {
+        $id_seller = $_POST['delete-seller'];
+        $conn->query("DELETE FROM reg_sellers WHERE IDregseller = '$id_seller'");
+        header("Location: ../sellers.php");
+    }
 ?>
-
 <div class="table-data">
 				<div class="order">
 					<div class="head">
@@ -15,7 +19,6 @@ $id_vendedor = $_GET['seller'];
 					$query = mysqli_query($conn,"SELECT * FROM reg_sellers WHERE IDregseller = $id_vendedor");
 					$data = mysqli_fetch_array($query);
 				?>
-				
 					<img src="../../user/files<?php echo $data['identificador']?>" alt="identificacion" style="width:250px;height:140px">
 					<table class="table-products" >
                         
@@ -63,8 +66,8 @@ $id_vendedor = $_GET['seller'];
                       <tr>
 					  </tbody>
                     </table>
-				    <button class="btn-choose decline" name="delete-seller" onclick="location.href=''">Eliminar vendedor</button>
-				   
-				
+					<form method="post">
+				    <button type="submit"  class="btn-choose decline" name="delete-seller" value="<?php echo $data['IDregseller']; ?>">Eliminar vendedor</button>
+					</form>
                 </div>
 				</div>
