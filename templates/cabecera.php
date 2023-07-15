@@ -2,18 +2,6 @@
 <?php  session_start(); ?>
 <html lang="es">
   <head>
-    <style>
-      .logo a img{
-        width:110px !important;
-      }
-      
-      @media screen and (min-width:768px){
-        .logo a img{
-          width:110px !important;
-          margin-top:-20px !important;
-        } 
-      }
-    </style>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta

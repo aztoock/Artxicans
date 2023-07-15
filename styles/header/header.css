@@ -205,10 +205,10 @@
     font-size: 1.2rem;
   }
   
-  /* .logo a img {
+  .logo a img {
     width: 20px;
     height: 20px;
-  } */
+  }
   .burger-btn {
     padding: 0.3rem 0.6rem;
   }
