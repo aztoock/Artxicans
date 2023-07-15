@@ -86,7 +86,7 @@
                                     echo "y su información del comentario reportado:<br><center><strong>Comentario:</strong>&nbsp;".$data_star['comment']."</center>";
                             break;
                             case 'Producto': 
-                                $mensaje = 2;
+                                    $mensaje = 2;
                                     # Obtener informacion de los productos
                                     $product = $data['id_product'];
                                     $getProducts = mysqli_query($conn,"SELECT * FROM products WHERE id_product = $product");
