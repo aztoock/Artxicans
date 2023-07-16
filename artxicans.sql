@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-07-2023 a las 03:04:50
+-- Tiempo de generación: 17-07-2023 a las 01:05:22
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -162,7 +162,25 @@ INSERT INTO `notifications` (`id_notif`, `notification`, `ID_registro`) VALUES
 (12, '', 5),
 (13, '', 5),
 (14, 'Tu comentario fue reportado y ha sido eliminado.', 5),
-(15, 'Tu comentario fue reportado y ha sido eliminado.', 5);
+(15, 'Tu comentario fue reportado y ha sido eliminado.', 5),
+(16, 'Tu producto fue reportado, por infringir las normas, revisa tu proucto', 5),
+(17, 'Tu producto fue reportado, por infringir las normas, revisa tu proucto', 5),
+(18, 'Tu producto fue reportado, por infringir las normas, revisa tu proucto', 12),
+(19, 'Tu producto fue reportado, por infringir las normas, revisa tu proucto', 5),
+(20, 'Tu comentario fue reportado y ha sido eliminado.', 5),
+(21, 'Tu comentario fue reportado y ha sido eliminado.', 5),
+(22, 'Tu comentario fue reportado y ha sido eliminado.', 5),
+(23, 'Tu comentario fue reportado y ha sido eliminado.', 5),
+(24, 'Tu comentario fue reportado y ha sido eliminado.', 5),
+(25, 'Tu comentario fue reportado y ha sido eliminado.', 5),
+(26, 'Tu comentario fue reportado y ha sido eliminado.', 12),
+(27, 'Tu comentario fue reportado', 12),
+(28, 'Tu comentario fue reportado', 12),
+(29, 'Tu comentario en el perfil fue reportado', 12),
+(30, 'Tu comentario en el perfil fue reportado', 12),
+(31, 'Tu comentario en el perfil fue reportado', 12),
+(33, 'Tu comentario en el perfil fue reportado', 12),
+(34, 'Tu perfil de vendedor fue reportado.', 5);
 
 -- --------------------------------------------------------
 
@@ -299,7 +317,7 @@ CREATE TABLE `reg_sellers` (
 --
 
 INSERT INTO `reg_sellers` (`IDregseller`, `Nombre`, `apellidos`, `nickname`, `lada`, `telefono`, `telefonoref`, `domicilio`, `postal`, `identificador`, `solicitud`, `ID_registro`) VALUES
-(47, 'Said', 'Castillo Marin', 'Said557', 52, '2212054136', '2212054136', 'de las flores', '34850', 'Said557-identificacion.jpeg', 'Aprobado', 5),
+(47, 'Said', 'Castillo Marin', 'Said557', 52, '2212054136', '2212054136', 'de las flores', '34850', 'Said557-identificacion.jpeg', 'Reportado', 5),
 (48, 'Emmanuel', 'Castillo Marin', 'Castillo55', 52, '2212054136', '2212054136', 'de las flores', '34850', 'Castillo55-identificacion.jpeg', 'Aprobado', 7),
 (49, 'emmanuel', 'Castillo Marin', 'Deivi', 52, '1221910', '2212054136', 'de las flores', '34850', 'Deivi-identificacion.jpeg', 'Pendiente', 11),
 (51, 'david', 'prueba1', 'davidcokie69', 52, '2229259615', '2229259615', 'domicilio de prueba para david', '72470', 'casa 1 piso rustica', 'Aprobado', 12);
@@ -332,12 +350,18 @@ INSERT INTO `reports` (`id_report`, `report`, `type`, `ID_registro`, `id_product
 (2, 'hola', 'Producto', 5, 2, NULL, NULL, NULL, NULL, 0),
 (3, 'hola', 'Producto', 5, 2, NULL, NULL, NULL, NULL, 0),
 (4, 'Hola', 'Producto', 5, 8, NULL, NULL, NULL, NULL, 0),
-(5, '', 'Comentario Perfil', 5, NULL, NULL, 3, NULL, NULL, 1),
 (6, '', 'Comentario Perfil', 5, NULL, NULL, 1, NULL, NULL, 1),
 (7, '', 'Comentario Perfil', 5, NULL, NULL, 2, NULL, NULL, 1),
 (8, 'hola hola', 'Vendedor', 7, NULL, NULL, NULL, 5, NULL, 0),
 (9, 'HOLA', 'Vendedor', 7, NULL, NULL, NULL, 5, NULL, 0),
-(12, 'reporte de prueba 2', 'Producto', 12, 12, NULL, NULL, NULL, NULL, 0);
+(12, 'reporte de prueba 2', 'Producto', 12, 12, NULL, NULL, NULL, NULL, 0),
+(14, 'prueba de reporte 4  pollo demaciado caro', 'Producto', 5, 12, NULL, NULL, NULL, NULL, 2),
+(15, 'este producto esta en la categoria incorrecta', 'Producto', 12, 6, NULL, NULL, NULL, NULL, 2),
+(16, 'Tu comentario fue reportado', 'Comentario', 5, 6, 24, NULL, NULL, NULL, 1),
+(17, 'Tu comentario fue reportado', 'Comentario', 5, 6, 25, NULL, NULL, NULL, 1),
+(18, 'Reporte comentario en perfil', 'Comentario Perfil', 5, NULL, NULL, 4, NULL, NULL, 1),
+(19, 'Reporte comentario en perfil', 'Comentario Perfil', 5, NULL, NULL, 5, NULL, NULL, 1),
+(20, 'prueba de reporte de perfil', 'Vendedor', 12, NULL, NULL, NULL, 5, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -636,7 +660,7 @@ ALTER TABLE `direcciones`
 -- AUTO_INCREMENT de la tabla `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id_notif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_notif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `pay_account`
@@ -654,7 +678,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT de la tabla `profile_comments`
 --
 ALTER TABLE `profile_comments`
-  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `registro`
@@ -672,7 +696,7 @@ ALTER TABLE `reg_sellers`
 -- AUTO_INCREMENT de la tabla `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `id_report` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_report` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `sellers_data`
@@ -684,7 +708,7 @@ ALTER TABLE `sellers_data`
 -- AUTO_INCREMENT de la tabla `stars`
 --
 ALTER TABLE `stars`
-  MODIFY `id_star` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_star` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
