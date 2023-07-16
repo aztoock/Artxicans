@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-07-2023 a las 06:07:55
+-- Tiempo de generación: 16-07-2023 a las 03:04:50
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -158,7 +158,11 @@ INSERT INTO `notifications` (`id_notif`, `notification`, `ID_registro`) VALUES
 (3, 'Aceptado bites', 11),
 (6, 'solicitud aseptada', 12),
 (7, 'jejejreje', 12),
-(8, 'laskdjfklasfd', 12);
+(8, 'laskdjfklasfd', 12),
+(12, '', 5),
+(13, '', 5),
+(14, 'Tu comentario fue reportado y ha sido eliminado.', 5),
+(15, 'Tu comentario fue reportado y ha sido eliminado.', 5);
 
 -- --------------------------------------------------------
 
@@ -213,9 +217,8 @@ INSERT INTO `products` (`id_product`, `product`, `image1`, `price`, `description
 (7, 'Gato Alebrije Gris', 'alebrije1.jpg', 400, 'Gato alebrije de madera ', 'Alebrije', 2, 'alebrije1.jpg', 'alebrije1.jpg', 5, 'Aprobado'),
 (8, 'Sombrero Rojo', 'sombrero.jpg', 200, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Sombrero', 8, 'sombrero.jpg', 'sombrero.jpg', 5, 'Aprobado'),
 (9, 'Elefante', 'huichol.jpg', 1100, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum commodo leo et malesuada. Donec consectetur porttitor consectetur.', 'Huichol', 10, 'huichol.jpg', 'huichol.jpg', 5, 'Aprobado'),
-(10, 'Rebozo de colores llamativos', 'rebozo.jpg', 2000, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo, consectetur? Modi tenetur et sed voluptatibus! Suscipit repellendus aperiam sint optio doloribus quidem, fugit quas, aliquid culpa, quaerat voluptatum asperiores quo.', 'Rebozos', 8, 'rebozo.jpg', 'rebozo.jpg', 5, 'Aprobado'),
 (11, 'zapatos tejidos v:', 'zapatos.jpg', 1500, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo, consectetur? Modi tenetur et sed voluptatibus! Suscipit repellendus aperiam sint optio doloribus quidem, fugit quas, aliquid culpa, quaerat voluptatum asperiores quo.', 'Zapatos', 0, 'zapatos.jpg', 'zapatos.jpg', 5, 'Aprobado'),
-(12, 'pollo rostizado', 'pollo.jpg', 8000, 'pollo de hoy con polvos magicos ', 'Otros', 0, 'pollo rostizado2.jpg', '', 12, 'Aprobado');
+(12, 'pollo rostizado', 'pollo.jpg', 8000, 'pollo de hoy con polvos magicos ', 'Otros', 2, 'pollo rostizado2.jpg', '', 12, 'Aprobado');
 
 -- --------------------------------------------------------
 
@@ -316,23 +319,25 @@ CREATE TABLE `reports` (
   `id_star` int(11) DEFAULT NULL,
   `id_comment` int(11) DEFAULT NULL,
   `seller` int(11) DEFAULT NULL,
-  `buyer` int(11) DEFAULT NULL
+  `buyer` int(11) DEFAULT NULL,
+  `estatus` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `reports`
 --
 
-INSERT INTO `reports` (`id_report`, `report`, `type`, `ID_registro`, `id_product`, `id_star`, `id_comment`, `seller`, `buyer`) VALUES
-(1, 'prueba de reporte 1', 'Comentario', 5, 2, 21, NULL, NULL, NULL),
-(2, 'hola', 'Producto', 5, 2, NULL, NULL, NULL, NULL),
-(3, 'hola', 'Producto', 5, 2, NULL, NULL, NULL, NULL),
-(4, 'Hola', 'Producto', 5, 8, NULL, NULL, NULL, NULL),
-(5, '', 'Comentario Perfil', 5, NULL, NULL, 3, NULL, NULL),
-(6, '', 'Comentario Perfil', 5, NULL, NULL, 1, NULL, NULL),
-(7, '', 'Comentario Perfil', 5, NULL, NULL, 2, NULL, NULL),
-(8, 'hola hola', 'Vendedor', 7, NULL, NULL, NULL, 5, NULL),
-(9, 'HOLA', 'Vendedor', 7, NULL, NULL, NULL, 5, NULL);
+INSERT INTO `reports` (`id_report`, `report`, `type`, `ID_registro`, `id_product`, `id_star`, `id_comment`, `seller`, `buyer`, `estatus`) VALUES
+(1, 'prueba de reporte 1', 'Comentario', 5, 2, 21, NULL, NULL, NULL, 1),
+(2, 'hola', 'Producto', 5, 2, NULL, NULL, NULL, NULL, 0),
+(3, 'hola', 'Producto', 5, 2, NULL, NULL, NULL, NULL, 0),
+(4, 'Hola', 'Producto', 5, 8, NULL, NULL, NULL, NULL, 0),
+(5, '', 'Comentario Perfil', 5, NULL, NULL, 3, NULL, NULL, 1),
+(6, '', 'Comentario Perfil', 5, NULL, NULL, 1, NULL, NULL, 1),
+(7, '', 'Comentario Perfil', 5, NULL, NULL, 2, NULL, NULL, 1),
+(8, 'hola hola', 'Vendedor', 7, NULL, NULL, NULL, 5, NULL, 0),
+(9, 'HOLA', 'Vendedor', 7, NULL, NULL, NULL, 5, NULL, 0),
+(12, 'reporte de prueba 2', 'Producto', 12, 12, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -631,7 +636,7 @@ ALTER TABLE `direcciones`
 -- AUTO_INCREMENT de la tabla `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id_notif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_notif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `pay_account`
@@ -667,7 +672,7 @@ ALTER TABLE `reg_sellers`
 -- AUTO_INCREMENT de la tabla `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `id_report` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_report` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `sellers_data`
