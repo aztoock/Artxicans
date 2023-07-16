@@ -9,6 +9,8 @@
             $id_usuario = $_POST['id_usuario'];
             $id_producto = $_POST['id_producto'];
             $id_star = $_POST['id_comentario'];
+            $id_perfilcomment = $_POST['id_perfilcoment'];
+            $id_seller = $_POST['id_seller'];
             $mensaje = $_POST['mensaje'];
             if ($boton == 1)
                 {
@@ -23,9 +25,11 @@
                         # Se agrega la notificacion a la tbl
                     $result = mysqli_query($conn,$updatenotify);
 
-                        # Se elimina el comentario
+                        # deshabilito las restriccciones de clave FK
                     mysqli_query($conn, "SET FOREIGN_KEY_CHECKS = 0");
+                        # Se elimina el comentario
                     mysqli_query($conn,"DELETE FROM stars WHERE id_star = $id_star ");
+                        # habilito las restriccciones de clave FK
                     mysqli_query($conn, "SET FOREIGN_KEY_CHECKS = 1");
 
                     $updatenestatus = ("UPDATE `reports` SET `estatus` = '1' 
@@ -64,15 +68,60 @@
                 {
                     /* echo "Aceptado 3"; */
 
-                    
+                    # Obtener el id del usuario.
+					$query = mysqli_query($conn,"SELECT ID_registro FROM profile_comments WHERE id_comment = $id_perfilcomment");
+					$data = mysqli_fetch_array($query);
+                    $usuario = $data['ID_registro'];
+
+                    /* echo "comentario"; */
+                    $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `notification`, `ID_registro`) 
+                                        VALUES (NULL, '$mensaje', '$usuario');");
+                        # Se agrega la notificacion a la tbl
+                    $result = mysqli_query($conn,$updatenotify);
+
+                        # deshabilito las restriccciones de clave FK
+                    mysqli_query($conn, "SET FOREIGN_KEY_CHECKS = 0");
+                        # Se elimina el comentario
+                    mysqli_query($conn,"DELETE FROM profile_comments WHERE id_comment = $id_perfilcomment ");
+                        # habilito las restriccciones de clave FK
+                    mysqli_query($conn, "SET FOREIGN_KEY_CHECKS = 1");
+
+                    $updatenestatus = ("UPDATE `reports` SET `estatus` = '1' 
+                                        WHERE `reports`.`id_report` = $id_reporte;");
+                        # Se cambia el estatus de la tabla reportes(reports)
+                    $result = mysqli_query($conn,$updatenestatus);
+
+                    echo("<script>location.href = '../reports.php';</script>");
                 }
             elseif ($boton == 4)
                 {
-                    echo "Aceptado 4";                
+                    /* echo "Vendedor"; */
+                        # Obtener el id del usuario.
+					$query = mysqli_query($conn,"SELECT ID_registro FROM reg_sellers WHERE IDregseller = $id_seller");
+					$data = mysqli_fetch_array($query);
+                    $usuario = $data['ID_registro'];
+
+                    $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `notification`, `ID_registro`) 
+                                        VALUES (NULL, '$mensaje', '$usuario');");
+                        # Se agrega la notificacion a la tbl
+                    $result = mysqli_query($conn,$updatenotify);
+
+                    $updatenestatus = ("UPDATE `reports` SET `estatus` = '2' 
+                                        WHERE `reports`.`id_report` = $id_reporte;");
+                        # Se cambia el estatus de la tabla reportes(reports)
+                    $result = mysqli_query($conn,$updatenestatus);
+
+                    $updatenestatus = ("UPDATE `reg_sellers` SET `solicitud` = 'Reportado' 
+                                        WHERE `reg_sellers`.`IDregseller` = $id_seller;");
+                        # Se cambia el estado de la tabla productos(products)
+                    $result = mysqli_query($conn,$updatenestatus); 
+
+                    echo("<script>location.href = '../reports.php';</script>");
                 }
             elseif ($boton == 5)
                 {
-                    echo "Aceptado 5";
+                    /* echo "Comprador"; */
+
                 }
         }
     else if (isset($_POST['Rechazar']))
@@ -87,7 +136,6 @@
 				<div class="order">
 					<div class="head">
 						<h3>Reporte</h3>
-						
 					</div>
                 <div class="solicitud-vend">
 
@@ -103,7 +151,6 @@
 				?>
                     <h2 class="title-report">Tipo de reporte:&nbsp;<strong><?php echo $tipo?></strong></h2>
                     <p class="data-report">El usuario&nbsp;<strong ><?php echo $data2['Nombre']?></strong> hizo un reporte.</p>
-                    
                     <p>El usuario &nbsp;reporta 
                         <?php 
                             switch($tipo){
@@ -143,7 +190,7 @@
                             break;  
                             case 'Comentario Perfil':
                                     $ban = 3;
-                                    $mensaje =  "Tu comentario fue reportado";
+                                    $mensaje =  "Tu comentario en el perfil fue reportado";
                                     # Obtener informacion de los comentarios a perfiles
                                     $comment = $data['id_comment'];
                                     $getComments = mysqli_query($conn,"SELECT * FROM profile_comments WHERE id_comment = $comment");
@@ -181,13 +228,9 @@
                                         <article>
                                             <p style='color:#6669c5'>".$data_buyer['Nombre']."</p>
                                             <p>".$data_buyer['Correo']."</p>
-                                     </article>";
+                                        </article>";
                             }
-
-                            
-                         ?> 
-
-                 
+                        ?> 
                     </p>
                     <?php if(!empty($data['report'])){?>
                     <p class="desc-container" align="center"><strong>
@@ -197,19 +240,19 @@
                     <?php }?>
                     <p class="note-report" style="font-size:0.8rem">-Al rechazar el reporte, se ignorara cualquier tipo de reporte que se haya hecho y se eliminara también de la tabla de reportes.<p>
                     <!-- <p class="note-report">-Al Aceptar el reporte, si es un reporte de comentario, se eliminara el comentario reportado, el caso de los reportes de vendedores, reportes de compradores y reportes de productos podrás eliminarlos manualmente y llevar un control de investigación para verificar si lo reportado está rompiendo algún reglamento.<p>
-                     -->
+                    -->
                     <p class="note-report" style="font-size:0.8rem">-Al Aceptar el reporte, se eliminara el comentario reporté, se eliminara el producto reportado, se eliminara la cuenta del comprador reportada y para los vendedores reportados solo se les notificara una queja del reporte y con un posible bloqueo.<p>
-                    
                     <form method="POST">
                     <div class="report-buttons">
                         <input type="hidden" value="<?php echo $usuario;?>" name="id_usuario">
                         <input type="hidden" value="<?php echo $product;?>" name="id_producto">
                         <input type="hidden" value="<?php echo $star;?>" name="id_comentario">
+                        <input type="hidden" value="<?php echo $comment;?>" name="id_perfilcoment">
+                        <input type="hidden" value="<?php echo $data_seller['IDregseller'];?>" name="id_seller">
                         <input type="hidden" value="<?php echo $mensaje;?>" name="mensaje">
                         <button class="btn-choose decline" type="submit" name="Rechazar" value="<?php echo $ban;?>">Rechazar</button>
 					    <button class="btn-choose accept" type="submit" name="Aceptar" value="<?php echo $ban;?>">Aceptar</button>
                     </div>
                     </form>
-				
                 </div>
 				</div>
