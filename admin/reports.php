@@ -123,7 +123,7 @@ include('../global/conexion.php');
 						</thead>
 						<tbody>
 						<?php 
-							$query = mysqli_query($conn,"SELECT * FROM reports");
+							$query = mysqli_query($conn,"SELECT * FROM reports WHERE estatus = 0");
 							while($row = mysqli_fetch_array($query)){
 						?>
 					

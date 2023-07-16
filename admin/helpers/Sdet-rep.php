@@ -1,13 +1,27 @@
 <?php
+    $ban = "";
     $mensaje = "";
     $id_reporte = $_GET['report'];
     
     if (isset($_POST['Aceptar']))
         {
             $boton = $_POST['Aceptar'];
+            $id_usuario = $_POST['id_usuario'];
+            $mensaje = $_POST['mensaje'];
             if ($boton == 1)
                 {
-                    echo "Aceptado 1";
+                    /* echo "comentario"; */
+                    $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `notification`, `ID_registro`) 
+                                        VALUES (NULL, '$mensaje', '$id_usuario');");
+                        # Se agrega la notificacion a la tbl
+                    $result = mysqli_query($conn,$updatenotify);
+
+                    $updatenestatus = ("UPDATE `reports` SET `estatus` = '1' 
+                                        WHERE `reports`.`id_report` = $id_reporte;");
+                        # Se agrega la notificacion a la tbl
+                    $result = mysqli_query($conn,$updatenestatus);
+
+                    echo("<script>location.href = '../reports.php';</script>");
                 }
             elseif ($boton == 2)
                 {
@@ -28,27 +42,9 @@
         }
     else if (isset($_POST['Rechazar']))
         {
-            $boton = $_POST['Rechazar'];
-            if ($boton == 1)
-                {
-                    echo "rechazado 1";
-                }
-                elseif ($boton == 2)
-                {
-                    echo "rechazado 2";
-                }
-            elseif ($boton == 3)
-                {
-                    echo "rechazado 3";
-                }
-            elseif ($boton == 4)
-                {
-                    echo "rechazado 4";                
-                }
-            elseif ($boton == 5)
-                {
-                    echo "rechazado 5";
-                }
+            /* $boton = $_POST['Rechazar']; */
+            mysqli_query($conn,"DELETE FROM reports WHERE id_report = '$id_reporte'");
+            echo("<script>location.href = '../reports.php';</script>"); 
         }
 ?>
 
@@ -77,7 +73,8 @@
                         <?php 
                             switch($tipo){
                             case 'Comentario': 
-                                    $mensaje = 1;
+                                    $ban = 1;
+                                    $mensaje = "Tu comentario fue reportado y ha sido eliminado.";
                                     # Obtener informacion de los comentarios
                                     $star=$data['id_star'];
                                     $getStars = mysqli_query($conn,"SELECT * FROM stars WHERE id_star = $star");
@@ -86,7 +83,8 @@
                                     echo "y su información del comentario reportado:<br><center><strong>Comentario:</strong>&nbsp;".$data_star['comment']."</center>";
                             break;
                             case 'Producto': 
-                                    $mensaje = 2;
+                                    $ban = 2;
+                                    $mensaje = "Tu producto fue reportado.";
                                     # Obtener informacion de los productos
                                     $product = $data['id_product'];
                                     $getProducts = mysqli_query($conn,"SELECT * FROM products WHERE id_product = $product");
@@ -109,7 +107,8 @@
                                     </article>";
                             break;  
                             case 'Comentario Perfil':
-                                    $mensaje = 3; 
+                                    $ban = 3;
+                                    $mensaje =  "Tu perfil fue reportado";
                                     # Obtener informacion de los comentarios a perfiles
                                     $comment = $data['id_comment'];
                                     $getComments = mysqli_query($conn,"SELECT * FROM profile_comments WHERE id_comment = $comment");
@@ -119,7 +118,8 @@
                                     echo "&nbsp;y su información del comentario reportado:<br><center><strong>Comentario:</strong>&nbsp;".$data_comment['comment']."</center>";
                             break;
                             case 'Vendedor': 
-                                    $mensaje = 4;
+                                    $mensaje = "Tu perfil de vendedor fue reportado.";
+                                    $ban = 4;
                                     # Obtener informacion de los vendedores
                                     $seller = $data['seller'];
                                     $getSellers = mysqli_query($conn,"SELECT * FROM reg_sellers WHERE ID_registro = $seller");
@@ -134,7 +134,8 @@
                                         </article>";
                             break;
                             case 'Comprador': 
-                                    $mensaje = 5;
+                                    $mensaje = "Tu compra fue reportado.";
+                                    $ban = 5;
                                     # Obtener informacion los compradores.
                                     $buyer = $data['buyer'];
                                     $getBuyer = mysqli_query($conn,"SELECT * FROM registro WHERE ID = $buyer");
@@ -142,10 +143,10 @@
                                     echo "<strong style='color:#d9534f'>Un comprador</strong>";
                                     echo "&nbsp;El comprador reportado es:";
                                     echo "
-                                         <article>
-                                             <p style='color:#6669c5'>".$data_buyer['Nombre']."</p>
-                                             <p>".$data_buyer['Correo']."</p>
-                                         </article>";
+                                        <article>
+                                            <p style='color:#6669c5'>".$data_buyer['Nombre']."</p>
+                                            <p>".$data_buyer['Correo']."</p>
+                                     </article>";
                             }
 
                             
@@ -166,8 +167,10 @@
                     
                     <form method="POST">
                     <div class="report-buttons">
-                        <button class="btn-choose decline" type="submit" name="Rechazar" value="<?php echo $mensaje;?>">Rechazar</button>
-					    <button class="btn-choose accept" type="submit" name="Aceptar" value="<?php echo $mensaje;?>">Aceptar</button>
+                        <input type="hidden" value="<?php echo $usuario;?>" name="id_usuario">
+                        <input type="hidden" value="<?php echo $mensaje;?>" name="mensaje">
+                        <button class="btn-choose decline" type="submit" name="Rechazar" value="<?php echo $ban;?>">Rechazar</button>
+					    <button class="btn-choose accept" type="submit" name="Aceptar" value="<?php echo $ban;?>">Aceptar</button>
                     </div>
                     </form>
 				
