@@ -7,29 +7,64 @@
         {
             $boton = $_POST['Aceptar'];
             $id_usuario = $_POST['id_usuario'];
+            $id_producto = $_POST['id_producto'];
+            $id_star = $_POST['id_comentario'];
             $mensaje = $_POST['mensaje'];
             if ($boton == 1)
                 {
+                    # Obtener el id del usuario.
+					$query = mysqli_query($conn,"SELECT ID_registro FROM stars WHERE id_star = $id_star");
+					$data = mysqli_fetch_array($query);
+                    $usuario = $data['ID_registro'];
+
                     /* echo "comentario"; */
                     $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `notification`, `ID_registro`) 
-                                        VALUES (NULL, '$mensaje', '$id_usuario');");
+                                        VALUES (NULL, '$mensaje', '$usuario');");
                         # Se agrega la notificacion a la tbl
                     $result = mysqli_query($conn,$updatenotify);
 
+                        # Se elimina el comentario
+                    mysqli_query($conn, "SET FOREIGN_KEY_CHECKS = 0");
+                    mysqli_query($conn,"DELETE FROM stars WHERE id_star = $id_star ");
+                    mysqli_query($conn, "SET FOREIGN_KEY_CHECKS = 1");
+
                     $updatenestatus = ("UPDATE `reports` SET `estatus` = '1' 
                                         WHERE `reports`.`id_report` = $id_reporte;");
-                        # Se agrega la notificacion a la tbl
+                        # Se cambia el estatus de la tabla reportes(reports)
                     $result = mysqli_query($conn,$updatenestatus);
 
                     echo("<script>location.href = '../reports.php';</script>");
                 }
             elseif ($boton == 2)
                 {
-                    echo "Aceptado 2";
+                    /* echo "Producto"; */
+                    # Obtener el id del vendedor.
+					$query = mysqli_query($conn,"SELECT ID_registro FROM products WHERE id_product = $id_producto");
+					$data = mysqli_fetch_array($query);
+                    $seller = $data['ID_registro'];
+
+                    $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `notification`, `ID_registro`) 
+                                        VALUES (NULL, '$mensaje', '$seller');");
+                        # Se agrega la notificacion a la tbl
+                    $result = mysqli_query($conn,$updatenotify);
+
+                    $updatenestatus = ("UPDATE `reports` SET `estatus` = '2' 
+                                        WHERE `reports`.`id_report` = $id_reporte;");
+                        # Se cambia el estatus de la tabla reportes(reports)
+                    $result = mysqli_query($conn,$updatenestatus);
+                    
+                    $updatenestatus = ("UPDATE `products` SET `estatus` = 'Reportado' 
+                                        WHERE `products`.`id_product` = $id_producto;");
+                        # Se cambia el estado de la tabla productos(products)
+                    $result = mysqli_query($conn,$updatenestatus);
+
+                    echo("<script>location.href = '../reports.php';</script>");
                 }
             elseif ($boton == 3)
                 {
-                    echo "Aceptado 3";
+                    /* echo "Aceptado 3"; */
+
+                    
                 }
             elseif ($boton == 4)
                 {
@@ -84,7 +119,7 @@
                             break;
                             case 'Producto': 
                                     $ban = 2;
-                                    $mensaje = "Tu producto fue reportado.";
+                                    $mensaje = "Tu producto fue reportado, por infringir las normas, revisa tu proucto";
                                     # Obtener informacion de los productos
                                     $product = $data['id_product'];
                                     $getProducts = mysqli_query($conn,"SELECT * FROM products WHERE id_product = $product");
@@ -108,7 +143,7 @@
                             break;  
                             case 'Comentario Perfil':
                                     $ban = 3;
-                                    $mensaje =  "Tu perfil fue reportado";
+                                    $mensaje =  "Tu comentario fue reportado";
                                     # Obtener informacion de los comentarios a perfiles
                                     $comment = $data['id_comment'];
                                     $getComments = mysqli_query($conn,"SELECT * FROM profile_comments WHERE id_comment = $comment");
@@ -168,6 +203,8 @@
                     <form method="POST">
                     <div class="report-buttons">
                         <input type="hidden" value="<?php echo $usuario;?>" name="id_usuario">
+                        <input type="hidden" value="<?php echo $product;?>" name="id_producto">
+                        <input type="hidden" value="<?php echo $star;?>" name="id_comentario">
                         <input type="hidden" value="<?php echo $mensaje;?>" name="mensaje">
                         <button class="btn-choose decline" type="submit" name="Rechazar" value="<?php echo $ban;?>">Rechazar</button>
 					    <button class="btn-choose accept" type="submit" name="Aceptar" value="<?php echo $ban;?>">Aceptar</button>
