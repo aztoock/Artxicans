@@ -15,10 +15,15 @@
             $resultado = mysqli_query($conn, $query);
             if ( mysqli_num_rows($resultado) > 0 )  # Si existen datos, se actualizan
                 {
-                    
+                        # Actualizamos los datos obtenidos a la tbl sellers_data
+                    $query = (" UPDATE `sellers_data` 
+                                SET `description` = '$infoseller', `desc_art` = '$infoart', `location` = '$direccion' 
+                                WHERE `sellers_data`.`ID_registro` = $seler"); 
+                    $resul = mysqli_query($conn,$query);
                 }
             else
                 {
+                        # Insertamos los datos obtenidos en la tbl
                     $query = (" INSERT INTO `sellers_data` (`id_data`, `description`, `desc_art`, `location`, `ID_registro`) 
                                 VALUES (NULL, '$infoseller', '$infoart', '$direccion', '$seler')"); 
                     $resul = mysqli_query($conn,$query);
