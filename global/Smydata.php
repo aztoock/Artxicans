@@ -2,7 +2,60 @@
     $id_user = $_SESSION['id'];
     if ( isset($_POST['updatepassword']) )
         {
-            echo $id_user;
+                # Obtenemos las contraseñas de los input's
+            $oldpass = $_POST['oldpassword'];
+            $newpass = $_POST['newpassword'];
+            $repeatpass = $_POST['repeatpassword'];
+                # Buscamos la antigua contraseña almacenada
+            $sql = mysqli_query($conn,"SELECT Contraseña FROM registro WHERE ID = '$id_user'");
+            $res = mysqli_fetch_array($sql);
+                # Verificamos que la contraseña antigua coincida para proceder al cambio de contraseña
+            if ( $oldpass == $res['Contraseña'] )
+                {
+                        # Se verifica que las nuevas contraseñas coincidan
+                    if ( $newpass == $repeatpass )
+                        {
+                                # Actualizamos los datos a la nueva contraseña
+                            $updatepass = " UPDATE `registro` 
+                                            SET `Contraseña` = '$newpass' 
+                                            WHERE `registro`.`ID` = $id_user";
+                            mysqli_query($conn, $updatepass);
+                        }
+                    else
+                        {
+                            echo "La nueva contraseña no coincide";
+                        }
+                }
+            else
+                {
+                    echo "Contraseña antigua incorrecta";
+                }
+            
+        }
+    else if ( isset($_POST['updatedata']) )
+        {
+            $dire1 = $_POST['direccion1'];
+            $dire2 = $_POST['direccion2'];
+            $tel = $_POST['telefono'];
+            $instruc = $_POST['instrucciones'];
+
+            if ( empty($dire1) )
+                {
+                    echo "La direccion principal no puede quedar vacia.";
+                }
+            else 
+                {
+                    echo empty($tel);
+                    echo strlen($tel);
+                    if ( !empty($tel) && strlen($tel) == 10 )
+                        {
+                            echo "datos de telefono correctos.";
+                        }
+                    else
+                        {
+                            echo "datos de telefono incorrectos";
+                        }
+                }
         }
 ?>
 
@@ -12,6 +65,7 @@
     
     <form class="my-data mt-4" method="post" >
         <h2 align="center">Contraseña</h2>
+        <br>
         <div class="mb-3">
             <label for="password" class="form-label">Contraseña anterior</label>
             <input type="password" class="form-control input-width" name="oldpassword">
@@ -38,7 +92,8 @@
     if($res['direccion'] == 1){
 ?>
     <form class="my-data mt-4" method="post" >
-        <h2 align="center">Datos de direccion</h2>
+        <h2 align="center">Datos de direccion y telefono</h2>
+        <br>
 <?php 
         $query2 = mysqli_query($conn,"SELECT * FROM direcciones WHERE usuario_id = '$id_user'");
         $data2 = mysqli_fetch_array($query2);
