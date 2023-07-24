@@ -52,7 +52,7 @@
     <!-- Boton para pedidos -->
     <button class="btn btn-info mt-4" type="button" onclick="location.href='./orders.php'">Mis pedidos</button>
     <!-- Boton para editar datos -->
-   <button class="btn btn-outline-success mt-4" type="button" onclick="location.href='./mydata.php'">Editar datos</button>
+   <button class="btn btn-outline-success mt-4" type="button" onclick="location.href='mydata.php'">Editar datos</button>
    
    <button class="btn btn-danger mt-4" type="button" onclick="location.href='./global/logout.php'">Cerrar Sesion</button>
           
