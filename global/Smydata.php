@@ -38,18 +38,27 @@
             $dire2 = $_POST['direccion2'];
             $tel = $_POST['telefono'];
             $instruc = $_POST['instrucciones'];
-
+                # Verificamos que la direccion 1 no este vacia
             if ( empty($dire1) )
                 {
                     echo "La direccion principal no puede quedar vacia.";
                 }
             else 
                 {
-                    echo empty($tel);
-                    echo strlen($tel);
+                        # Verificamos que el telefono no este vacio y ademas que sea igual a 10 digitos
                     if ( !empty($tel) && strlen($tel) == 10 )
                         {
-                            echo "datos de telefono correctos.";
+                            if ( !empty($instruc) )
+                                {
+                                    $update = " UPDATE `direcciones` 
+                                                SET `direccion1` = '$dire1', `direccion2` = '$dire2', `telefono` = '$tel', `instrucciones` = '$instruc' 
+                                                WHERE `direcciones`.`usuario_id` = $id_user";
+                                    mysqli_query($conn,$update);
+                                }
+                            else
+                                {
+                                    echo "Las instrucciones no pueden quedar vacias.";
+                                }
                         }
                     else
                         {
