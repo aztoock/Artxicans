@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-07-2023 a las 06:36:53
+-- Tiempo de generación: 23-07-2023 a las 23:03:42
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `artxicans`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `admins`
+--
+
+CREATE TABLE `admins` (
+  `id_admin` int(11) NOT NULL,
+  `nombre` varchar(200) NOT NULL,
+  `correo` varchar(200) NOT NULL,
+  `contraseña` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `admins`
+--
+
+INSERT INTO `admins` (`id_admin`, `nombre`, `correo`, `contraseña`) VALUES
+(2, 'said', 'said@correo.com', '1234567'),
+(4, 'cristian jordan', 'cristian@correo.com', '123456');
 
 -- --------------------------------------------------------
 
@@ -79,139 +100,8 @@ CREATE TABLE `detalleventa` (
 --
 
 INSERT INTO `detalleventa` (`id`, `id_venta`, `id_producto`, `preciounitario`, `cantidad`, `ID_registro`) VALUES
-(1, 1, 17, 950.00, 1, NULL),
-(2, 2, 17, 950.00, 1, NULL),
-(3, 2, 10, 2000.00, 4, NULL),
-(4, 3, 17, 950.00, 1, NULL),
-(5, 3, 10, 2000.00, 4, NULL),
-(6, 4, 17, 950.00, 1, NULL),
-(7, 4, 10, 2000.00, 4, NULL),
-(8, 5, 17, 950.00, 1, NULL),
-(9, 5, 10, 2000.00, 4, NULL),
-(10, 6, 17, 950.00, 1, NULL),
-(11, 6, 10, 2000.00, 4, NULL),
-(12, 7, 17, 950.00, 2, NULL),
-(13, 7, 10, 2000.00, 4, NULL),
-(14, 8, 17, 950.00, 2, NULL),
-(15, 8, 10, 2000.00, 4, 8),
-(16, 9, 17, 950.00, 2, NULL),
-(17, 9, 10, 2000.00, 4, NULL),
-(18, 10, 17, 950.00, 2, 8),
-(19, 10, 10, 2000.00, 4, NULL),
-(20, 11, 17, 950.00, 1, NULL),
-(21, 11, 10, 2000.00, 1, NULL),
-(22, 12, 17, 950.00, 1, NULL),
-(23, 12, 10, 2000.00, 1, 8),
-(24, 13, 17, 950.00, 1, 8),
-(25, 13, 10, 2000.00, 1, 8),
-(26, 13, 14, 1500.00, 100, NULL),
-(27, 14, 17, 950.00, 1, NULL),
-(28, 14, 10, 2000.00, 1, NULL),
-(29, 14, 14, 1500.00, 100, NULL),
-(30, 15, 17, 950.00, 1, NULL),
-(31, 15, 10, 2000.00, 1, NULL),
-(32, 15, 14, 1500.00, 100, NULL),
-(33, 16, 17, 950.00, 1, NULL),
-(34, 16, 10, 2000.00, 1, NULL),
-(35, 16, 14, 1500.00, 100, NULL),
-(36, 17, 17, 950.00, 1, NULL),
-(37, 17, 10, 2000.00, 1, NULL),
-(38, 17, 14, 1500.00, 100, NULL),
-(39, 18, 17, 950.00, 1, NULL),
-(40, 18, 10, 2000.00, 1, NULL),
-(41, 18, 14, 1500.00, 100, NULL),
-(42, 19, 17, 950.00, 1, NULL),
-(43, 19, 10, 2000.00, 1, NULL),
-(44, 19, 14, 1500.00, 100, NULL),
-(45, 20, 17, 950.00, 1, NULL),
-(46, 20, 10, 2000.00, 1, NULL),
-(47, 20, 14, 1500.00, 100, NULL),
-(48, 21, 17, 950.00, 1, NULL),
-(49, 21, 10, 2000.00, 1, NULL),
-(50, 21, 14, 1500.00, 100, NULL),
-(51, 22, 17, 950.00, 1, NULL),
-(52, 22, 10, 2000.00, 1, NULL),
-(53, 22, 14, 1500.00, 100, NULL),
-(54, 23, 17, 950.00, 1, NULL),
-(55, 23, 10, 2000.00, 1, NULL),
-(56, 23, 14, 1500.00, 100, NULL),
-(57, 24, 17, 950.00, 1, NULL),
-(58, 24, 10, 2000.00, 1, NULL),
-(59, 24, 14, 1500.00, 100, NULL),
-(60, 25, 17, 950.00, 1, NULL),
-(61, 25, 10, 2000.00, 1, NULL),
-(62, 25, 14, 1500.00, 100, NULL),
-(63, 26, 17, 950.00, 1, NULL),
-(64, 26, 10, 2000.00, 1, NULL),
-(65, 26, 14, 1500.00, 100, NULL),
-(66, 26, 7, 400.00, 1, NULL),
-(67, 27, 17, 950.00, 1, NULL),
-(68, 27, 10, 2000.00, 1, NULL),
-(69, 27, 14, 1500.00, 100, NULL),
-(70, 27, 7, 400.00, 1, NULL),
-(71, 28, 7, 400.00, 1, NULL),
-(72, 29, 7, 400.00, 1, NULL),
-(73, 30, 7, 400.00, 1, NULL),
-(74, 30, 16, 800.00, 1, NULL),
-(75, 31, 7, 400.00, 1, NULL),
-(76, 31, 16, 800.00, 1, NULL),
-(77, 32, 7, 400.00, 1, NULL),
-(78, 33, 7, 400.00, 1, NULL),
-(79, 34, 15, 2500.00, 1, NULL),
-(80, 34, 18, 1700.00, 1, NULL),
-(81, 35, 15, 2500.00, 1, NULL),
-(82, 35, 18, 1700.00, 1, NULL),
-(83, 36, 15, 2500.00, 1, NULL),
-(84, 36, 18, 1700.00, 2, NULL),
-(85, 37, 15, 2500.00, 1, NULL),
-(86, 37, 18, 1700.00, 2, NULL),
-(87, 38, 18, 1700.00, 2, NULL),
-(88, 39, 18, 1700.00, 2, NULL),
-(89, 40, 20, 500.00, 1, NULL),
-(90, 43, 20, 500.00, 1, NULL),
-(91, 44, 20, 500.00, 1, NULL),
-(92, 45, 2, 450.00, 4, NULL),
-(93, 46, 2, 450.00, 4, NULL),
-(94, 47, 2, 450.00, 4, NULL),
-(95, 47, 4, 1300.00, 3, NULL),
-(96, 47, 13, 2000.00, 1, NULL),
-(97, 48, 2, 450.00, 4, NULL),
-(98, 48, 4, 1300.00, 3, NULL),
-(99, 48, 13, 2000.00, 1, NULL),
-(100, 49, 2, 450.00, 4, NULL),
-(101, 49, 13, 2000.00, 1, NULL),
-(102, 50, 15, 2500.00, 1, NULL),
-(103, 51, 15, 2500.00, 1, NULL),
-(104, 52, 15, 2500.00, 1, NULL),
-(105, 53, 15, 2500.00, 1, NULL),
-(106, 54, 15, 2500.00, 1, NULL),
-(107, 55, 15, 2500.00, 1, NULL),
-(108, 56, 15, 2500.00, 1, NULL),
-(109, 57, 15, 2500.00, 1, NULL),
-(110, 58, 15, 2500.00, 1, NULL),
-(111, 59, 15, 2500.00, 1, NULL),
-(112, 60, 16, 800.00, 100, NULL),
-(113, 61, 15, 2500.00, 1, NULL),
-(114, 62, 2, 450.00, 1, NULL),
-(115, 63, 13, 2000.00, 1, NULL),
-(116, 64, 5, 1100.00, 1, NULL),
-(117, 64, 2, 450.00, 1, NULL),
-(118, 65, 5, 1100.00, 3, NULL),
-(119, 65, 2, 450.00, 1, NULL),
-(120, 66, 5, 1100.00, 3, NULL),
-(121, 66, 2, 450.00, 5, NULL),
-(122, 67, 2, 450.00, 5, NULL),
-(123, 68, 2, 450.00, 5, NULL),
-(124, 69, 2, 450.00, 4, NULL),
-(125, 70, 2, 450.00, 1, NULL),
-(126, 71, 13, 2000.00, 1, NULL),
-(127, 72, 5, 1100.00, 3, 8),
-(128, 73, 3, 300.00, 1, 8),
-(129, 74, 8, 900.00, 1, NULL),
-(130, 75, 8, 900.00, 1, 8),
-(131, 76, 8, 900.00, 1, NULL),
-(132, 77, 8, 900.00, 1, NULL),
-(133, 78, 4, 50.00, 1, 8);
+(1, 79, 12, 8000.00, 1, 12),
+(2, 80, 9, 1100.00, 1, 12);
 
 -- --------------------------------------------------------
 
@@ -244,7 +134,8 @@ INSERT INTO `direcciones` (`id_direccion`, `usuario_id`, `nombre`, `direccion1`,
 (12, 6, 'Said Castillo', 'calle las flores #16', '', 'Tehuacan', 'Puebla', '', '68540', '2212054136', 'Casa de dos pisos con porton blanco, hay un perro que ladra mucho'),
 (13, 6, 'Said Castillo', 'calle las flores #16', '', 'Tehuacan', 'Puebla', '', '68540', '2212054136', 'Casa de dos pisos con porton blanco, hay un perro que ladra mucho'),
 (15, 8, 'Said', 'calle las flores #16', '', 'Tehuacan', 'Puebla', '', '68540', '1221910', 'Casa de dos pisos con porton blanco, hay un perro que ladra mucho'),
-(16, 9, 'Said', 'calle las flores #16', 'centro', 'Tehuacan', 'Puebla', 'Mexico', '68540', '2212054136', 'Casa de dos pisos con porton blanco, hay un perro que ladra mucho');
+(16, 9, 'Said', 'calle las flores #16', 'centro', 'Tehuacan', 'Puebla', 'Mexico', '68540', '2212054136', 'Casa de dos pisos con porton blanco, hay un perro que ladra mucho'),
+(17, 12, 'david', 'prueba david direccion 1', '', 'puebla', 'puebla', 'puebla', '72470', '2229259615', 'casa de dos pisos rustica, ubicada en la esquin exacta');
 
 -- --------------------------------------------------------
 
@@ -265,7 +156,33 @@ CREATE TABLE `notifications` (
 INSERT INTO `notifications` (`id_notif`, `notification`, `ID_registro`) VALUES
 (1, 'Solicitud de Vendedor Aceptada', 5),
 (2, 'Reporte de perfil', 5),
-(3, 'Aceptado bites', 11);
+(3, 'Aceptado bites', 11),
+(6, 'solicitud aseptada', 12),
+(7, 'jejejreje', 12),
+(8, 'laskdjfklasfd', 12),
+(12, '', 5),
+(13, '', 5),
+(14, 'Tu comentario fue reportado y ha sido eliminado.', 5),
+(15, 'Tu comentario fue reportado y ha sido eliminado.', 5),
+(16, 'Tu producto fue reportado, por infringir las normas, revisa tu proucto', 5),
+(17, 'Tu producto fue reportado, por infringir las normas, revisa tu proucto', 5),
+(18, 'Tu producto fue reportado, por infringir las normas, revisa tu proucto', 12),
+(19, 'Tu producto fue reportado, por infringir las normas, revisa tu proucto', 5),
+(20, 'Tu comentario fue reportado y ha sido eliminado.', 5),
+(21, 'Tu comentario fue reportado y ha sido eliminado.', 5),
+(22, 'Tu comentario fue reportado y ha sido eliminado.', 5),
+(23, 'Tu comentario fue reportado y ha sido eliminado.', 5),
+(24, 'Tu comentario fue reportado y ha sido eliminado.', 5),
+(25, 'Tu comentario fue reportado y ha sido eliminado.', 5),
+(26, 'Tu comentario fue reportado y ha sido eliminado.', 12),
+(27, 'Tu comentario fue reportado', 12),
+(28, 'Tu comentario fue reportado', 12),
+(29, 'Tu comentario en el perfil fue reportado', 12),
+(30, 'Tu comentario en el perfil fue reportado', 12),
+(31, 'Tu comentario en el perfil fue reportado', 12),
+(33, 'Tu comentario en el perfil fue reportado', 12),
+(34, 'Tu perfil de vendedor fue reportado.', 5),
+(35, 'usuario aceptado', 14);
 
 -- --------------------------------------------------------
 
@@ -284,7 +201,7 @@ CREATE TABLE `pay_account` (
 --
 
 INSERT INTO `pay_account` (`id_account`, `token`, `ID_registro`) VALUES
-(1, 'gutctycuyctyc7t5res45s43a324astc', 5);
+(1, 'token1234jejereje', 5);
 
 -- --------------------------------------------------------
 
@@ -302,22 +219,26 @@ CREATE TABLE `products` (
   `stock` int(11) NOT NULL,
   `image2` varchar(30) NOT NULL,
   `image3` varchar(30) NOT NULL,
-  `ID_registro` int(11) DEFAULT NULL
+  `ID_registro` int(11) DEFAULT NULL,
+  `estatus` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `products`
 --
 
-INSERT INTO `products` (`id_product`, `product`, `image1`, `price`, `description`, `category`, `stock`, `image2`, `image3`, `ID_registro`) VALUES
-(2, 'Vestido Bordado', 'blackdress.jpg', 500, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Ropa', 5, 'blackdress.jpg', 'blackdress.jpg', 5),
-(3, 'Collar de Ambar', 'ambar.jpg', 300, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Joyeria', 2, 'ambar.jpg', 'ambar.jpg', 5),
-(4, 'Guayabera azul', 'guayabera1.jpg', 50, 'Lorem ipsum dolor sit amet, consectetur adipiscing ', 'Ropa', 2, 'guayabera1.jpg', 'guayabera1.jpg', 7),
-(5, 'Corazon', 'corazon.jpg', 800, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Alebrije', 3, 'corazon.jpg', 'corazon.jpg', 5),
-(6, 'Armadillo gris', 'alebrije2.jpg', 600, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Alebrije', 4, 'alebrije2.jpg', 'alebrije2.jpg', 5),
-(8, 'Blusa Bordada', 'blouse.jpg', 900, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Ropa', -13, 'blouse.jpg', 'blouse.jpg', 5),
-(9, 'Gato Alebrije Gris', 'alebrije1.jpg', 400, 'Gato alebrije de madera ', 'Alebrije', 2, 'alebrije1.jpg', 'alebrije1.jpg', 5),
-(11, 'Sombrero Rojo', 'sombrero.jpg', 200, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Sombrero', 8, 'sombrero.jpg', 'sombrero.jpg', 5);
+INSERT INTO `products` (`id_product`, `product`, `image1`, `price`, `description`, `category`, `stock`, `image2`, `image3`, `ID_registro`, `estatus`) VALUES
+(1, 'Vestido Bordado', 'blackdress.jpg', 500, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Ropa', 5, 'blackdress.jpg', 'blackdress.jpg', 5, 'Aprobado'),
+(2, 'Collar de Ambar', 'ambar.jpg', 300, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Joyeria', 2, 'ambar.jpg', 'ambar.jpg', 5, 'Aprobado'),
+(3, 'Guayabera azul', 'guayabera1.jpg', 50, 'Lorem ipsum dolor sit amet, consectetur adipiscing ', 'Ropa', 2, 'guayabera1.jpg', 'guayabera1.jpg', 7, 'Aprobado'),
+(4, 'Corazon', 'corazon.jpg', 800, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Alebrije', 3, 'corazon.jpg', 'corazon.jpg', 5, 'Aprobado'),
+(5, 'Armadillo gris', 'alebrije2.jpg', 600, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Alebrije', 4, 'alebrije2.jpg', 'alebrije2.jpg', 5, 'Aprobado'),
+(6, 'Blusa Bordada', 'blouse.jpg', 900, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Ropa', 10, 'blouse.jpg', 'blouse.jpg', 5, 'Aprobado'),
+(7, 'Gato Alebrije Gris', 'alebrije1.jpg', 400, 'Gato alebrije de madera ', 'Alebrije', 2, 'alebrije1.jpg', 'alebrije1.jpg', 5, 'Aprobado'),
+(8, 'Sombrero Rojo', 'sombrero.jpg', 200, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Sombrero', 8, 'sombrero.jpg', 'sombrero.jpg', 5, 'Aprobado'),
+(9, 'Elefante', 'huichol.jpg', 1100, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum commodo leo et malesuada. Donec consectetur porttitor consectetur.', 'Huichol', 9, 'huichol.jpg', 'huichol.jpg', 5, 'Aprobado'),
+(11, 'zapatos tejidos v:', 'zapatos.jpg', 1500, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo, consectetur? Modi tenetur et sed voluptatibus! Suscipit repellendus aperiam sint optio doloribus quidem, fugit quas, aliquid culpa, quaerat voluptatum asperiores quo.', 'Zapatos', 0, 'zapatos.jpg', 'zapatos.jpg', 5, 'Aprobado'),
+(12, 'pollo rostizado', 'pollo.jpg', 8000, 'pollo de hoy con polvos magicos ', 'Otros', 2, 'pollo rostizado2.jpg', '', 12, 'Aprobado');
 
 -- --------------------------------------------------------
 
@@ -369,7 +290,9 @@ INSERT INTO `registro` (`ID`, `Nombre`, `Correo`, `Contraseña`, `estatus`, `dir
 (8, 'Marin', 'said3@gmail.com', 'said12345', 0, 1),
 (9, 'said cm', 'said5@gmail.com', 'said12345', 0, 1),
 (10, 'said', 'hola1@gmail.com', 'hola12345', 0, 0),
-(11, 'said cm', 'said4@gmail.com', 'said12345', 0, 0);
+(11, 'said cm', 'said4@gmail.com', 'said12345', 0, 0),
+(12, 'david', 'david@correo.com', '123456', 1, 1),
+(14, 'prueba204', 'prueba204@correo.com', '123456', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -397,9 +320,11 @@ CREATE TABLE `reg_sellers` (
 --
 
 INSERT INTO `reg_sellers` (`IDregseller`, `Nombre`, `apellidos`, `nickname`, `lada`, `telefono`, `telefonoref`, `domicilio`, `postal`, `identificador`, `solicitud`, `ID_registro`) VALUES
-(47, 'Said', 'Castillo Marin', 'Said557', 52, '2212054136', '2212054136', 'de las flores', '34850', 'Said557-identificacion.jpeg', 'Aprobado', 5),
+(47, 'Said', 'Castillo Marin', 'Said557', 52, '2212054136', '2212054136', 'de las flores', '34850', 'Said557-identificacion.jpeg', 'Reportado', 5),
 (48, 'Emmanuel', 'Castillo Marin', 'Castillo55', 52, '2212054136', '2212054136', 'de las flores', '34850', 'Castillo55-identificacion.jpeg', 'Aprobado', 7),
-(49, 'emmanuel', 'Castillo Marin', 'Deivi', 52, '1221910', '2212054136', 'de las flores', '34850', 'Deivi-identificacion.jpeg', 'Pendiente', 11);
+(49, 'emmanuel', 'Castillo Marin', 'Deivi', 52, '1221910', '2212054136', 'de las flores', '34850', 'Deivi-identificacion.jpeg', 'Pendiente', 11),
+(51, 'david', 'prueba1', 'davidcokie69', 52, '2229259615', '2229259615', 'domicilio de prueba para david', '72470', 'casa 1 piso rustica', 'Aprobado', 12),
+(52, 'prueba204', 'ninguno', 'error 404', 52, '2229259600', '7563704', 'prueba204, de domicilio', '72470', 'error 404-identificacion.jpeg', 'Aprobado', 14);
 
 -- --------------------------------------------------------
 
@@ -416,23 +341,31 @@ CREATE TABLE `reports` (
   `id_star` int(11) DEFAULT NULL,
   `id_comment` int(11) DEFAULT NULL,
   `seller` int(11) DEFAULT NULL,
-  `buyer` int(11) DEFAULT NULL
+  `buyer` int(11) DEFAULT NULL,
+  `estatus` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `reports`
 --
 
-INSERT INTO `reports` (`id_report`, `report`, `type`, `ID_registro`, `id_product`, `id_star`, `id_comment`, `seller`, `buyer`) VALUES
-(5, '', 'Comentario', 5, 2, 1, NULL, NULL, NULL),
-(9, 'hola', 'Producto', 5, 2, NULL, NULL, NULL, NULL),
-(10, 'hola', 'Producto', 5, 2, NULL, NULL, NULL, NULL),
-(11, 'Hola', 'Producto', 5, 8, NULL, NULL, NULL, NULL),
-(12, '', 'Comentario Perfil', 5, NULL, NULL, 3, NULL, NULL),
-(13, '', 'Comentario Perfil', 5, NULL, NULL, 1, NULL, NULL),
-(14, '', 'Comentario Perfil', 5, NULL, NULL, 2, NULL, NULL),
-(15, 'hola hola', 'Vendedor', 7, NULL, NULL, NULL, 5, NULL),
-(16, 'HOLA', 'Vendedor', 7, NULL, NULL, NULL, 5, NULL);
+INSERT INTO `reports` (`id_report`, `report`, `type`, `ID_registro`, `id_product`, `id_star`, `id_comment`, `seller`, `buyer`, `estatus`) VALUES
+(1, 'prueba de reporte 1', 'Comentario', 5, 2, 21, NULL, NULL, NULL, 1),
+(2, 'hola', 'Producto', 5, 2, NULL, NULL, NULL, NULL, 0),
+(3, 'hola', 'Producto', 5, 2, NULL, NULL, NULL, NULL, 0),
+(4, 'Hola', 'Producto', 5, 8, NULL, NULL, NULL, NULL, 0),
+(6, '', 'Comentario Perfil', 5, NULL, NULL, 1, NULL, NULL, 1),
+(7, '', 'Comentario Perfil', 5, NULL, NULL, 2, NULL, NULL, 1),
+(8, 'hola hola', 'Vendedor', 7, NULL, NULL, NULL, 5, NULL, 0),
+(9, 'HOLA', 'Vendedor', 7, NULL, NULL, NULL, 5, NULL, 0),
+(12, 'reporte de prueba 2', 'Producto', 12, 12, NULL, NULL, NULL, NULL, 0),
+(14, 'prueba de reporte 4  pollo demaciado caro', 'Producto', 5, 12, NULL, NULL, NULL, NULL, 2),
+(15, 'este producto esta en la categoria incorrecta', 'Producto', 12, 6, NULL, NULL, NULL, NULL, 2),
+(16, 'Tu comentario fue reportado', 'Comentario', 5, 6, 24, NULL, NULL, NULL, 1),
+(17, 'Tu comentario fue reportado', 'Comentario', 5, 6, 25, NULL, NULL, NULL, 1),
+(18, 'Reporte comentario en perfil', 'Comentario Perfil', 5, NULL, NULL, 4, NULL, NULL, 1),
+(19, 'Reporte comentario en perfil', 'Comentario Perfil', 5, NULL, NULL, 5, NULL, NULL, 1),
+(20, 'prueba de reporte de perfil', 'Vendedor', 12, NULL, NULL, NULL, 5, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -453,7 +386,8 @@ CREATE TABLE `sellers_data` (
 --
 
 INSERT INTO `sellers_data` (`id_data`, `description`, `desc_art`, `location`, `ID_registro`) VALUES
-(1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Oaxaca centro, Oaxaca.', 5);
+(1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Oaxaca centro, Oaxaca.', 5),
+(5, '404', '404', '404', 14);
 
 -- --------------------------------------------------------
 
@@ -474,17 +408,18 @@ CREATE TABLE `stars` (
 --
 
 INSERT INTO `stars` (`id_star`, `star`, `comment`, `ID_registro`, `id_product`) VALUES
-(1, 4, 'Good!', 6, 2),
-(2, 5, 'Nice!\r\n', 7, 2),
-(4, 0, 'Lorem ipsum dolor di falure dnaiowndawaiubd ojandiwadawbod wib 1290u091u30912 inwaodnaoidnaoiwndaow', 8, 2),
-(5, 5, 'Good!', 6, 6),
-(6, 4, 'I like it', 6, 5),
-(7, 1, 'Nop', 6, 9),
-(8, 3, 'Nice!', 7, 3),
-(9, 5, 'I like it', 7, 6),
-(10, 4, 'Nice!', 7, 8),
-(11, 3, 'Good!', 8, 8),
-(12, 5, 'Awesome!', 8, 6);
+(12, 4, 'Good!', 6, 2),
+(13, 5, 'Nice!\r\n', 7, 2),
+(14, 0, 'Lorem ipsum dolor di falure dnaiowndawaiubd ojandiwadawbod wib 1290u091u30912 inwaodnaoidnaoiwndaow', 8, 2),
+(15, 5, 'Good!', 6, 6),
+(16, 4, 'I like it', 6, 5),
+(17, 1, 'Nop', 6, 9),
+(18, 3, 'Nice!', 7, 3),
+(19, 5, 'I like it', 7, 6),
+(20, 4, 'Nice!', 7, 8),
+(21, 3, 'Good!', 8, 8),
+(22, 5, 'Awesome!', 8, 6),
+(23, 5, 'muy buen pollo', 12, 12);
 
 -- --------------------------------------------------------
 
@@ -586,11 +521,19 @@ INSERT INTO `ventas` (`id_venta`, `clavetransaccion`, `paypaldatos`, `fecha`, `c
 (75, 'hd9gufktn5vpjl8oueh863tfsj', '', '2023-07-02 12:30:26', 'said3@gmail.com', 900.00, 'pendiente', ''),
 (76, 'hd9gufktn5vpjl8oueh863tfsj', '', '2023-07-02 12:32:37', 'said3@gmail.com', 900.00, 'pendiente', ''),
 (77, 'hd9gufktn5vpjl8oueh863tfsj', '{\"id\":\"PAYID-MSQ4EDQ6NB507046F7024129\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"2MA75923NC632410V\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"900.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"900.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $900.00\",\"custom\":\" hd9gufktn5vpjl8oueh863tfsj#zAzapGxLfD6RkVWP8qUJpg==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"0D215319U9000792H\",\"state\":\"completed\",\"amount\":{\"total\":\"900.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"900.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"34.60\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"900.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSQ4EDQ6NB507046F7024129\",\"create_time\":\"2023-07-02T20:06:32Z\",\"update_time\":\"2023-07-02T20:06:32Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/0D215319U9000792H\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/0D215319U9000792H/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSQ4EDQ6NB507046F7024129\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-07-02T18:29:34Z\",\"update_time\":\"2023-07-02T20:06:32Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSQ4EDQ6NB507046F7024129\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-07-02 12:33:07', 'said3@gmail.com', 900.00, 'completo', 'Pendiente'),
-(78, 'g91hk1kq3ehmj7e1a6u745jr29', '{\"id\":\"PAYID-MSREDNQ51233789LS302082A\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"0LW84173X9438213H\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"50.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"50.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $50.00\",\"custom\":\" g91hk1kq3ehmj7e1a6u745jr29#ckC10JPNFnba21zb2jSQSQ==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"16H241353M283561H\",\"state\":\"completed\",\"amount\":{\"total\":\"50.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"50.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"5.70\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"50.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSREDNQ51233789LS302082A\",\"create_time\":\"2023-07-03T03:37:00Z\",\"update_time\":\"2023-07-03T03:37:00Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/16H241353M283561H\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/16H241353M283561H/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSREDNQ51233789LS302082A\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-07-03T03:34:14Z\",\"update_time\":\"2023-07-03T03:37:00Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSREDNQ51233789LS302082A\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-07-02 21:38:14', 'said3@gmail.com', 50.00, 'completo', 'Enviado');
+(78, 'g91hk1kq3ehmj7e1a6u745jr29', '{\"id\":\"PAYID-MSREDNQ51233789LS302082A\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"0LW84173X9438213H\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"50.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"50.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $50.00\",\"custom\":\" g91hk1kq3ehmj7e1a6u745jr29#ckC10JPNFnba21zb2jSQSQ==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"16H241353M283561H\",\"state\":\"completed\",\"amount\":{\"total\":\"50.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"50.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"5.70\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"50.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSREDNQ51233789LS302082A\",\"create_time\":\"2023-07-03T03:37:00Z\",\"update_time\":\"2023-07-03T03:37:00Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/16H241353M283561H\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/16H241353M283561H/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSREDNQ51233789LS302082A\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-07-03T03:34:14Z\",\"update_time\":\"2023-07-03T03:37:00Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSREDNQ51233789LS302082A\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-07-02 21:38:14', 'said3@gmail.com', 50.00, 'completo', 'Enviado'),
+(79, '1v5298n3kkhg8vl74v512e94n0', '{\"id\":\"PAYID-MSYKYAQ6U801655NE221954P\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"3TS039266E754922V\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"8000.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"8000.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $8,000.00\",\"custom\":\" 1v5298n3kkhg8vl74v512e94n0#gacXH4RRRiXzUVqpeuMFUQ==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"0DY82514HD189911U\",\"state\":\"completed\",\"amount\":{\"total\":\"8000.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"8000.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"276.00\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"8000.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MSYKYAQ6U801655NE221954P\",\"create_time\":\"2023-07-14T01:59:40Z\",\"update_time\":\"2023-07-14T01:59:40Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/0DY82514HD189911U\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/0DY82514HD189911U/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSYKYAQ6U801655NE221954P\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-07-14T01:59:30Z\",\"update_time\":\"2023-07-14T01:59:40Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MSYKYAQ6U801655NE221954P\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-07-13 19:59:28', 'david@correo.com', 8000.00, 'completo', 'Pendiente'),
+(80, 'hfn68tpfv3qu0vdap0u0v4k1k6', '{\"id\":\"PAYID-MS2HQQQ62D90535RL193353V\",\"intent\":\"sale\",\"state\":\"approved\",\"cart\":\"6V994322AW255394M\",\"payer\":{\"payment_method\":\"paypal\",\"status\":\"VERIFIED\",\"payer_info\":{\"email\":\"sb-bnzvr26405391@personal.example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"payer_id\":\"MHYE6SWGLG5YJ\",\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"},\"phone\":\"9069627403\",\"country_code\":\"ES\"}},\"transactions\":[{\"amount\":{\"total\":\"1100.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"1100.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payee\":{\"merchant_id\":\"RBLPJCH5RHYFE\",\"email\":\"sb-calho26405263@business.example.com\"},\"description\":\" Compra a Artxicans $1,100.00\",\"custom\":\" hfn68tpfv3qu0vdap0u0v4k1k6#3EJUUAnNnV6BnZYG/iqd+g==\",\"soft_descriptor\":\"PAYPAL *TEST STORE\",\"item_list\":{\"shipping_address\":{\"recipient_name\":\"John Doe\",\"line1\":\"calle Vilamari 76993- 17469\",\"city\":\"Albacete\",\"state\":\"Albacete\",\"postal_code\":\"02001\",\"country_code\":\"ES\"}},\"related_resources\":[{\"sale\":{\"id\":\"2CL957185S277101K\",\"state\":\"completed\",\"amount\":{\"total\":\"1100.00\",\"currency\":\"MXN\",\"details\":{\"subtotal\":\"1100.00\",\"shipping\":\"0.00\",\"insurance\":\"0.00\",\"handling_fee\":\"0.00\",\"shipping_discount\":\"0.00\",\"discount\":\"0.00\"}},\"payment_mode\":\"INSTANT_TRANSFER\",\"protection_eligibility\":\"ELIGIBLE\",\"protection_eligibility_type\":\"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE\",\"transaction_fee\":{\"value\":\"41.40\",\"currency\":\"MXN\"},\"receivable_amount\":{\"value\":\"1100.00\",\"currency\":\"MXN\"},\"exchange_rate\":\"21.30602113214266\",\"parent_payment\":\"PAYID-MS2HQQQ62D90535RL193353V\",\"create_time\":\"2023-07-16T23:08:02Z\",\"update_time\":\"2023-07-16T23:08:02Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/2CL957185S277101K\",\"rel\":\"self\",\"method\":\"GET\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/sale/2CL957185S277101K/refund\",\"rel\":\"refund\",\"method\":\"POST\"},{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MS2HQQQ62D90535RL193353V\",\"rel\":\"parent_payment\",\"method\":\"GET\"}],\"soft_descriptor\":\"PAYPAL *TEST STORE\"}}]}],\"create_time\":\"2023-07-16T23:07:46Z\",\"update_time\":\"2023-07-16T23:08:02Z\",\"links\":[{\"href\":\"https://api.sandbox.paypal.com/v1/payments/payment/PAYID-MS2HQQQ62D90535RL193353V\",\"rel\":\"self\",\"method\":\"GET\"}]}', '2023-07-16 17:07:43', 'david@correo.com', 1100.00, 'completo', 'Pendiente');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id_admin`);
 
 --
 -- Indices de la tabla `chats`
@@ -696,6 +639,12 @@ ALTER TABLE `ventas`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT de la tabla `chats`
 --
 ALTER TABLE `chats`
@@ -705,19 +654,19 @@ ALTER TABLE `chats`
 -- AUTO_INCREMENT de la tabla `detalleventa`
 --
 ALTER TABLE `detalleventa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `direcciones`
 --
 ALTER TABLE `direcciones`
-  MODIFY `id_direccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_direccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id_notif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_notif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `pay_account`
@@ -729,49 +678,49 @@ ALTER TABLE `pay_account`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `profile_comments`
 --
 ALTER TABLE `profile_comments`
-  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `registro`
 --
 ALTER TABLE `registro`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `reg_sellers`
 --
 ALTER TABLE `reg_sellers`
-  MODIFY `IDregseller` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `IDregseller` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT de la tabla `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `id_report` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_report` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `sellers_data`
 --
 ALTER TABLE `sellers_data`
-  MODIFY `id_data` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_data` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `stars`
 --
 ALTER TABLE `stars`
-  MODIFY `id_star` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_star` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- Restricciones para tablas volcadas
@@ -788,7 +737,9 @@ ALTER TABLE `chats`
 -- Filtros para la tabla `detalleventa`
 --
 ALTER TABLE `detalleventa`
-  ADD CONSTRAINT `detalleventa_ibfk_1` FOREIGN KEY (`ID_registro`) REFERENCES `registro` (`ID`);
+  ADD CONSTRAINT `detalleventa_ibfk_1` FOREIGN KEY (`ID_registro`) REFERENCES `registro` (`ID`),
+  ADD CONSTRAINT `detalleventa_ibfk_2` FOREIGN KEY (`id_venta`) REFERENCES `ventas` (`id_venta`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `detalleventa_ibfk_3` FOREIGN KEY (`id_producto`) REFERENCES `products` (`id_product`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `notifications`
@@ -826,12 +777,12 @@ ALTER TABLE `reg_sellers`
 --
 ALTER TABLE `reports`
   ADD CONSTRAINT `reports_ibfk_1` FOREIGN KEY (`ID_registro`) REFERENCES `registro` (`ID`),
-  ADD CONSTRAINT `reports_ibfk_2` FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`),
   ADD CONSTRAINT `reports_ibfk_3` FOREIGN KEY (`id_star`) REFERENCES `stars` (`id_star`),
   ADD CONSTRAINT `reports_ibfk_4` FOREIGN KEY (`id_comment`) REFERENCES `profile_comments` (`id_comment`),
   ADD CONSTRAINT `reports_ibfk_5` FOREIGN KEY (`ID_registro`) REFERENCES `registro` (`ID`),
   ADD CONSTRAINT `reports_ibfk_6` FOREIGN KEY (`seller`) REFERENCES `registro` (`ID`),
-  ADD CONSTRAINT `reports_ibfk_7` FOREIGN KEY (`buyer`) REFERENCES `registro` (`ID`);
+  ADD CONSTRAINT `reports_ibfk_7` FOREIGN KEY (`buyer`) REFERENCES `registro` (`ID`),
+  ADD CONSTRAINT `reports_ibfk_8` FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`);
 
 --
 -- Filtros para la tabla `sellers_data`
