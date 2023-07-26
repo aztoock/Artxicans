@@ -1,6 +1,7 @@
 <?php 
     include('./templates/cabecera.php');
     include('./global/conexion.php');  
+    include('./helpers/loader.php');
     if(@!$_SESSION['roll']){
       echo("<script>location.href = './index.php';</script>");
     } 
@@ -145,7 +146,7 @@
 <?php }else{?>
 
 <div class="alert alert-warning" role="alert">
-  Aun no tienes un producto activo presiona <a href="add-product.php" class="alert-link">Agregar producto</a> para registrar alguno de tus productos.
+  Aun no tienes un producto activo presiona <a href="#" class="alert-link">Agregar producto</a> para registrar alguno de tus productos.
 </div>
 <?php }?>
    

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php
+<?php 
 session_start();
 include('../global/conexion.php');
 include('helpers/session.php');
@@ -88,15 +88,7 @@ include('helpers/session.php');
 		<nav>
 			<i class='bx bx-menu' ></i>
 			<a href="./admin.php"><i class='bx bxs-user-circle bx-md'></i></a>
-			<!-- <input type="checkbox" id="switch-mode" hidden>
-			<label for="switch-mode" class="switch-mode"></label>
-			<a href="#" class="notification">
-				<i class='bx bxs-bell' ></i>
-				<span class="num">8</span>
-			</a>
-			<a href="#" class="profile">
-				<img src="img/people.png">
-			</a> -->
+			
 		</nav>
 		<!-- NAVBAR -->
 
@@ -111,14 +103,11 @@ include('helpers/session.php');
 						</li>
 						<li><i class='bx bx-chevron-right' ></i></li>
 						<li>
-							<a class="active" href="#">Inicio</a>
+							<a class="active" href="./menu.php">Inicio</a>
 						</li>
 					</ul>
 				</div>
-				<!-- <a href="#" class="btn-download">
-					<i class='bx bxs-cloud-download' ></i>
-					<span class="text">Download PDF</span>
-				</a> -->
+			
 			</div>
 
 			<?php include('./helpers/counters.php');?>
@@ -126,7 +115,7 @@ include('helpers/session.php');
 				<li>
 					<i class='bx bxs-shopping-bag-alt' ></i>
 					<span class="text">
-						<h3>10</h3>
+						<h3><?php echo $orders?></h3>
 						<p>Nuevos pedidos</p>
 					</span>
 				</li>
@@ -161,7 +150,7 @@ include('helpers/session.php');
 				<li>
 					<i class='bx bxs-select-multiple' ></i>
 					<span class="text">
-						<h3>10</h3>
+						<h3><?php echo $req_products?></h3>
 						<p>Solicitud de productos</p>
 					</span>
 				</li>

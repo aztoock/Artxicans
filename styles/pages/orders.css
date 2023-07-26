@@ -1,0 +1,32 @@
+.order-data{
+    margin: 1.5rem auto;
+    width: 90vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap; 
+    gap: 0.5rem;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    border-radius: 10px;
+}
+.order-data h2{
+    margin: 2rem 0;
+    color: var(--second-alpha-color);
+    font-weight: bold;
+}
+.order-data p strong{
+    font-weight: 500;
+}
+.order-data .order-number{
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+    
+}
+@media screen and (min-width:768px){
+    .order-data{
+        width: 70vw;
+    }
+}

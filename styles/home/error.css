@@ -1,0 +1,36 @@
+body{
+    background-color: #A8DBFA;
+    background: linear-gradient(90deg, rgb(211, 245, 207) 0%, #A8DBFA 30%, #635EE2);
+}
+.error{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+.image-error img{
+    object-fit: cover;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+}
+.error h1{
+    font-family: "Henny Penny", cursive;
+	letter-spacing: 0.0015em;
+    font-size: 4em;
+	text-shadow: 0 1px var( --first-alpha-color), -1px 0 #f57c51, -1px 2px #8fa679, -2px 1px #c0cbff,
+		-2px 3px var( --first-alpha-color), -3px 2px #f57c51, -3px 4px #8fa679, -4px 3px #c0cbff,
+		-4px 5px var( --first-alpha-color), -5px 4px #f57c51, -5px 6px #8fa679, -6px 5px #c0cbff,
+		-6px 7px var( --first-alpha-color), -7px 6px #f57c51, -7px 8px #8fa679, -8px 7px #c0cbff;
+	text-align: center;
+}
+.error h4{
+   font-size: 2rem;
+   letter-spacing: 0.0015em; 
+   text-align: center;
+}
+
+.error button{
+    margin: 1rem 0;
+}

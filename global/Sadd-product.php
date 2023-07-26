@@ -94,11 +94,11 @@
 
                             #echo $image1." _ ".$image2." _ ".$image3;
 
-                            $sql = ("   INSERT INTO `products` (`id_product`, `product`, `image1`, `price`, `description`, `category`, `stock`, `image2`, `image3`, `ID_registro`,`estatus`) 
-                                        VALUES (NULL, '$producto', '$image1', '$precio', '$descripcion', '$categoria', '$cantidad', '$image2', '$image3', '$idusuario', 'Pendiente');");
+                            $sql = ("   INSERT INTO `products` (`id_product`, `product`, `image1`, `price`, `description`, `category`, `stock`, `image2`, `image3`, `ID_registro`) 
+                                        VALUES (NULL, '$producto', '$image1', '$precio', '$descripcion', '$categoria', '$cantidad', '$image2', '$image3', '$idusuario');");
                             $result = mysqli_query($conn,$sql);
-                            $men .= "Producto registrado con exito.";
-                            echo("<script>location.href = 'productList.php';</script>");
+                            /* $men .= "Producto registrado con exito."; */
+                            echo("<script>location.href = './upload-product.php';</script>");
                         }
                 }
             else

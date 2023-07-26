@@ -51,9 +51,7 @@
 <!-- Choose -->
 <div class="d-grid gap-2 d-md-flex justify-content-start cat">
   <button class="btn btn-secondary me-md-2 mb-2 mt-5 categories-btn" type="button" onclick="location.href='categories.php'"><img src="./assets/utilities/categorias.png" class="categories-icon" alt="categories-icon"> Ir a categorias</button>
-  
 </div>
-
 
 
   
@@ -63,7 +61,7 @@
   
    <div class='mainContent grid' id="mainContent">    
    <?php 
-         $result = $conn ->query("SELECT * FROM products WHERE stock > 0 AND estatus = 'Aprobado' ORDER BY rand() LIMIT 8") or die ($conn->error);
+         $result = $conn ->query("SELECT DISTINCT * FROM products WHERE stock > 0 AND estatus = 'Aprobado' ORDER BY rand() LIMIT 12 ") or die ($conn->error);
          while($row = mysqli_fetch_assoc($result)){
   ?>    
 
@@ -100,11 +98,53 @@
       </div>
       <!-- Loader Finish -->
 
-      <div id="id-load" class="load-more">
+      <center id="id-load" class="load-more">
         <button id="load-more" data-id="<?php echo $id;?>">Ver más</button>
-    </div>
+      </center>
+
+     <!-- Carousel categories -->
+      <?php 
+        include('./helpers/categories-index.php');
+      ?>
+     
+
+<!-- Invite to sell -->
+<article class="hero-info">
+  <div>
+    <p>Únete para vender en <strong>ARTXICANS</strong></p>
+    <img src="./assets/material/image-error.jpg" alt="hero-image" width="200px" height="200px">
+    <button class="btn-hero" onclick="location.href='./about.php'">Vender ahora</button>
+  </div>
+</article>
+
+<!-- Info  -->
+<article class="services">
+      <div class="service">
+        <i class='bx bxs-credit-card bx-lg'></i>
+        <p>Pago Seguro</p>
+      </div>
+      <div class="service">
+        <i class='bx bxs-lock-alt bx-lg'></i>
+        <p>Datos Protegidos</p>
+      </div>
+      <div class="service">
+        <i class='bx bx-package bx-lg'></i>
+        <p>Envio Seguro</p>
+      </div>
+</article>
+
+<!-- About -->
+<article class="hero-info">
+  <div>
+    <p>Conoce más sobre <strong>ARTXICANS</strong></p>
+    <img src="./assets/material/artxican1.jpg" alt="hero-image" width="150px" height="150px">
+    <button class="btn-hero" onclick="location.href='./about.php'">Acerca de nosotros</button>
+  </div>
+</article>
+
     </section>
-    
+     
+   
  
 
    

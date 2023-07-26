@@ -13,6 +13,7 @@ include('helpers/session.php');
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="estilos.css">
 
 	<title>Artxicans -Panel</title>
 </head>
@@ -81,7 +82,11 @@ include('helpers/session.php');
 	<!-- SIDEBAR -->
 
 
-
+<style>
+	#content{
+		width:100%;
+	}
+</style>
 	<!-- CONTENT -->
 	<section id="content">
 		<!-- NAVBAR -->
@@ -94,7 +99,8 @@ include('helpers/session.php');
 
 		<!-- MAIN -->
 		<main>
-			<div class="head-title">
+
+		<div class="head-title">
 				<div class="left">
 					<h1></h1>
 					<ul class="breadcrumb">
@@ -110,13 +116,20 @@ include('helpers/session.php');
 			
 			</div>
 
-			<div class="table-data">
-				<div class="order">
-					<div class="head">
-						<h3>Lista de Reportes</h3>
-						
-					</div>
-					<table>
+<div class="table-data">
+	<div class="order wrapper">
+		
+
+ <div class="buttonWrapper">
+  <button class="tab-button active"  data-id="list">Lista de Reportes</button>
+  
+  <button class="tab-button"  data-id="other-list">Reportes en Revisión</button>
+</div> 
+
+
+ <div class="contentWrapper"> 
+	
+ 	 <table class="content active" id="list">
 						<thead>
 							<tr>
 								<th>Tipo de reporte</th>
@@ -140,17 +153,44 @@ include('helpers/session.php');
 						<?php }?>
 							
 						</tbody>
-					</table>
-				</div>
-			
+					</table> 
+<!-- Segunda tabla, tabla de reportes en revision. -->
 
+			  <table class="content" id="other-list">
+						 <thead>
+							<tr>
+								<th>Tipo de reporte</th>
+								<th>Información</th>
+							</tr>
+						 </thead>
+						 <tbody>
+
+								<tr>
+									<td>
+										<img src="../assets/utilities/reporte.png">
+										<p>NahuaGod69</p>
+									</td>
+									<td><a href="#"><span class="status completed">Ver info</span></a></td>
+								</tr>
+
+						 </tbody>
+					</table>  
+
+
+  
+
+ </div> 
+
+
+
+</div><!-- Order -->
+</div><!-- Tabledata -->
 
 		
 		</main>
 		<!-- MAIN -->
 	</section>
 	<!-- CONTENT -->
-	
 
 	<script src="script.js"></script>
 </body>

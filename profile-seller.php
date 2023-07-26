@@ -1,6 +1,7 @@
 <?php 
     include('./templates/cabecera.php');
     include('./global/conexion.php');
+    include('./helpers/loader.php');
     # Obtenemos el id del vendedor
     $user = $_GET['seller_data'];
     # Hacemos consulta para obtener los datos que se encuentran en la tabla reg_sellers

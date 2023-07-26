@@ -1,6 +1,7 @@
 <?php 
 include('./global/conexion.php');
 include('./templates/cabecera.php');
+include('./helpers/loader.php');
 
 $id_u = $_SESSION['id'];
 $query = mysqli_query($conn,"SELECT * FROM products INNER JOIN detalleventa 

@@ -1,6 +1,7 @@
 <?php 
     include('./global/conexion.php');
     include('./templates/cabecera.php');
+    include('./helpers/loader.php');
 ?>
     <section class="about">
         <h1 align="center">Acerca de nosotros</h1>
@@ -24,6 +25,23 @@
            La plataforma busca que los compradores y vendedores puedan crecer en negocios para impulsar aun más las diversas artesanías que tiene México. 
 
         </p>
+        <article class="grid-layers">
+            <div class="lay-item">
+                <img src="./assets/material/artxican1.jpg" alt="artesano">   
+            </div>
+            <div class="lay-item">
+                <img src="./assets/material/img1.jpg" alt="image">   
+            </div>
+            <div class="lay-item">
+                <img src="./assets/material/wow.jpg" alt="turista">  
+            </div>
+            <div class="lay-item">
+                <img src="./assets/material/artx1.jpg" alt="art">   
+            </div>
+            <div class="lay-item">
+                <img class="item-logo" src="./assets/logo/imgimg.jpg" alt="logo"> 
+            </div>
+        </article>
     </section>
 
 <?php 

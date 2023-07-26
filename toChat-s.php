@@ -1,6 +1,7 @@
 <?php
     include('./global/conexion.php');
     include('./templates/cabecera.php');
+    include('./helpers/loader.php');
     if(!@$_SESSION['user']){ 
         echo("<script>location.href = '../index.php';</script>");  
     }
@@ -10,6 +11,7 @@
     $query = mysqli_query($conn, "SELECT * FROM registro WHERE ID= $id_chat");
     $data = mysqli_fetch_array($query);
 ?>
+<div id="chat-id"></div>
 <!-- Header del chat, mostrando con que usuario estan chateando-->
    <div class="header-chat" align="center">
             <?php echo $data['Nombre']?>
@@ -36,6 +38,7 @@
                 
                 ?>
                 <div class="user-answer" id="answer">
+                
                     <div class="alert alert-primary width-user" role="alert">
                        <?php echo $data_message['chat']?>
                     </div>
@@ -43,9 +46,9 @@
         </div> 
         <?php }}?>
         
-        <div id="chat-id"></div>
+        
     </section>
-    <div class="footer-chat mt-2" >
+    <div class="footer-chat mt-1" >
     <form method="POST" action="./helpers/message_seller.php?chat=<?php echo base64_encode($id_chat)?>">
     <div class="mb-3 w-75 mx-auto">
                     

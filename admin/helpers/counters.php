@@ -1,7 +1,9 @@
 <?php 
 
     # Contador de Pedidos
-    
+    $query = mysqli_query($conn,"SELECT COUNT(*) orders FROM ventas WHERE estatus = 'completo'");
+    $data = mysqli_fetch_array($query);
+    $orders = $data['orders'];
     # Contador de Vendedores
     $query2 = mysqli_query($conn,"SELECT COUNT(*) sellers FROM reg_sellers WHERE solicitud = 'Aprobado'");
     $data2 = mysqli_fetch_array($query2);
@@ -23,4 +25,7 @@
     $req_sellers = $data5['solicitudes'];
 
     # Contador de solicitudes de productos
+    $query6 = mysqli_query($conn,"SELECT COUNT(*) solicitudesP FROM products WHERE estatus = ''");
+    $data6 = mysqli_fetch_array($query6);
+    $req_products = $data6['solicitudesP'];
 ?>

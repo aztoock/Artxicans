@@ -1,7 +1,10 @@
 <?php 
     include('./templates/cabecera.php');
     include('./global/conexion.php');
-
+    include('./helpers/loader.php');
+    if(@!$_SESSION['roll']){
+      echo("<script>location.href = './index.php';</script>");
+    } 
 ?>
     <section class="add-proudcts">
 
@@ -33,11 +36,25 @@
 </div>
 <div class="input-group">
   <label for="descripcion">Descripcion:</label>
-  <input type="text" name="descripcion" id="descripcion">
+  <!-- <input type="text" name="descripcion" id="descripcion"> -->
+  <textarea name="descripcion" id="descripcion" style="resize:none;width:100%;height:5rem"></textarea>
+  
 </div>
 <div class="input-group">
   <label for="categoria">Categoria:</label>
-  <input type="text" name="categoria" id="categoria" >
+  <!-- <input type="text" name="categoria" id="categoria" > -->
+  <select class="form-select w-100" name="categoria" id="categoria" aria-label="Default select example">
+  <option selected>Selecciona la categoria</option>
+  <option value="Alebrijes">Alebrijes</option>
+  <option value="Arte Huichol">Arte Huichol</option>
+  <option value="Juguetes">Juguetes</option>
+  <option value="Joyeria">Joyeria</option>
+  <option value="Ropa">Ropa</option>
+  <option value="Rebozos">Rebozos</option>
+  <option value="Sombreros">Sombreros</option>
+  <option value="Zapatos">Zapatos</option>
+  <option value="Otros">Otros...</option>
+</select>
 </div>
 
 <div>
@@ -49,6 +66,7 @@
 <div class="form-step">
   <div class="input-group">
     <label for="precio">Precio:</label>
+   
     <input type="text" name="precio" id="precio" />
   </div>
   <div class="input-group">

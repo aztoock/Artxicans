@@ -2,6 +2,7 @@
     include('./global/conexion.php');
     include('./templates/cabecera.php');
     include('global/cart.php');
+    include('./helpers/loader.php');
     if(@!$_SESSION['user'])
         {
 ?>
@@ -22,7 +23,7 @@
                         
                         <div class="mt-2  row justify-content-center align-items-center">
                             <div class="alert alert-dark text-center p-2 col-auto" role="alert">
-                                Para poder agregar mas cantidad de productos del mismo producto, puedes modificar en cantidad 1 al numero de productos que desees y posteriormente presionar el botón "cuantos".
+                            Para poder agregar más cantidad de productos del mismo producto, puedes modificar en cantidad 1 al número de productos que desees y posteriormente presionar el botón "cuantos".
                             </div>
                         </div>
 

@@ -2,6 +2,7 @@
   include 'global/conexion.php';
   include 'templates/cabecera.php';
   include 'global/cart.php';
+  include('./helpers/loader.php');
   if(@!$_SESSION['user']){
     echo("<script>location.href = 'index.php';</script>");
   }

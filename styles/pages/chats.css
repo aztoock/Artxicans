@@ -12,8 +12,6 @@
     display: flex;
     justify-content: end;
 }
-
-
 .display-chat{
     height:300px;
 	background-color:#d69de0;
@@ -24,12 +22,13 @@
  .toChat{
     margin: 1rem auto;
     width: 90vw;
-    height: 100vh;
+    height: 60vh;
     background-color: rgb(194, 191, 191);
     overflow-y: scroll;    
 }
 
 .header-chat{
+    height: 10vh;
     margin: 1rem auto;
     width: 90vw;
     color: white;
@@ -43,7 +42,11 @@
 .footer-chat{
     background-color: var(--first-color);
     padding: 1rem;
-
+    width: 90vw;
+    height: 30vh;
+    margin: 0 auto;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
 }
 .width-seller,
 .width-user{
@@ -54,9 +57,17 @@
 }
 
 
+
 @media screen and (min-width:768px){
+    .header-chat{
+        width: 50vw;
+    }
     .toChat{
-        width:70vw;
+        width:50vw;
+    }
+    .footer-chat{
+        width: 50vw;
+       
     }
     .width-seller,
     .width-user{

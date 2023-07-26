@@ -1,6 +1,7 @@
 <?php 
   include('global/conexion.php');
   include('templates/cabecera.php');
+  include('./helpers/loader.php');
 ?>
     <!-- Sell page -->
     <section class="sell">
@@ -88,7 +89,7 @@ Antes de empezar, te recordamos que únicamente se dará autorización a los usu
               <div class="collapse" id="collapseExample">
                 <div class="card card-body">
                   Algunos productos se encuentran prohibidos y restringidos debido a múltiples razones, tales como seguridad, salud y lamentablemente fragilidad de algunos productos.
-                  Para obtener información detallada sobre que productos no pueden venderse en Artxicans, consulta el documento de ayuda <strong>Restricciones de productos</strong>
+                  Para obtener información detallada sobre que productos no pueden venderse en Artxicans, consulta el documento de ayuda <strong>Restricciones de productos.</strong>
                 </div>
               </div>
         </div>
@@ -101,8 +102,7 @@ Antes de empezar, te recordamos que únicamente se dará autorización a los usu
               </p>
               <div class="collapse" id="collapseExample2">
                 <div class="card card-body">
-                  Se cobraran $ MXN y más una pequena tarifa por cada venta de tú artículo, la tarifa puede variar según el costo de tu producto.
-                  Consulta el documento de <strong>Más información sobre tarifas y precios</strong>
+                Se cobrarán $ MXN y más una pequeña tarifa por cada venta de tu artículo, la tarifa puede variar según el costo de tu producto. Consulta el documento de <strong>Más información sobre tarifas y precios.</strong>
                 </div>
               </div>
         </div>
@@ -115,7 +115,7 @@ Antes de empezar, te recordamos que únicamente se dará autorización a los usu
               </p>
               <div class="collapse" id="collapseExample3">
                 <div class="card card-body">
-                  Artxicans deposita tus pagos en tu cuenta bancaria y te notificara cada vez que se haya realizado el depósito. 
+                Artxicans deposita tus pagos en tu cuenta bancaria y te notificará cada vez que se haya realizado el depósito.
                 </div>
               </div>
         </div>
@@ -129,7 +129,7 @@ Antes de empezar, te recordamos que únicamente se dará autorización a los usu
               <div class="collapse" id="collapseExample4">
                 <div class="card card-body">
                   Logística de Artxicans es un servicio que te permite enviar tus productos de artesanias mexicanas en cualquiera de las paqueterías existentes.
-                  Cuando un cliente hace un pedido ....  
+                    
                 </div>
               </div>
         </div>

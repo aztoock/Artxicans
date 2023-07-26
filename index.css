@@ -107,12 +107,20 @@
     cursor: pointer;
   }
   /* Por si un usuario quiere tiene algun monitor grande o hacen un zoom de > 125% */
-  @media screen and (min-width:2560px){
-      body{
-        zoom:1.7;
-      }
+  @media screen and (min-width: 2560px){
+    body{
+        zoom: 1.7;
+    }
   }
-  
+  ::-webkit-scrollbar{
+    width: 10px;
+    background:  hsl(0, 0%, 93%);
+  }
+  ::-webkit-scrollbar-thumb{
+    background: grey;
+    border-radius: 10px;
+    cursor: pointer;
+  }  
 
 
  

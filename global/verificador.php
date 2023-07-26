@@ -85,30 +85,7 @@
     <hr class="my-4">
     <p class="lead"><?php echo $Mpaypal?></p>
     <p>
-        <?php
-            if ($rowcount >= 1)
-                {
-                    $sentencia = "  SELECT * FROM detalleventa,products 
-                                    WHERE detalleventa.id_producto=products.id_product 
-                                    AND detalleventa.id_venta=$claveventa";
-                    $resultado = mysqli_query($conn, $sentencia);
-                    #$listaproductos = mysqli_fetch_assoc($resultado);
-                    #print_r($listaproductos);
-                    while($listaproductos = mysqli_fetch_assoc($resultado))
-                        {
-                            $imagen = $listaproductos['image1'];
-                            $nombre = $listaproductos['product'];
-                            $id_product = $listaproductos['id_product'];
-                            $cantidad = $listaproductos['cantidad'];
-
-                                # decrementamos el valor stock en tbl products
-                            $sentencia = "  UPDATE `products` SET `stock` = stock - $cantidad
-                                            WHERE `id_product` = '$id_product'
-                                            AND `product` = '$nombre'";
-                            $resultadoactualizado = mysqli_query($conn, $sentencia);
-                           /*  if ($resultadoactualizado)
-                                { */
-        ?>
+        
 
                                     <center class="cheque">
                                         <img src="./assets/utilities/cheque-de-pago.png" alt="cheque" style="width:120px; height:110px">
@@ -125,8 +102,8 @@
                                     </div>
                                     <?php print_r($listaproductos);?> -->
         <?php
-                                }
-                        }
+                            
+                        
                         
              /*    } */
         ?>

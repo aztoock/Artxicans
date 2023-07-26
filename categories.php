@@ -1,6 +1,7 @@
 <?php 
 include('global/conexion.php');
 include('templates/cabecera.php');
+include('./helpers/loader.php');
 ?>
 
 <section class="categorias"> 

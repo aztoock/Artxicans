@@ -11,10 +11,13 @@ $id_user = $_SESSION['id'];
 $query = mysqli_query($conn, "SELECT * FROM reg_sellers WHERE ID_registro = $seller");
 $data = mysqli_fetch_array($query);
 ?>
+
+
 <!-- Mostramos nickname del vendedor -->
 <div class="header-chat" align="center">
     <?php echo $data['nickname']?>
 </div>
+<div id="chat-id"></div>
 <section class="toChat" style="color:grey">
          <div class="body-chat mt-3">
                 <?php 
@@ -40,6 +43,7 @@ $data = mysqli_fetch_array($query);
                 
                 ?>
                 <div class="user-answer">
+                
                     <div class="alert alert-primary width-user" role="alert">
                        <?php echo $data_message['chat']?>
                     </div>
@@ -49,7 +53,7 @@ $data = mysqli_fetch_array($query);
         
         
     </section>
-    <div class="footer-chat mt-5">
+    <div class="footer-chat mt-1">
     <form method="POST" action="./helpers/message.php?seller_data=<?php echo base64_encode($seller)?>">
     <div class="mb-3 w-75 mx-auto">
                     
@@ -63,6 +67,10 @@ $data = mysqli_fetch_array($query);
     </center>
     </form>
     </div> 
+                
+
+
+
 <?php 
 include('./templates/pie.php');
 ?>
