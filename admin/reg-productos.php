@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php 
 include('../global/conexion.php');
+include('helpers/session.php');
 ?>
 <html lang="en">
 <head>
