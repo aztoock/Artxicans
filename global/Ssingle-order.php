@@ -6,7 +6,7 @@
     if ( isset($_POST['send-cd']) )
         {
             $oplist = $_POST['listbox'];
-            echo $oplist;
+            $update = ("UPDATE `ventas` SET `envio` = 'Pendiente' WHERE `ventas`.`id_venta` = $venta");
         }
 ?>
 
@@ -30,12 +30,35 @@
                 <option value="Enviado">Enviado</option>
                 <option value="Entregado">Entregado</option>
             </select>
-            <div class="mb-3 w-50 mt-2">
-                <label for="cd-rastreo" class="form-label">Ingresa el codigo de rastreo del pedido</label>
-                <input type="text" class="form-control" name="cd-rastreo" id="cd-rastreo" >
-                <small>Este codigo se enviara al cliente para que pueda rastrear su pedido</small>
-            </div>
 
+<?php
+            if ( $set_status['crastreo'] == "Pendiente" )
+                {
+?>
+                    <div class="mb-3 w-50 mt-2">
+                        <label for="cd-rastreo" class="form-label">Ingresa el codigo de rastreo del pedido</label>
+                        <input type="text" class="form-control" name="cd-rastreo" id="cd-rastreo" >
+                        <small>Este codigo se enviara al cliente para que pueda rastrear su pedido</small>
+                    </div>
+<?php
+                }
+            else
+                {
+                    // Obtener el valor del input desde tu variable $set_status['crastreo']
+                    $valor_input = $set_status['crastreo'];
+
+                    // Verificar si el input tiene contenido o está vacío
+                    $readonly = $valor_input !== '' ? 'readonly' : '';
+?>
+                    
+                    <div class="mb-3 w-50 mt-2">
+                        <label for="cd-rastreo" class="form-label">El pedido ya cuenta con un codigo de rastreo</label>
+                        <input type="text" class="form-control" name="cd-rastreo" id="cd-rastreo" value= "<?php echo $set_status['crastreo']; ?>"  <?php echo $readonly; ?>>
+                        <small>Este codigo se enviara al cliente para que pueda rastrear su pedido</small>
+                    </div>
+<?php
+                }
+?>
             <article class="order-data">
                 <h2 >Detalles del pedido</h2>
 <?php 
