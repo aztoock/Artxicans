@@ -130,6 +130,26 @@
             mysqli_query($conn,"DELETE FROM reports WHERE id_report = '$id_reporte'");
             echo("<script>location.href = '../reports.php';</script>"); 
         }
+    else if (isset($_POST['Aceptar2']))
+        {
+            $id_producto = $_POST['id_producto'];
+            
+                # Obtener el id del vendedor.
+			$query = mysqli_query($conn,"SELECT ID_registro FROM products WHERE id_product = $id_producto");
+			$data = mysqli_fetch_array($query);
+            $seller = $data['ID_registro'];
+        
+                # Se agrega la notificacion a la tbl
+            $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `notification`, `ID_registro`) 
+                                VALUES (NULL, 'Tu producto a sido actualizado con exito.', '$seller');");
+            $result = mysqli_query($conn,$updatenotify);
+
+                # como el reporte es aceptado con los cambios se elimina de la tbl reportes
+            mysqli_query($conn,"DELETE FROM reports WHERE id_report = '$id_reporte'");
+
+                # Se redirecciona a la pagina de reportes.
+            echo("<script>location.href = '../reports.php';</script>"); 
+        }
 ?>
 
 <div class="table-data">
@@ -243,16 +263,30 @@
                     -->
                     <p class="note-report" style="font-size:0.8rem">-Al Aceptar el reporte, se eliminara el comentario reporté, se eliminara el producto reportado, se eliminara la cuenta del comprador reportada y para los vendedores reportados solo se les notificara una queja del reporte y con un posible bloqueo.<p>
                     <form method="POST">
-                    <div class="report-buttons">
-                        <input type="hidden" value="<?php echo $usuario;?>" name="id_usuario">
-                        <input type="hidden" value="<?php echo $product;?>" name="id_producto">
-                        <input type="hidden" value="<?php echo $star;?>" name="id_comentario">
-                        <input type="hidden" value="<?php echo $comment;?>" name="id_perfilcoment">
-                        <input type="hidden" value="<?php echo $data_seller['IDregseller'];?>" name="id_seller">
-                        <input type="hidden" value="<?php echo $mensaje;?>" name="mensaje">
-                        <button class="btn-choose decline" type="submit" name="Rechazar" value="<?php echo $ban;?>">Rechazar</button>
-					    <button class="btn-choose accept" type="submit" name="Aceptar" value="<?php echo $ban;?>">Aceptar</button>
-                    </div>
+                        <div class="report-buttons">
+                            <input type="hidden" value="<?php echo $usuario;?>" name="id_usuario">
+                            <input type="hidden" value="<?php echo $product;?>" name="id_producto">
+                            <input type="hidden" value="<?php echo $star;?>" name="id_comentario">
+                            <input type="hidden" value="<?php echo $comment;?>" name="id_perfilcoment">
+                            <input type="hidden" value="<?php echo $data_seller['IDregseller'];?>" name="id_seller">
+                            <input type="hidden" value="<?php echo $mensaje;?>" name="mensaje">
+<?php
+                            if ($data['estatus'] == 3)
+                                {
+?>
+                                    <button class="btn-choose decline" type="submit" name="Rechazar" value="<?php echo $ban;?>">Rechazar</button>
+                                    <button class="btn-choose accept" type="submit" name="Aceptar2" value="<?php echo $ban;?>">Actualizar</button>
+<?php
+                                }
+                            else
+                                {
+?>
+                                    <button class="btn-choose decline" type="submit" name="Rechazar" value="<?php echo $ban;?>">Rechazar</button>
+					                <button class="btn-choose accept" type="submit" name="Aceptar" value="<?php echo $ban;?>">Aceptar</button>
+<?php
+                                }
+?>
+                        </div>
                     </form>
                 </div>
 				</div>
