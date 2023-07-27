@@ -8,6 +8,11 @@
             $oplist = $_POST['listbox'];
             $update = ("UPDATE `ventas` SET `envio` = 'Pendiente' WHERE `ventas`.`id_venta` = $venta");
         }
+
+        # SOLO HE AGREGADO EL BLOQUEO DEL INPUT SI MUESTRA DATOS
+        # FALTA AGREGAR EL UPDATE PARA EL ESTADO DE LISTBOX
+        # ALMACENAR EL CODIGO DE RASTREO
+        # MANDAR LA NOTIFICACION AL USUARIO COMPRADOR
 ?>
 
 <section class="single-order">
