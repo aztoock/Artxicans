@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-07-2023 a las 05:23:48
+-- Tiempo de generación: 27-07-2023 a las 06:19:26
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -189,7 +189,10 @@ INSERT INTO `notifications` (`id_notif`, `notification`, `ID_registro`) VALUES
 (36, 'Tu producto fue reportado, por infringir las normas, revisa tu proucto', 5),
 (37, '', 14),
 (38, 'El paquete a sido enviado.', 14),
-(39, 'El paquete a sido entregado al domicilio registrado.', 14);
+(39, 'El paquete a sido entregado al domicilio registrado.', 14),
+(40, 'Tu producto fue reportado, por infringir las normas, revisa tu proucto', 12),
+(41, 'Tu producto a sido actualizado con exito.', 12),
+(42, 'Tu producto a sido actualizado con exito.', 12);
 
 -- --------------------------------------------------------
 
@@ -245,7 +248,7 @@ INSERT INTO `products` (`id_product`, `product`, `image1`, `price`, `description
 (8, 'Sombrero Rojo', 'sombrero.jpg', 200, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Sombrero', 8, 'sombrero.jpg', 'sombrero.jpg', 5, 'Aprobado'),
 (9, 'Elefante', 'huichol.jpg', 1100, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum commodo leo et malesuada. Donec consectetur porttitor consectetur.', 'Huichol', 9, 'huichol.jpg', 'huichol.jpg', 5, 'Aprobado'),
 (11, 'zapatos tejidos v:', 'zapatos.jpg', 1500, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo, consectetur? Modi tenetur et sed voluptatibus! Suscipit repellendus aperiam sint optio doloribus quidem, fugit quas, aliquid culpa, quaerat voluptatum asperiores quo.', 'Zapatos', 10, 'zapatos.jpg', 'zapatos.jpg', 5, 'Aprobado'),
-(12, 'pollo rostizado', 'pollo.jpg', 8000, 'pollo de hoy con polvos magicos ', 'Otros', 2, 'pollo rostizado2.jpg', '', 12, 'Aprobado');
+(12, 'pollo rostizado', 'pollo.jpg', 80, 'pollo de hoy con polvos magicos ', 'Otros', 2, 'pollo rostizado2.jpg', '', 12, 'Reportado');
 
 -- --------------------------------------------------------
 
@@ -677,7 +680,7 @@ ALTER TABLE `direcciones`
 -- AUTO_INCREMENT de la tabla `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id_notif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id_notif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de la tabla `pay_account`
@@ -713,7 +716,7 @@ ALTER TABLE `reg_sellers`
 -- AUTO_INCREMENT de la tabla `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `id_report` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_report` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `sellers_data`
