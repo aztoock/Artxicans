@@ -8,6 +8,7 @@
         {
                 # Obtenemos el valor del listbox del formulario
             $oplist = $_POST['listbox'];
+            $crastreo = $_POST['cd-rastreo'];
                 # query para la busqueda del ID_registro (usuario normal) para mandar la notificacion
             $busqueda = "SELECT detalleventa.ID_registro
             FROM detalleventa
@@ -22,6 +23,10 @@
                 # Actualizamos el estado de envio, respecto a la opcion seleccionada del input del form
             $update = ("UPDATE `ventas` SET `envio` = '$oplist' WHERE `ventas`.`id_venta` = $venta");
             $result = mysqli_query($conn,$update);
+
+                # Actualizamos el estado de codigo de rastre, respecto a id de venta
+            $updaterastreo = ("UPDATE `ventas` SET `crastreo` = '$crastreo' WHERE `ventas`.`id_venta` = $venta");
+            $result = mysqli_query($conn,$updaterastreo);
 
                 # Se especifica el mensaje que sera enviado dependiendo el estado a actualizar
             if ($oplist == "Pendiente")
