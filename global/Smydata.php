@@ -101,23 +101,23 @@
     if($res['direccion'] == 1){
 ?>
     <form class="my-data mt-4" method="post" >
-        <h2 align="center">Datos de direccion y telefono</h2>
+        <h2 align="center">Datos de dirección y teléfono</h2>
         <br>
 <?php 
         $query2 = mysqli_query($conn,"SELECT * FROM direcciones WHERE usuario_id = '$id_user'");
         $data2 = mysqli_fetch_array($query2);
 ?>
         <div class="mb-3">
-            <label for="direccion1" class="form-label">Direccion 1:</label>
+            <label for="direccion1" class="form-label">Dirección 1:</label>
             <input type="text" class="form-control input-width" id="direccion1" name="direccion1" value="<?php echo $data2['direccion1']?>" >
         </div> 
         
         <div class="mb-3">
-            <label for="direccion2" class="form-label">Direccion 2:</label>
+            <label for="direccion2" class="form-label">Dirección 2:</label>
             <input type="text" class="form-control input-width" id="direccion2" name="direccion2" value="<?php echo $data2['direccion2']?>" >
         </div>
         <div class="mb-3">
-            <label for="telefono" class="form-label">Numero de telefono:</label>
+            <label for="telefono" class="form-label">Número de teléfono:</label>
             <div class="telefonos">
             <input type="text" class="form-control input-medium" id="telefono" name="telefono" value="<?php echo $data2['telefono']?>" >
             </div>
@@ -137,7 +137,7 @@
     else 
         {
 ?>
-        <h2 align="center">Sin datos de direccion</h2>
+        <h2 align="center">Sin datos de dirección</h2>
         <div class="mt-3 buttons-data">
             <a class="btn btn-secondary" href='./profile.php'>Regresar</a>
         </div>

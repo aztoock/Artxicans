@@ -19,8 +19,8 @@
         </a>
       </div>
       <div class="footerParagraph">
-      Esta aplicacion tiene como objetivo impulsar las artesanias mexicanas en la sociedad
-      y ayudar economicamente a las personas que se dedican a este arte.
+      Esta aplicación tiene como objetivo impulsar las artesanías mexicanas en la sociedad
+      y ayudar económicamente a las personas que se dedican a este arte.
       </div>   
     </div>
 
@@ -31,12 +31,12 @@
         </span>
         <li class="footerList flex"><a href="helpers/validate-seller.php">Vender</a></li>
         <li class="footerList flex"><a href="./help.php">Ayuda</a></li>
-        <li class="footerList flex"><a data-bs-toggle="modal" data-bs-target="#ModalPagos">Metodos de pago</a></li>
+        <li class="footerList flex"><a data-bs-toggle="modal" data-bs-target="#ModalPagos">Métodos de pago</a></li>
         
       </div>
       <div class="linkGroup">
         <span class="groupTitle">
-          Informacion
+        Información
         </span>
         <li class="footerList flex"><a href="./about.php">Nosotros</a></li>
         

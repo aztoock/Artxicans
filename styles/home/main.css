@@ -244,7 +244,7 @@ body{
 /* Services */
 
 .services{
-  margin: 4rem 0;
+  margin: 5rem 0 2rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -266,6 +266,15 @@ body{
 .service .bx{
   color: var(--second-alpha-color);
 }
+.more-info a .bx{
+  color: var(--second-alpha-color);
+}
+.more-info a p{
+  color: black;
+}
+.more-info a p:hover{
+  color: var(--second-alpha-color);
+}
 @media screen and (min-width:768px){
   .services{
     flex-direction: row;
@@ -282,7 +291,9 @@ body{
   margin-bottom: 1rem;
 }
 .swiper-hero {
-  
+  margin-top: 1rem;
+  padding: 2rem 0;
+  border-radius: 10px;
   width: 80%;
   max-width: 1600px;
   background-color: white;

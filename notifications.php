@@ -1,6 +1,7 @@
 <?php 
     include('./global/conexion.php');
     include('./templates/cabecera.php');
+    include('./helpers/loader.php');
     if(@!$_SESSION['user']){
         echo("<script>location.href = 'login.php';</script>");
     }
@@ -22,7 +23,7 @@
     <?php 
         $id_user = $_SESSION['id'];
         # Consulta para obtener todas las notificaciones del usuario en session
-        $query = mysqli_query($conn,"SELECT * FROM notifications WHERE ID_registro = $id_user");
+        $query = mysqli_query($conn,"SELECT * FROM notifications WHERE ID_registro = $id_user ");
         while($data = mysqli_fetch_array($query)){ 
    ?>
     <tr>
@@ -43,8 +44,9 @@
       <th scope="row"><?php 
       echo $counter; ?> </th> 
       <td><?php echo $value['notification']?></td>
-      <td><button type="button" class="btn btn-info">Detalles</button></td>
-      
+      <td><button type="button" class="btn btn-info"  data-bs-toggle="modal" data-bs-target="#ModalNotif<?php echo $value['id_notif']?>">Detalles</button></td>
+            <!-- Modal  Notifications-->
+           <?php include('./components/ModalNotif.php');?>
     </tr>
     <?php }}?>
   </tbody>

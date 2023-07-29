@@ -156,44 +156,30 @@ include('helpers/session.php');
 					</table> 
 <!-- Segunda tabla, tabla de reportes en revision. -->
 
-	<table class="content" id="other-list">
-	  	<thead>
-			<tr>
-				<th>Tipo de reporte</th>
-				<th>Información</th>
-			</tr>
-		</thead>
-			<tbody>
-<?php 
-				$query = mysqli_query($conn,"SELECT * FROM reports WHERE estatus = 2 OR estatus = 3");
-				while($row = mysqli_fetch_array($query))
-					{
-?>
-						<tr>
-							<td>
-								<img src="../assets/utilities/reporte.png">
-								<p><?php echo $row['type']?></p>
-							</td>
-<?php
-							if ($row['estatus'] != 3)
-								{
-?>
-							<td><a>Sin cambios</span></a></td>
-<?php 
-								}
-							else
-								{
-?>
-							<td><a href="./pages/det-reports.php?report=<?php echo $row['id_report']?>"><span class="status completed">Ver info</span></a></td>
-						</tr>
-	
-<?php 
-								}
-					}
-?>
-			</tbody>
-	</table>
-</div> 
+			  <table class="content" id="other-list">
+						 <thead>
+							<tr>
+								<th>Tipo de reporte</th>
+								<th>Información</th>
+							</tr>
+						 </thead>
+						 <tbody>
+
+								<tr>
+									<td>
+										<img src="../assets/utilities/reporte.png">
+										<p>NahuaGod69</p>
+									</td>
+									<td><a href="#"><span class="status completed">Ver info</span></a></td>
+								</tr>
+
+						 </tbody>
+					</table>  
+
+
+  
+
+ </div> 
 
 
 

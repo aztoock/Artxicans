@@ -48,9 +48,11 @@
       </div>
     </form>
 
+
+
 <!-- Choose -->
 <div class="d-grid gap-2 d-md-flex justify-content-start cat">
-  <button class="btn btn-secondary me-md-2 mb-2 mt-5 categories-btn" type="button" onclick="location.href='categories.php'"><img src="./assets/utilities/categorias.png" class="categories-icon" alt="categories-icon"> Ir a categorias</button>
+  <button class="btn btn-secondary me-md-2 mb-2 mt-5 categories-btn" type="button" onclick="location.href='categories.php'"><img src="./assets/utilities/categorias.png" class="categories-icon" alt="categories-icon"> Ir a categorías</button>
 </div>
 
 
@@ -106,6 +108,9 @@
       <?php 
         include('./helpers/categories-index.php');
       ?>
+      <center style="margin: 2rem 0">
+      <button class="sign-btn" onclick="location.ref='./categories.php'">Ver categorías</button>
+    </center>
      
 
 <!-- Invite to sell -->
@@ -132,6 +137,12 @@
         <p>Envio Seguro</p>
       </div>
 </article>
+<center class="more-info">
+  <a href="./help.php">
+  <i class='bx bxs-info-circle bx-lg bx-burst'></i>
+  <p>Más información</p>
+  </a>
+</center>
 
 <!-- About -->
 <article class="hero-info">

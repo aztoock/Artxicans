@@ -37,8 +37,14 @@
                 $estado = "Actualizar";
         ?>
                 <div class="mb-3">
-                    <label class="form-label text-center"><h3>Tu Token de PayPal: <?php echo $data['token']?></h3> </label>
-            </br>
+                    <label class="form-label text-center"><h3> Token de PayPal: </h3> </label>
+                    <div class="paypal-token-user" style="background:white; padding:1.3rem;border-radius:10px;">
+                    <center>
+                    <i class='bx bxl-paypal bx-md' style="color:#009cde;"></i>
+                    </center>
+                    <p style="color:#283747;font-weight:500 "><?php echo $data['token']?></p>
+                    </div>
+                </br>
                     <label for="token" class="form-label text-center">Si deceas actualizar tu token ingresa el nuevo en el siguiente campo</label>
                     <input type="text" class="form-control" id="tokenactualizar" name="tokenactualizar" aria-describedby="emailHelp">
                     <div id="emailHelp" class="form-text">Para saber cual es tu Token de pago, observa este tutorial: .</div>

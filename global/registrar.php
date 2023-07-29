@@ -34,6 +34,7 @@
                             $result = mysqli_query($conn,$sql);
                             if ($result)
                                 {
+                                    include('./helpers/loader.php');
                                     echo("<script>location.href = 'login.php';</script>");
                                 }
                         }

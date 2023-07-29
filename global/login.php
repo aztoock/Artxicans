@@ -13,15 +13,17 @@
                     $row = mysqli_fetch_assoc($result);    # registro de la peticion
                     $_SESSION['id']=$row['ID'];   # se almacena la sesion en un array
                     $_SESSION['user'] = $row['Nombre'];
+                    include('./helpers/loader.php');
                     #echo "<script>alert('login correcto...')</script>";   # se muestra un scrpt de alerta
                 }
             else
                 {
                     ?>
-                        <div class="alert alert-danger" role="alert" > Contraseña/Correo incorrecto</div>
+                        <div class="alert alert-danger" role="alert" >Contraseña/Correo incorrecto</div>
                     <?php
                 }
             /* mysqli_free_result($result); */  #se libera la cola de resultados
             /* mysqli_close($conn);  */ #se cierra la conexcion para que no jale recursos
         }
 ?>
+

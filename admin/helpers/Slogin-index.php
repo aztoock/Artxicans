@@ -1,33 +1,15 @@
 <?php
-    session_start();
     $mensaje = "";
     if (isset($_REQUEST['login']))
     {
         $email = $_REQUEST['email']??'';        # variables obtencion de email del input html
         $password = $_REQUEST['pass']??'';  # variables obtencion de password del input html
+        #$con = mysqli_connect(SERVIDOR,USUARIO,PASSWORD,BD);  # se inicializa la conexion
         $sql = "SELECT * FROM admins WHERE correo='".$email."' and contraseña='".$password."' "; # query para obtener la busqueda de los campos
         $result = mysqli_query($conn,$sql);   # se obtiene el resultado de la query
-
-        if ($result->num_rows > 0 )  # se obtiene el valor de $result
+        if ($result->num_rows > 0)  # se obtiene el valor de $result
             {
-            $sql = "SELECT id_admin FROM admins WHERE correo = ?";
-                $stmt = $conn->prepare($sql);
-                    # "s" indica que se espera un parámetro tipo cadena (string)
-                $stmt->bind_param("s", $email);
-                $stmt->execute();
-                    # Obtener el resultado de la consulta
-                $result = $stmt->get_result();
-                $admin = $result->fetch_assoc();
-                if ($admin)
-                    {
-                        $id_admin = $admin['id_admin'];
-                        $_SESSION['id_admin'] = $id_admin;
-                            #se cierra la sentencia y la conexcion a la bd
-                        $stmt->close();
-                        $conn->close();
-                        echo("<script>location.href = 'menu.php';</script>");
-                        exit();
-                    }
+                echo("<script>location.href = 'menu.php';</script>");
             }
         else
             {

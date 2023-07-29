@@ -1,6 +1,8 @@
 <?php
     include('global/conexion.php');
     include('templates/cabecera.php');
+    include('./helpers/loader.php');
+
 ?>
  <div class="signup-form">
     
@@ -48,12 +50,14 @@
             <hr>
             <h5 class="have">¿Ya tienes una cuenta?</h5>
             <div class='go-login'>
-                <a href="login.php" class="have init" >Iniciar sesión</a> 
+                <a href="login.php" id="btn-loader" class="have init" >Iniciar sesión</a> 
+                
             </div>
         </div>
     </form> 
     
 </div>
+
 <?php
   include('templates/pie.php');
 ?>

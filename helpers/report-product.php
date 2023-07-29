@@ -9,7 +9,7 @@
     $answer = $_POST['answer'];
     # Insertamos los datos de reporte de producto
     # Los campos que esten en NULL significa que no es necesario ser llenados ya que no se cuenta con algun valor.
-    mysqli_query($conn,"INSERT INTO reports VALUES(NULL,'$answer','Producto','$id_user','$product',NULL,NULL,NULL,NULL,0)");
+    mysqli_query($conn,"INSERT INTO reports VALUES(NULL,'$answer','Producto','$id_user','$product',NULL,NULL,NULL)");
     echo("<script>location.href = '../product.php?id_product=".$product."';</script>");
 
 

@@ -1,7 +1,8 @@
 <?php
     include('global/conexion.php');
     include('templates/cabecera.php');
- 
+    include('./helpers/loader.php');
+   
 ?>
  <div class="signup-form">
     
@@ -34,7 +35,7 @@
             />
             </div>
 
-            <button type="submit" name="login" class="start">Iniciar</button>
+            <button type="submit" name="login"  class="start">Iniciar</button>
             <hr>
             <h5 class="have">¿Eres nuevo en Artxicans?</h5>
             <div class='go-login'>
@@ -44,6 +45,8 @@
     </form> 
     
 </div>
+
+
 <?php
   include('templates/pie.php');
 ?>

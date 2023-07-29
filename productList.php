@@ -25,11 +25,14 @@
   <button class="btn btn-info" type="button" onclick="location.href='./add-product.php'">Agregar nuevo producto</button>
   
 </div> -->
-<table class="table">
-  <thead>
+<div class="table-products-seller table-responsive ">
+<table class="table mt-2">
+  <thead >
     <tr>
       <th scope="col"></th>
       <th scope="col">Productos</th>
+      <th scope="col">Estatus</th>
+      <th scope="col">Cantidad</th>
       <th scope="col">Editar</th>
       <th scope="col">Eliminar</th>
     </tr>
@@ -41,6 +44,22 @@
     <tr>
       <th scope="row"><img src="./assets/products/<?php echo $row['image1']?>" alt="product" style="width:30px;heigth:30px"></th>
       <td><?php echo $row['product']?></td>
+      <?php 
+      $estatus = $row['estatus'];
+      $stock = $row['stock'];
+      if($estatus == 'Aprobado'):
+      ?>
+        <td style="color:#05AD08;font-weight:bold;">Aprobado</td>
+      <?php else:?>
+        <td style="color: #EF9902;font-weight:bold;">En Revisión</td>
+      <?php endif;?>
+      <?php 
+        if($stock == 0):
+      ?>
+      <td style="color:#2D73F5;font-weight:bold">Agotado</td>
+      <?php else:?>
+      <td><?php echo $stock?></td>
+      <?php endif;?>
       <td class="edit-button"><i data-bs-toggle="modal"  data-bs-target="#EditModal-<?php echo $row['id_product']?>" class='bx bxs-edit-alt bx-sm' ></i></td>
       <td class="delete-button"><i data-bs-toggle="modal" data-bs-target="#delete-product-<?php echo $row['id_product']?>" class='bx bxs-x-circle bx-sm'></i></td>
     </tr>
@@ -142,6 +161,7 @@
     
   </tbody>
 </table>
+</div>
 
 <?php }else{?>
 

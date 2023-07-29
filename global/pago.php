@@ -7,8 +7,8 @@
         {
             $total = $total + ($product['precio'] * $product['cantidad']);
         }
-    $sql = "INSERT INTO `ventas` (`id_venta`, `clavetransaccion`, `paypaldatos`, `fecha`, `correo`, `total`, `estatus`,`envio`,`crastreo`) 
-            VALUES (NULL, '$ids', '', NOW(), '$correo', '$total', 'pendiente','Pendiente','Pendiente');";
+    $sql = "INSERT INTO `ventas` (`id_venta`, `clavetransaccion`, `paypaldatos`, `fecha`, `correo`, `total`, `estatus`,`envio`) 
+            VALUES (NULL, '$ids', '', NOW(), '$correo', '$total', 'pendiente','Pendiente');";
     $result = mysqli_query($conn,$sql);
     $idventa = mysqli_insert_id($conn);
     #echo "<h3>".$total.$idventa."</h3>";

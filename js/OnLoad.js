@@ -7,3 +7,5 @@ window.onload = function(){
     /* Quitamos la opacidad */
     container.style.opacity = '0' 
 }
+
+

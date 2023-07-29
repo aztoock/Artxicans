@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php 
+session_start();
 include('../global/conexion.php');
 include('helpers/session.php');
 ?>

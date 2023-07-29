@@ -95,6 +95,7 @@
                                 if (in_array($idprod,$idproductos))   # comparacion si el id a agregar ya existe en el array $product
                                     {
                                         $mensaje = "El producto ya existe en el carrito";
+                                        echo("<script>location.href = 'cart.php';</script>");
                                     }
                                 else                                  # si el id no existe lo almacena con su respectivo indice
                                     {
@@ -125,6 +126,7 @@
                                             {
                                                 unset($_SESSION['cart'][$indice]);
                                                 echo "<script> alert('elemento borrado'):</script>";
+
                                             }
                                     }
                             }
