@@ -1,5 +1,6 @@
 <?php
     $ban = "";
+    $titulo = "";
     $mensaje = "";
     $id_reporte = $_GET['report'];
     
@@ -12,6 +13,7 @@
             $id_perfilcomment = $_POST['id_perfilcoment'];
             $id_seller = $_POST['id_seller'];
             $mensaje = $_POST['mensaje'];
+            $titulo = $_POST['titulo'];
             if ($boton == 1)
                 {
                     # Obtener el id del usuario.
@@ -20,8 +22,8 @@
                     $usuario = $data['ID_registro'];
 
                     /* echo "comentario"; */
-                    $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `notification`, `ID_registro`) 
-                                        VALUES (NULL, '$mensaje', '$usuario');");
+                    $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `titulo`, `notification`, `tipo`, `ID_registro`) 
+                                        VALUES (NULL, '$titulo', '$mensaje', '1', '$usuario')");
                         # Se agrega la notificacion a la tbl
                     $result = mysqli_query($conn,$updatenotify);
 
@@ -47,8 +49,8 @@
 					$data = mysqli_fetch_array($query);
                     $seller = $data['ID_registro'];
 
-                    $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `notification`, `ID_registro`) 
-                                        VALUES (NULL, '$mensaje', '$seller');");
+                    $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `titulo`, `notification`, `tipo`, `ID_registro`) 
+                                        VALUES (NULL, '$titulo', '$mensaje', '2', '$id_seller')");
                         # Se agrega la notificacion a la tbl
                     $result = mysqli_query($conn,$updatenotify);
 
@@ -74,8 +76,8 @@
                     $usuario = $data['ID_registro'];
 
                     /* echo "comentario"; */
-                    $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `notification`, `ID_registro`) 
-                                        VALUES (NULL, '$mensaje', '$usuario');");
+                    $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `titulo`, `notification`, `tipo`, `ID_registro`) 
+                                        VALUES (NULL, '$titulo', '$mensaje', '3', '$usuario')");
                         # Se agrega la notificacion a la tbl
                     $result = mysqli_query($conn,$updatenotify);
 
@@ -101,8 +103,8 @@
 					$data = mysqli_fetch_array($query);
                     $usuario = $data['ID_registro'];
 
-                    $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `notification`, `ID_registro`) 
-                                        VALUES (NULL, '$mensaje', '$usuario');");
+                    $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `titulo`, `notification`, `tipo`, `ID_registro`) 
+                                        VALUES (NULL, '$titulo', '$mensaje', '4', '$usuario')");
                         # Se agrega la notificacion a la tbl
                     $result = mysqli_query($conn,$updatenotify);
 
@@ -156,7 +158,8 @@
                             switch($tipo){
                             case 'Comentario': 
                                     $ban = 1;
-                                    $mensaje = "Tu comentario fue reportado y ha sido eliminado.";
+                                    $titulo = "Reporte de comentario";
+                                    $mensaje = "Tu comentario fue reportado y ha sido eliminado, por enfringir nuestras normas de comunidad.";
                                     # Obtener informacion de los comentarios
                                     $star=$data['id_star'];
                                     $getStars = mysqli_query($conn,"SELECT * FROM stars WHERE id_star = $star");
@@ -166,7 +169,8 @@
                             break;
                             case 'Producto': 
                                     $ban = 2;
-                                    $mensaje = "Tu producto fue reportado, por infringir las normas, revisa tu proucto";
+                                    $titulo = "Reporte de producto";
+                                    $mensaje = "Tu producto fue reportado, por infringir las normas, revisa tu producto, puedes cambiar la informacion de tu producto y informar al administrador para verificar los cambios.";
                                     # Obtener informacion de los productos
                                     $product = $data['id_product'];
                                     $getProducts = mysqli_query($conn,"SELECT * FROM products WHERE id_product = $product");
@@ -190,7 +194,8 @@
                             break;  
                             case 'Comentario Perfil':
                                     $ban = 3;
-                                    $mensaje =  "Tu comentario en el perfil fue reportado";
+                                    $titulo = "Reporte comentario en perfil";
+                                    $mensaje =  "Tu comentario en el perfil de un vendedor fue reportado, por infringir las normas de la comunidad y ha sido eliminado";
                                     # Obtener informacion de los comentarios a perfiles
                                     $comment = $data['id_comment'];
                                     $getComments = mysqli_query($conn,"SELECT * FROM profile_comments WHERE id_comment = $comment");
@@ -200,7 +205,8 @@
                                     echo "&nbsp;y su información del comentario reportado:<br><center><strong>Comentario:</strong>&nbsp;".$data_comment['comment']."</center>";
                             break;
                             case 'Vendedor': 
-                                    $mensaje = "Tu perfil de vendedor fue reportado.";
+                                    $titulo = "Reporte de perfil de vendedor";
+                                    $mensaje = "Tu perfil de vendedor fue reportado, por infringir las normas de la comunidad, revisa tu informacion y informa al administrador para validar los cambios";
                                     $ban = 4;
                                     # Obtener informacion de los vendedores
                                     $seller = $data['seller'];
@@ -250,6 +256,7 @@
                         <input type="hidden" value="<?php echo $comment;?>" name="id_perfilcoment">
                         <input type="hidden" value="<?php echo $data_seller['IDregseller'];?>" name="id_seller">
                         <input type="hidden" value="<?php echo $mensaje;?>" name="mensaje">
+                        <input type="hidden" value="<?php echo $titulo;?>" name="titulo">
                         <button class="btn-choose decline" type="submit" name="Rechazar" value="<?php echo $ban;?>">Rechazar</button>
 					    <button class="btn-choose accept" type="submit" name="Aceptar" value="<?php echo $ban;?>">Aceptar</button>
                     </div>

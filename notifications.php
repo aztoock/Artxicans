@@ -43,7 +43,7 @@
         ?>
       <th scope="row"><?php 
       echo $counter; ?> </th> 
-      <td><?php echo $value['notification']?></td>
+      <td><?php echo $value['titulo']?></td>
       <td><button type="button" class="btn btn-info"  data-bs-toggle="modal" data-bs-target="#ModalNotif<?php echo $value['id_notif']?>">Detalles</button></td>
             <!-- Modal  Notifications-->
            <?php include('./components/ModalNotif.php');?>
