@@ -1,7 +1,7 @@
 <?php 
     include('./global/conexion.php');
     include('./templates/cabecera.php');
-    include('./helpers/loader.php');
+    /* include('./helpers/loader.php'); */
     if(@!$_SESSION['user']){
         echo("<script>location.href = 'login.php';</script>");
     }

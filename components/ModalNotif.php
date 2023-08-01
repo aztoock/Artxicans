@@ -12,14 +12,21 @@
       $usuario = $values['ID_registro'];
       #echo $usuario;
           #con ayuda de la anterior consulta obtenemos el id del reporte al que le pertenece a ese usuario
-      $report = mysqli_query($conn,"SELECT * FROM reports WHERE seller = $usuario");
-      $val = mysqli_fetch_array($report);
-      $id_report = $val['estatus'];
-      if ( $id_report == 2 )
+          #con ayuda de un while recorremos los resultados en caso de que un solo usuario tenga varios reportes activos o no
+      $report = mysqli_query($conn,"SELECT * FROM reports  WHERE seller = $usuario");
+      while ($row = mysqli_fetch_array($report)) 
         {
-          $updateestatus = ("UPDATE `reports` SET `estatus` = '3' WHERE `reports`.`type` = 'Producto' ");
-            # Se cambia el estatus de la tabla reportes(reports)
-          $result = mysqli_query($conn,$updateestatus);
+          $estatus = $row['estatus'];
+          if ( $estatus == 2 )  # si es estatus del reporte es 2
+            {
+                #obtenemos los datos del reporte como del producto reportado
+              $idreport = $row['id_report'];
+              $idproduct = $row['id_product'];
+                #seteamos la notificacion del administrador para que se muestre que ya hay un nuevo estatus a verificar
+              $updateestatus = ("UPDATE `reports` SET `estatus` = '3' WHERE `id_report` = $idreport AND `id_product` = $idproduct");
+                # Se cambia el estatus de la tabla reportes(reports)
+              $result = mysqli_query($conn,$updateestatus);
+            }
         }
     }
   else if (isset($_POST['update4']))

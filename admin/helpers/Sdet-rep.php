@@ -45,7 +45,7 @@
             elseif ($boton == 2)
                 {
                         # Si la notificacion es de tipo continuidad
-                   /*  if ( $estatus == 'Reportado' )
+                    if ( $estatus == 'Reportado' )
                         {
                             $titulo = "Modificacion de producto aceptada";
                             $mensaje = "Tu producto a sido puesto en linea de nuevo, agradecemos tu pronta respuesta y modificaciones, esperemos que sigas cumpliendo con las reglas del sitio";
@@ -71,9 +71,9 @@
                             $result = mysqli_query($conn,$updatenestatus);
 
                             echo("<script>location.href = '../reports.php';</script>");
-                        } */
-                   /*  else    # Si el reporte es de primera vez
-                        { */
+                        }
+                    else    # Si el reporte es de primera vez
+                        {
                                 /* echo "Producto"; */
                             # Obtener el id del vendedor.
                             $query = mysqli_query($conn,"SELECT ID_registro FROM products WHERE id_product = $id_producto");
@@ -85,7 +85,7 @@
                             $result = mysqli_query($conn,$updatenotify);
 
                             $updatenestatus = ("UPDATE `reports` SET `estatus` = '2' 
-                                                WHERE `reports`.`id_report` = $id_reporte;");
+                                                WHERE `reports`.`id_report` = $id_reporte");
                                 # Se cambia el estatus de la tabla reportes(reports)
                             $result = mysqli_query($conn,$updatenestatus);
 
@@ -95,7 +95,7 @@
                             $result = mysqli_query($conn,$updatenestatus);
 
                             echo("<script>location.href = '../reports.php';</script>");
-                       /*  } */
+                        } 
                 }
             elseif ($boton == 3)
                 {
