@@ -99,7 +99,7 @@
                 <li><a class="dropdown-item" href="pcategoria.php?op=Joyeria">Joyeria</a></li>
                 <li><a class="dropdown-item" href="pcategoria.php?op=Ropa">Ropa</a></li>
                 <li><a class="dropdown-item" href="pcategoria.php?op=Rebozos">Rebozos</a></li>
-                <li><a class="dropdown-item" href="pcategoria.php?op=Sombrero">Sombreros</a></li>
+                <li><a class="dropdown-item" href="pcategoria.php?op=Sombreros">Sombreros</a></li>
                 <li><a class="dropdown-item" href="pcategoria.php?op=Zapatos">Zapatos</a></li>
                 <li><a class="dropdown-item" href="pcategoria.php?op=Otros">Otros...</a></li>
                 

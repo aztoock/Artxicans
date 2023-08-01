@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-07-2023 a las 08:06:08
+-- Tiempo de generación: 01-08-2023 a las 19:34:56
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -210,7 +210,36 @@ INSERT INTO `notifications` (`id_notif`, `titulo`, `notification`, `tipo`, `ID_r
 (58, 'Reporte de perfil de vendedor', 'Tu perfil de vendedor fue reportado, por infringir las normas de la comunidad, revisa tu informacion y informa al administrador para validar los cambios', 3, 5),
 (60, 'Reporte de producto', 'Tu producto fue reportado, por infringir las normas, revisa tu producto, puedes cambiar la informacion de tu producto y informar al administrador para verificar los cambios.', 2, 12),
 (62, '', 'Tu comentario fue reportado y ha sido eliminado, por enfringir nuestras normas de comunidad.', 0, 14),
-(65, 'Reporte de comentario', 'Tu comentario fue reportado y ha sido eliminado, por enfringir nuestras normas de comunidad.', 1, 14);
+(65, 'Reporte de comentario', 'Tu comentario fue reportado y ha sido eliminado, por enfringir nuestras normas de comunidad.', 1, 14),
+(66, '', 'producto con mala infromacion', 0, 14),
+(67, 'Peticion de articulo rechazada', 'Producto con mala categoria.', 1, 14),
+(68, 'Peticion de articulo aprobada', 'ASDFasdASD', 1, 14),
+(70, 'Peticion de articulo rechazada', 'asdfasdf', 1, 14),
+(71, 'Peticion de articulo rechazada', 'asdfasdf', 1, 14),
+(72, 'Peticion de articulo rechazada', 'asdfasdf', 1, 14),
+(73, 'Peticion de articulo rechazada', 'asdfasdf', 1, 14),
+(74, 'Peticion de articulo aprobada', 'prueba de noti 2 aceptado', 1, 14),
+(75, 'Peticion de articulo rechazada', 'prueba de articulo rechazado', 1, 14),
+(76, 'Peticion de articulo rechazada', 'prueba de articulo rechazado', 1, 14),
+(77, 'Peticion de articulo rechazada', 'prueba de articulo rechazado', 1, 14),
+(78, 'Peticion de articulo rechazada', 'prueba de articulo rechazado', 1, 14),
+(80, 'Reporte de producto', 'Tu producto fue reportado, por infringir las normas, revisa tu producto, puedes cambiar la informacion de tu producto y informar al administrador para verificar los cambios.', 2, 0),
+(81, 'Reporte de producto', 'Tu producto fue reportado, por infringir las normas, revisa tu producto, puedes cambiar la informacion de tu producto y informar al administrador para verificar los cambios.', 2, 14),
+(82, 'aklñjsdf', 'Tu producto fue reportado, por infringir las normas, revisa tu producto, puedes cambiar la informacion de tu producto y informar al administrador para verificar los cambios.', 2, 14),
+(83, 'Reporte de perfil de vendedor', 'Tu perfil de vendedor fue reportado, por infringir las normas de la comunidad, revisa tu informacion y informa al administrador para validar los cambios', 4, 14),
+(84, 'Reporte de producto', 'Tu producto fue reportado, por infringir las normas, revisa tu producto, puedes cambiar la informacion de tu producto y informar al administrador para verificar los cambios.', 0, 14),
+(85, 'Reporte de perfil de vendedor', 'Tu perfil de vendedor fue reportado, por infringir las normas de la comunidad, revisa tu informacion y informa al administrador para validar los cambios', 0, 14),
+(90, 'Reporte de producto', 'Tu producto fue reportado, por infringir las normas, revisa tu producto, puedes cambiar la informacion de tu producto y informar al administrador para verificar los cambios.', 2, 14),
+(91, 'Modificacion de producto aceptada', 'Tu producto a sido puesto en linea de nuevo, agradecemos tu pronta respuesta y modificaciones, esperemos que sigas cumpliendo con las reglas del sitio', 1, 14),
+(92, 'Modificacion de producto aceptada', 'Tu producto a sido puesto en linea de nuevo, agradecemos tu pronta respuesta y modificaciones, esperemos que sigas cumpliendo con las reglas del sitio', 1, 14),
+(93, 'Reporte de producto', 'Tu producto fue reportado, por infringir las normas, revisa tu producto, puedes cambiar la informacion de tu producto y informar al administrador para verificar los cambios.', 0, 14),
+(94, 'Reporte de perfil de vendedor', 'Tu perfil de vendedor fue reportado, por infringir las normas de la comunidad, revisa tu informacion y informa al administrador para validar los cambios', 0, 12),
+(95, 'Reporte de producto', 'Tu producto fue reportado, por infringir las normas, revisa tu producto, puedes cambiar la informacion de tu producto y informar al administrador para verificar los cambios.', 0, 12),
+(96, 'Modificacion de producto aceptada', 'Tu producto a sido puesto en linea de nuevo, agradecemos tu pronta respuesta y modificaciones, esperemos que sigas cumpliendo con las reglas del sitio', 1, 12),
+(97, 'Peticion de articulo aprobada', 'BUENA', 1, 14),
+(98, 'Reporte de producto', 'Tu producto fue reportado, por infringir las normas, revisa tu producto, puedes cambiar la informacion de tu producto y informar al administrador para verificar los cambios.', 0, 14),
+(99, 'Reporte de perfil de vendedor', 'Tu perfil de vendedor fue reportado, por infringir las normas de la comunidad, revisa tu informacion y informa al administrador para validar los cambios', 2, 12),
+(100, 'Reporte de producto', 'Tu producto fue reportado, por infringir las normas, revisa tu producto, puedes cambiar la informacion de tu producto y informar al administrador para verificar los cambios.', 0, 14);
 
 -- --------------------------------------------------------
 
@@ -263,10 +292,14 @@ INSERT INTO `products` (`id_product`, `product`, `image1`, `price`, `description
 (5, 'Armadillo gris', 'alebrije2.jpg', 600, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Alebrije', 4, 'alebrije2.jpg', 'alebrije2.jpg', 5, 'Aprobado'),
 (6, 'Blusa Bordada', 'blouse.jpg', 900, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Ropa', 10, 'blouse.jpg', 'blouse.jpg', 5, 'Aprobado'),
 (7, 'Gato Alebrije Gris', 'alebrije1.jpg', 400, 'Gato alebrije de madera ', 'Alebrije', 2, 'alebrije1.jpg', 'alebrije1.jpg', 5, 'Aprobado'),
-(8, 'Sombrero Rojo', 'sombrero.jpg', 200, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Sombrero', 8, 'sombrero.jpg', 'sombrero.jpg', 5, 'Aprobado'),
+(8, 'Sombrero Rojo', 'sombrero.jpg', 200, 'Lorem ipsum dolor sit amet, consectetur adipiscing', 'Sombreros', 8, 'sombrero.jpg', 'sombrero.jpg', 5, 'Aprobado'),
 (9, 'Elefante', 'huichol.jpg', 1100, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum commodo leo et malesuada. Donec consectetur porttitor consectetur.', 'Huichol', 9, 'huichol.jpg', 'huichol.jpg', 5, 'Aprobado'),
 (11, 'zapatos tejidos v:', 'zapatos.jpg', 1500, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo, consectetur? Modi tenetur et sed voluptatibus! Suscipit repellendus aperiam sint optio doloribus quidem, fugit quas, aliquid culpa, quaerat voluptatum asperiores quo.', 'Zapatos', 10, 'zapatos.jpg', 'zapatos.jpg', 5, 'Aprobado'),
-(12, 'pollo rostizado', 'pollo.jpg', 80000, 'pollo de hoy con polvos magicos  ', 'Otros', 2, 'pollo rostizado2.jpg', '', 12, 'Reportado');
+(12, 'pollo rostizado', 'pollo.jpg', 80000, 'pollo de hoy con polvos magicos  ', 'Otros', 2, 'pollo rostizado2.jpg', '', 12, 'Aprobado'),
+(13, 'casco star wars', 'casco star wars1.jpg', 30, 'casco de famosa pelicula de scifi star wars ', 'Otros', 10, 'casco star wars2.jpg', 'casco star wars3.jpg', 14, 'Aprobado'),
+(14, 'prueba1', 'prueba11.jpg', 12, 'asdfadfasdf', 'Otros', 2, '', '', 14, 'Reportado'),
+(15, 'prueba2', 'prueba21.jpg', 12, 'asdfasdf', 'Otros', 0, '', '', 14, 'Rechazado'),
+(16, 'PRUEBA FINAL', 'PRUEBA FINAL1.jpg', 21, 'ASDFASDFASDF', 'Otros', 1, '', '', 14, 'Reportado');
 
 -- --------------------------------------------------------
 
@@ -352,7 +385,7 @@ INSERT INTO `reg_sellers` (`IDregseller`, `Nombre`, `apellidos`, `nickname`, `la
 (48, 'Emmanuel', 'Castillo Marin', 'Castillo55', 52, '2212054136', '2212054136', 'de las flores', '34850', 'Castillo55-identificacion.jpeg', 'Aprobado', 7),
 (49, 'emmanuel', 'Castillo Marin', 'Deivi', 52, '1221910', '2212054136', 'de las flores', '34850', 'Deivi-identificacion.jpeg', 'Pendiente', 11),
 (51, 'david', 'prueba1', 'davidcokie69', 52, '2229259615', '2229259615', 'domicilio de prueba para david', '72470', 'casa 1 piso rustica', 'Reportado', 12),
-(52, 'prueba204', 'ninguno', 'error 404', 52, '2229259600', '7563704', 'prueba204, de domicilio', '72470', 'error 404-identificacion.jpeg', 'Aprobado', 14);
+(52, 'prueba204', 'ninguno', 'error 404', 52, '2229259600', '7563704', 'prueba204, de domicilio', '72470', 'error 404-identificacion.jpeg', 'Reportado', 14);
 
 -- --------------------------------------------------------
 
@@ -379,27 +412,28 @@ CREATE TABLE `reports` (
 
 INSERT INTO `reports` (`id_report`, `report`, `type`, `ID_registro`, `id_product`, `id_star`, `id_comment`, `seller`, `buyer`, `estatus`) VALUES
 (1, 'prueba de reporte 1', 'Comentario', 5, 2, 21, NULL, NULL, NULL, 1),
-(2, 'hola', 'Producto', 5, 2, NULL, NULL, NULL, NULL, 2),
-(3, 'hola', 'Producto', 5, 2, NULL, NULL, NULL, NULL, 0),
-(4, 'Hola', 'Producto', 5, 8, NULL, NULL, NULL, NULL, 0),
+(2, 'hola', 'Producto', 5, 2, NULL, NULL, NULL, NULL, 3),
+(3, 'hola', 'Producto', 5, 2, NULL, NULL, NULL, NULL, 3),
+(4, 'Hola', 'Producto', 5, 8, NULL, NULL, NULL, NULL, 3),
 (6, '', 'Comentario Perfil', 5, NULL, NULL, 1, NULL, NULL, 1),
 (7, '', 'Comentario Perfil', 5, NULL, NULL, 2, NULL, NULL, 1),
 (8, 'hola hola', 'Vendedor', 7, NULL, NULL, NULL, 5, NULL, 0),
 (9, 'HOLA', 'Vendedor', 7, NULL, NULL, NULL, 5, NULL, 0),
-(14, 'prueba de reporte 4  pollo demaciado caro', 'Producto', 5, 12, NULL, NULL, NULL, NULL, 2),
-(15, 'este producto esta en la categoria incorrecta', 'Producto', 12, 6, NULL, NULL, NULL, NULL, 2),
+(14, 'prueba de reporte 4  pollo demaciado caro', 'Producto', 5, 12, NULL, NULL, NULL, NULL, 1),
+(15, 'este producto esta en la categoria incorrecta', 'Producto', 12, 6, NULL, NULL, NULL, NULL, 3),
 (16, 'Tu comentario fue reportado', 'Comentario', 5, 6, 24, NULL, NULL, NULL, 1),
 (17, 'Tu comentario fue reportado', 'Comentario', 5, 6, 25, NULL, NULL, NULL, 1),
 (18, 'Reporte comentario en perfil', 'Comentario Perfil', 5, NULL, NULL, 4, NULL, NULL, 1),
 (19, 'Reporte comentario en perfil', 'Comentario Perfil', 5, NULL, NULL, 5, NULL, NULL, 1),
-(20, 'prueba de reporte de perfil', 'Vendedor', 12, NULL, NULL, NULL, 5, NULL, 2),
-(22, 'este usuario vende muy caro, ademas fuera de categoria los productos', 'Vendedor', 14, NULL, NULL, NULL, 12, 14, 0),
-(25, '', 'Comentario Perfil', 12, NULL, NULL, NULL, 12, 12, 0),
+(25, '', 'Comentario Perfil', 12, NULL, NULL, NULL, 12, 12, 3),
 (26, '', 'Comentario Perfil', 12, NULL, NULL, 8, 12, 12, 1),
 (27, 'Reporte comentario en perfil', 'Comentario Perfil', 5, NULL, NULL, 9, 5, 5, 1),
 (28, '24298 este pollo esta demaciado caro', 'Producto', 14, 12, NULL, NULL, NULL, NULL, 2),
-(30, '', 'Comentario', 12, 12, 26, NULL, NULL, NULL, 1),
-(31, '', 'Comentario', 12, 12, 27, NULL, NULL, NULL, 1);
+(30, '', 'Comentario', 12, 12, 26, NULL, NULL, NULL, 0),
+(38, 'asdfasdfasdfASDFASDF', 'Producto', 12, 13, NULL, NULL, 14, NULL, 1),
+(39, 'prueba final', 'Producto', 12, 14, NULL, NULL, 14, NULL, 0),
+(40, 'PUREBAS DE REPORTE PERFILVENDEDOR\r\n', 'Vendedor', 14, NULL, NULL, NULL, 12, 14, 2),
+(41, 'ORALE', 'Producto', 12, 16, NULL, NULL, 14, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -704,7 +738,7 @@ ALTER TABLE `direcciones`
 -- AUTO_INCREMENT de la tabla `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id_notif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id_notif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT de la tabla `pay_account`
@@ -716,7 +750,7 @@ ALTER TABLE `pay_account`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `profile_comments`
@@ -740,7 +774,7 @@ ALTER TABLE `reg_sellers`
 -- AUTO_INCREMENT de la tabla `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `id_report` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_report` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de la tabla `sellers_data`

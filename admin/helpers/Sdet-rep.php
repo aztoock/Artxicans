@@ -14,6 +14,7 @@
             $id_seller = $_POST['id_seller'];
             $mensaje = $_POST['mensaje'];
             $titulo = $_POST['titulo'];
+            $estatus = $_POST['estatus'];
             if ($boton == 1)
                 {
                     # Obtener el id del usuario.
@@ -43,28 +44,58 @@
                 }
             elseif ($boton == 2)
                 {
-                    /* echo "Producto"; */
-                    # Obtener el id del vendedor.
-					$query = mysqli_query($conn,"SELECT ID_registro FROM products WHERE id_product = $id_producto");
-					$data = mysqli_fetch_array($query);
-                    $seller = $data['ID_registro'];
+                        # Si la notificacion es de tipo continuidad
+                   /*  if ( $estatus == 'Reportado' )
+                        {
+                            $titulo = "Modificacion de producto aceptada";
+                            $mensaje = "Tu producto a sido puesto en linea de nuevo, agradecemos tu pronta respuesta y modificaciones, esperemos que sigas cumpliendo con las reglas del sitio";
 
-                    $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `titulo`, `notification`, `tipo`, `ID_registro`) 
-                                        VALUES (NULL, '$titulo', '$mensaje', '2', '$id_seller')");
-                        # Se agrega la notificacion a la tbl
-                    $result = mysqli_query($conn,$updatenotify);
+                                # Obtener el id del vendedor.
+                            $query = mysqli_query($conn,"SELECT ID_registro FROM products WHERE id_product = $id_producto");
+                            $data = mysqli_fetch_array($query);
+                            $seller = $data['ID_registro'];
+                                # Establecemos la notificaicon adecuada para el caso
+                            $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `titulo`, `notification`, `tipo`, `ID_registro`) 
+                                                VALUES (NULL, '$titulo', '$mensaje', '1', '$seller')");
+                                # Se agrega la notificacion a la tbl
+                            $result = mysqli_query($conn,$updatenotify);
+                                # Seteamos el estatus del reporte en 1 para que no se vea en ninguna lista (se queda el historico en la BD)
+                            $updatenestatus = ("UPDATE `reports` SET `estatus` = '1' 
+                                                WHERE `reports`.`id_report` = $id_reporte;");
+                                # Se cambia el estatus de la tabla reportes(reports)
+                            $result = mysqli_query($conn,$updatenestatus);
+                                # Seteamos estatus del producto a Aprobado para ponerlo en linea
+                            $updatenestatus = ("UPDATE `products` SET `estatus` = 'Aprobado' 
+                                                WHERE `products`.`id_product` = $id_producto;");
+                                # Se cambia el estado de la tabla productos(products)
+                            $result = mysqli_query($conn,$updatenestatus);
 
-                    $updatenestatus = ("UPDATE `reports` SET `estatus` = '2' 
-                                        WHERE `reports`.`id_report` = $id_reporte;");
-                        # Se cambia el estatus de la tabla reportes(reports)
-                    $result = mysqli_query($conn,$updatenestatus);
-                    
-                    $updatenestatus = ("UPDATE `products` SET `estatus` = 'Reportado' 
-                                        WHERE `products`.`id_product` = $id_producto;");
-                        # Se cambia el estado de la tabla productos(products)
-                    $result = mysqli_query($conn,$updatenestatus);
+                            echo("<script>location.href = '../reports.php';</script>");
+                        } */
+                   /*  else    # Si el reporte es de primera vez
+                        { */
+                                /* echo "Producto"; */
+                            # Obtener el id del vendedor.
+                            $query = mysqli_query($conn,"SELECT ID_registro FROM products WHERE id_product = $id_producto");
+                            $data = mysqli_fetch_array($query);
+                            $seller = $data['ID_registro'];
+                            $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `titulo`, `notification`, `tipo`, `ID_registro`) 
+                                                VALUES (NULL, '$titulo', '$mensaje', '2', '$seller')");
+                                # Se agrega la notificacion a la tbl
+                            $result = mysqli_query($conn,$updatenotify);
 
-                    echo("<script>location.href = '../reports.php';</script>");
+                            $updatenestatus = ("UPDATE `reports` SET `estatus` = '2' 
+                                                WHERE `reports`.`id_report` = $id_reporte;");
+                                # Se cambia el estatus de la tabla reportes(reports)
+                            $result = mysqli_query($conn,$updatenestatus);
+
+                            $updatenestatus = ("UPDATE `products` SET `estatus` = 'Reportado' 
+                                                WHERE `products`.`id_product` = $id_producto;");
+                                # Se cambia el estado de la tabla productos(products)
+                            $result = mysqli_query($conn,$updatenestatus);
+
+                            echo("<script>location.href = '../reports.php';</script>");
+                       /*  } */
                 }
             elseif ($boton == 3)
                 {
@@ -257,6 +288,7 @@
                         <input type="hidden" value="<?php echo $data_seller['IDregseller'];?>" name="id_seller">
                         <input type="hidden" value="<?php echo $mensaje;?>" name="mensaje">
                         <input type="hidden" value="<?php echo $titulo;?>" name="titulo">
+                        <input type="hidden" value="<?php echo $data_product['estatus'];?>" name="estatus">
                         <button class="btn-choose decline" type="submit" name="Rechazar" value="<?php echo $ban;?>">Rechazar</button>
 					    <button class="btn-choose accept" type="submit" name="Aceptar" value="<?php echo $ban;?>">Aceptar</button>
                     </div>

@@ -35,7 +35,7 @@
       if (isset($_GET['op']))   # se obtiene la opcion desde cabecera.php
           {
             $opcion = $_GET['op'];  # se iguala la variable opcion al dato obtenido
-            $query = "SELECT * FROM `products` WHERE category = '$opcion' AND stock > 0 ORDER BY rand() LIMIT 12";
+            $query = "SELECT * FROM `products` WHERE category = '$opcion' AND stock > 0 AND estatus = 'Aprobado' ORDER BY rand() LIMIT 12";
               # Query que obtiene los datos segun la opcion elejida
             $result = $conn ->query($query) or die ($conn->error);
               # obtenemos el valor de la consulta

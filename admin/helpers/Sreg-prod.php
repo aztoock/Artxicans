@@ -12,8 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
                         # Actualizo el estatus del vendedor
                     $result = mysqli_query($conn,$query);
                     
-                    $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `notification`, `ID_registro`) 
-                                        VALUES (NULL, '$mensaje', '$id_usuario');");
+                    $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `titulo`, `notification`, `tipo`, `ID_registro`) 
+                    VALUES (NULL, 'Peticion de articulo aprobada', '$mensaje', '1', '$id_usuario')");
                         # Se agrega la notificacion a la tbl
                     $result = mysqli_query($conn,$updatenotify);
                     echo("<script>location.href = '../reg-productos.php';</script>");
@@ -25,14 +25,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
                     $mensaje = $_POST['mensaje'];
                     $query = (" UPDATE `products` 
                                 SET `estatus` = 'Rechazado'
-                                WHERE `products`.`ID_registro` = '$id_vendedor';");
+                                WHERE `products`.`id_product` = '$id_product';");
                         # Actualizo el estatus del vendedor
                     $result = mysqli_query($conn,$query);
 
-                    $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `notification`, `ID_registro`) 
-                                        VALUES (NULL, '$mensaje', '$id_usuario');");
+                    $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `titulo`, `notification`, `tipo`, `ID_registro`) 
+                    VALUES (NULL, 'Peticion de articulo rechazada', '$mensaje', '1', '$id_usuario')");
                         # Se agrega la notificacion a la tbl
                     $result = mysqli_query($conn,$updatenotify);
+
+                    $updatestock = ("  UPDATE `products` SET `stock` = '0' 
+                                        WHERE `products`.`id_product` = $id_product");
+                        # Se agrega la notificacion a la tbl
+                    $result = mysqli_query($conn,$updatestock);
                     echo("<script>location.href = '../reg-productos.php';</script>");
                 }
         }

@@ -142,6 +142,7 @@
         <br><br>
         <form method="POST" action="./helpers/report-product.php?id_p=<?php echo $row[0]?>"> 
         <textarea class="form-control" id="answer" name="answer" placeholder="Escribe el motivo de tu reporte aquí." style="resize:none" rows="3"></textarea>
+        <input type="hidden" name="seller" value="<?php echo $row['9']?>">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

@@ -1,3 +1,52 @@
+<?php
+  if (isset($_POST['update2']))
+    {
+      $id_notif = $_POST['id_notif'];
+      $updatetipo = ("UPDATE `notifications` SET `tipo` = '0' WHERE `notifications`.`id_notif` = $id_notif");
+          # Se cambia el estatus de la tabla reportes(reports)
+      $result = mysqli_query($conn,$updatetipo);
+
+        #obtenemos el id de resgistro del usuario al que le pertenece la notificacion
+      $notifications= mysqli_query($conn,"SELECT * FROM notifications WHERE id_notif = $id_notif");
+      $values = mysqli_fetch_array($notifications);
+      $usuario = $values['ID_registro'];
+      #echo $usuario;
+          #con ayuda de la anterior consulta obtenemos el id del reporte al que le pertenece a ese usuario
+      $report = mysqli_query($conn,"SELECT * FROM reports WHERE seller = $usuario");
+      $val = mysqli_fetch_array($report);
+      $id_report = $val['estatus'];
+      if ( $id_report == 2 )
+        {
+          $updateestatus = ("UPDATE `reports` SET `estatus` = '3' WHERE `reports`.`type` = 'Producto' ");
+            # Se cambia el estatus de la tabla reportes(reports)
+          $result = mysqli_query($conn,$updateestatus);
+        }
+    }
+  else if (isset($_POST['update4']))
+    {
+      $id_notif = $_POST['id_notif'];
+      $updatetipo = ("UPDATE `notifications` SET `tipo` = '0' WHERE `notifications`.`id_notif` = $id_notif");
+          # Se cambia el estatus de la tabla reportes(reports)
+      $result = mysqli_query($conn,$updatetipo);
+
+        #obtenemos el id de resgistro del usuario al que le pertenece la notificacion
+      $notifications= mysqli_query($conn,"SELECT * FROM notifications WHERE id_notif = $id_notif");
+      $values = mysqli_fetch_array($notifications);
+      $usuario = $values['ID_registro'];
+
+        #con ayuda de la anterior consulta obtenemos el id del reporte al que le pertenece a ese usuario
+      $report = mysqli_query($conn,"SELECT * FROM reports WHERE seller = $usuario");
+      $val = mysqli_fetch_array($report);
+      $id_report = $val['id_report'];
+      
+        #cambiamos el estatus de la notificacion para que se muestre como seguiemiento al admin
+      $updateestatus = ("UPDATE `reports` SET `estatus` = '3' WHERE `reports`.`id_report` = $id_report");
+          # Se cambia el estatus de la tabla reportes(reports)
+      $result = mysqli_query($conn,$updateestatus);
+    }
+?>
+
+
 <div class="modal fade" id="ModalNotif<?php echo $value['id_notif']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
@@ -37,17 +86,21 @@
                     }
                   else if ( $set_notif['tipo'] == 2 )
                     {
+                      
 ?>  
-                      <h2>Para iniciar una peticion de validacion de perfil:</h2>
+                      <h2>Para iniciar una peticion de validacion de producto:</h2>
                       <br>
                       <a>1. Actualiza la informacion de tu producto</a>
                       <br>
                       <a>2. Despues de actualizar la informacion del producto da clic en el boton revision. que esta mas abajo</a>
-
+                      <br>
+                      <br>
+                      <a>*Despues de enviar la solicitud, espera la respuesta de los administradores*</a>
                       <div class="modal-footer">
+                        <input type="hidden" value="<?php echo $value['id_notif']?>" name="id_notif">
                         <button type="button" class="btn btn-info" data-bs-dismiss="modal">Cerrar</button>
                         <!-- Boton para por si es un producto o perfil reportado -->
-                        <input value="Revision" type="submit" name="update" class="btn btn-warning">
+                        <input value="Revision" type="submit" name="update2" class="btn btn-warning">
                       </div>
 <?php
                     }
@@ -67,11 +120,13 @@
                       <a>1. Actualiza la informacion de tu perfil de vendedor</a>
                       <br>
                       <a>2. Despues de actualizar la informacion del perfil da clic en el boton revision. que esta mas abajo</a>
-
+                      <br>
+                      <br>
+                      <a>*Despues de enviar la solicitud, espera la respuesta de los administradores*</a>
                       <div class="modal-footer">
+                        <input type="hidden" value="<?php echo $value['id_notif']?>" name="id_notif">
                         <button type="button" class="btn btn-info" data-bs-dismiss="modal">Cerrar</button>
-                        <!-- Boton para por si es un producto o perfil reportado -->
-                        <input value="Revision" type="submit" name="update" class="btn btn-warning">
+                        <input value="Revision" type="submit" name="update4" class="btn btn-warning">
                       </div>
 <?php
                     }
