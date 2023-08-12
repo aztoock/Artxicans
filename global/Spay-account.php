@@ -24,7 +24,7 @@
         }
     
 ?>
-<section class="payaccount">
+<section class="payaccount" style="margin-top:4.5rem">
     <h2>Mi cuenta de pago</h2>
     <h5>Ingresa tu Token de pago PayPal, para que puedas recibir los pagos de tus pedidos, ingresar este dato es requisito para poder subir tus productos.</h5>
     <form class="form-account" method="post">
@@ -47,7 +47,9 @@
                 </br>
                     <label for="token" class="form-label text-center">Si deceas actualizar tu token ingresa el nuevo en el siguiente campo</label>
                     <input type="text" class="form-control" id="tokenactualizar" name="tokenactualizar" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">Para saber cual es tu Token de pago, observa este tutorial: .</div>
+                    <div id="emailHelp" class="form-text">Para saber cual es tu Token de pago, observa este tutorial: .
+                        <a href="https://youtu.be/8Z18lDS4Ti8">Link Video</a>
+                    </div>
                 </div>
         <?php
             }

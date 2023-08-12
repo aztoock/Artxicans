@@ -48,7 +48,7 @@
                                     if ($result)
                                         {
                                             #echo print($userid."_".$edireccion); mensaje de prueba
-                                            echo("<script>location.href = './profile.php';</script>");
+                                            echo("<script>location.href = './cart.php';</script>");
                                         }
                                 }
                         }

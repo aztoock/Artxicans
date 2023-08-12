@@ -7,7 +7,7 @@
   $id_user = $_SESSION['id'];
   $query = mysqli_query($conn,"SELECT * FROM reg_sellers WHERE ID_registro = $id_user");
   if($query->num_rows > 0){?>
-  <div class="m-3 row justify-content-center align-items-center">
+  <div class="m-3 row justify-content-center align-items-center" style="margin-top:4.5rem!important;">
     <div class="alert alert-success" role="alert" style="text-align:center">
     <i class='bx bx-info-circle bx-sm'></i>&nbsp;Tu solicitud se ha mandado exitosamente y se encuentra en proceso de revision, en caso de que tu solicitud
       sea aceptada o rechazada, te lo haremos saber en la opcion de <a href="#" class="alert-link">Notificaciones</a> y podras observar el estatus de tu solicitud.<br><br>
@@ -19,7 +19,7 @@
 ?>
 
   
-<section class="reg_seller">
+<section class="reg_seller" style="margin-top:4.5rem">
   <form action="" method="post" class="form-reg" enctype="multipart/form-data">
 
       <h1 class="text-center">Registro de vendedor</h1>

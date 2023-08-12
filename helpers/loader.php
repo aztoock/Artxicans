@@ -7,11 +7,12 @@
         box-sizing:border-box;
     }
     .container-loader{
-        background: rgba(10,10,10,0.9);
+      /* margin-top:0.3rem; */
+      background: rgba(10,10,10,0.9);
         height:100%;
         width:100%;
         position:fixed;
-        z-index:10000;
+        z-index:100000;
         -webkit-transition:all 1s ease;
         -o-transition:all 1s ease;
         transition: all 1s ease;

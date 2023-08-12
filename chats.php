@@ -8,7 +8,7 @@
     
     $idu = $_SESSION['id'];
     ?>
-    <section class="chats">
+    <section class="chats" style="margin-top:4.5rem">
         <h2 align="center">Lista de Chats</h2>
         <div class="chats-container">
         <?php 

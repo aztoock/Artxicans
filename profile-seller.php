@@ -10,7 +10,7 @@
     
 ?>
 
-    <section class="profile-data">
+    <section class="profile-data" style="margin-top:4.5rem">
         
         <div class="profile-seller">
             <div class="overlay-seller"></div>
@@ -225,6 +225,7 @@
         <h2 align="center">Puntuación de vendedor</h2>
         <p align="center" class="vendor-class"><?php echo $data['nickname']?>
         <?php 
+        error_reporting(0);
                 # Mismo procedimiento de productos
                  $sql2 = mysqli_query($conn,"SELECT * FROM profile_comments WHERE seller = $user");
                  $sum2 =  mysqli_query($conn,"SELECT SUM(star) as score2 FROM profile_comments WHERE seller = $user");

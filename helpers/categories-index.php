@@ -9,7 +9,7 @@
         <!-- Slides -->
         <div class="swiper-slide">
           <?php 
-            $get_data = mysqli_query($conn,"SELECT * FROM products ORDER BY rand() LIMIT 3");
+            $get_data = mysqli_query($conn,"SELECT * FROM products WHERE stock > 0 AND estatus = 'Aprobado' ORDER BY rand() LIMIT 3");
             while($set_data = mysqli_fetch_array($get_data)){ 
               
         
@@ -30,7 +30,7 @@
         </div>
         <div class="swiper-slide">
         <?php 
-            $get_data2 = mysqli_query($conn,"SELECT * FROM products ORDER BY rand() LIMIT 3");
+            $get_data2 = mysqli_query($conn,"SELECT * FROM products WHERE stock > 0 AND estatus = 'Aprobado' ORDER BY rand() LIMIT 3");
             while($set_data2 = mysqli_fetch_array($get_data2)){ 
               
         
@@ -51,7 +51,7 @@
         </div>
         <div class="swiper-slide">
         <?php 
-            $get_data3 = mysqli_query($conn,"SELECT * FROM products ORDER BY rand() LIMIT 3");
+            $get_data3 = mysqli_query($conn,"SELECT * FROM products WHERE stock > 0 AND estatus = 'Aprobado' ORDER BY rand() LIMIT 3");
             while($set_data3 = mysqli_fetch_array($get_data3)){ 
               
         
@@ -96,7 +96,7 @@
         <!-- Slides -->
         <div class="swiper-slide">
           <?php 
-            $get_data4 = mysqli_query($conn,"SELECT * FROM products ORDER BY rand() LIMIT 3");
+            $get_data4 = mysqli_query($conn,"SELECT * FROM products WHERE stock > 0 AND estatus = 'Aprobado' ORDER BY rand() LIMIT 3");
             while($set_data4 = mysqli_fetch_array($get_data4)){ 
               
         
@@ -117,7 +117,7 @@
         </div>
         <div class="swiper-slide">
         <?php 
-            $get_data5 = mysqli_query($conn,"SELECT * FROM products ORDER BY rand() LIMIT 3");
+            $get_data5 = mysqli_query($conn,"SELECT * FROM products WHERE stock > 0 AND estatus = 'Aprobado' ORDER BY rand() LIMIT 3");
             while($set_data5 = mysqli_fetch_array($get_data5)){ 
               
         
@@ -138,7 +138,7 @@
         </div>
         <div class="swiper-slide">
         <?php 
-            $get_data6 = mysqli_query($conn,"SELECT * FROM products ORDER BY rand() LIMIT 3");
+            $get_data6 = mysqli_query($conn,"SELECT * FROM products WHERE stock > 0 AND estatus = 'Aprobado' ORDER BY rand() LIMIT 3");
             while($set_data6 = mysqli_fetch_array($get_data6)){ 
               
         

@@ -1,6 +1,6 @@
 <!-- Modal -->
 <div class="modal fade" id="ModalReportS" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog odal-dialog-centered modal-dialog-scrollable">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header" style="color:white;background:#d9534f">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Reportes</h1>

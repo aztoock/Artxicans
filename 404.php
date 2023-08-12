@@ -10,7 +10,7 @@
     <title>Artxicans -Error</title>
 </head>
 <body>
-    <section class="error">
+    <section class="error" >
         <h1>Error 404</h1>
         <article class="image-error">
             <img src="./assets/logo/imgimg.jpg" alt="error">

@@ -4,7 +4,7 @@
   include('./helpers/loader.php');
 ?>
     <!-- Modal user-mobile -->
-    <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <!--  <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -20,11 +20,11 @@
           
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Aqui empieza el body -->
 
     <!-- Choose -->
-<div class="d-grid gap-2 d-md-flex justify-content-start cat">
+<div class="d-grid gap-2 d-md-flex justify-content-start cat" style="margin-top:5rem">
   <button class="btn btn-secondary me-md-2 mb-2 mt-5 categories-btn" type="button" onclick="location.href='categories.php'"><img src="./assets/utilities/categorias.png" class="categories-icon" alt="categories-icon"> Ir a categorias</button>
   
 </div>

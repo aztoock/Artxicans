@@ -14,7 +14,7 @@
         $query2 = mysqli_query($conn,"SELECT * FROM products WHERE id_product = $res");
         $data2= mysqli_fetch_array($query2);
         $res2 = $data2['id_product'];
-        echo("<script>location.href = '../product.php?id_product=".$res2."';</script>");  
+        echo("<script>location.href = '../index.php';</script>");    
     }else{
         echo("<script>location.href = '../index.php';</script>");  
     }  

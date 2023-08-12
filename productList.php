@@ -16,7 +16,7 @@
 
 ?>
 
-<div class="prod-btns">
+<div class="prod-btns" style="margin-top:5rem">
 <button type="button" class="btn btn-secondary" onclick="location.href='./seller.php'">Regresar</button>
 <button type="button" class="btn btn-info" onclick="location.href='./add-product.php'">Agregar producto&nbsp; <i class='bx bxs-add-to-queue'></i></button>
 </div>
@@ -65,8 +65,8 @@
     </tr>
 
 <!-- Edit modal -->
-<div class="modal fade" id="EditModal-<?php echo $row['id_product']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable">
+<div class="modal fade" id="EditModal-<?php echo $row['id_product']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top:2.8rem">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Editar producto</h1>
@@ -136,7 +136,7 @@
 <!-- Delete modal -->
 
 <div class="modal fade" id="delete-product-<?php echo $row['id_product']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar producto</h1>

@@ -3,7 +3,7 @@
     include('./templates/cabecera.php');
     include('./helpers/loader.php');
 ?>
-    <section class="about">
+    <section class="about" style="margin-top:5rem">
         <h1 align="center">Acerca de nosotros</h1>
         <p class="text-about" align="justify">Somos un grupo de desarrolladores que busca impulsar la economía y cultura de muchos mexicanos
             que se dedican este grandioso trabajo, personas talentosas que requieren de apoyos para dar a conocer su trabajo 

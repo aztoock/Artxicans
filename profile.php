@@ -10,7 +10,7 @@
 ?>
 
     
-    <section>
+    <section style="margin-top:4.5rem">
       <div class="usuario">
         
         <h3>Cuenta:&nbsp;</h3>

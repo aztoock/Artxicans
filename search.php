@@ -9,7 +9,7 @@
 
     
     <!-- Modal user-mobile -->
-    <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<!--     <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -25,27 +25,22 @@
           
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Aqui empieza el body -->
 
     <!-- SearchBox -->
-    <form action="search.php" method="GET" class="searchContainer">
-      <div class="searchBox">
-        <input type="search" name="fetch" class="searchInput" placeholder="Buscar producto" />
-        <!-- <button class="material-symbols-outlined searchButton">search</button>-->
-          <button class="searchButton"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="18" fill="#6669c5" style="font-size:bold;" class="bi bi-search" viewBox="0 0 16 16">
-  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-</svg> </button>
-      </div>
-      <div class="user">
-        <a data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
-          <img src="./assets/utilities/usuario.png" alt="icon" class="icon" />
-        </a>
-      </div>
-    </form>
+    <form class="search-field" action="search.php" method="GET" >
+                        <input type="text" placeholder="Buscar" name="fetch">
+                        <button class="searchButton">
+                        <i type="submit" class='bx bx-search' style="margin-top:46px"></i>
+</button>
+                    </form>
 
    <!-- LIST OF PRODUCTS -->
-
+<!-- Choose -->
+<div class="d-grid gap-2 d-md-flex justify-content-start cat" style="margin-top:2rem">
+  <button class="btn btn-secondary me-md-2 mb-2 mt-5 categories-btn" type="button" onclick="location.href='categories.php'"><img src="./assets/utilities/categorias.png" class="categories-icon" alt="categories-icon"> Ir a categorías</button>
+</div>
 
    <section class='container-products'>
   
@@ -53,10 +48,11 @@
    <?php 
         $result = $conn ->query("SELECT * FROM products WHERE product like  '%".$_GET['fetch']."%' or
         description like '%".$_GET['fetch']."%' or
-        category like '%".$_GET['fetch']."%' or
-        subcategory like '%".$_GET['fetch']."%'
+        category like '%".$_GET['fetch']."%' 
 
         order by id_product DESC limit 20")or die ($conn ->error);
+
+        if($result->num_rows > 0){
         while($row = mysqli_fetch_array($result)){
   ?>    
 
@@ -64,7 +60,7 @@
         <div class="single-product">
         <a href="product.php?id_product=<?php echo $row['id_product'];?>" class='referencia'>
              <div class='imgDiv'>
-                <img src="assets/products/<?php echo $row['image'];?>"  alt="<?php echo $row['product']?>">
+                <img src="assets/products/<?php echo $row['image1'];?>"  alt="<?php echo $row['product']?>">
             </div>
             <div class="card-info">
                 <span class="product-title"><?php echo $row['product'];?></span>
@@ -79,7 +75,15 @@
             </div>
            </a>
         </div>
-        <?php }?>
+        <?php }
+        }else{?>
+
+<div class="m-0  row justify-content-center align-items-center mt-3">
+                                <div class="alert alert-dark text-center p-5 col-auto" role="alert">
+                                    Sin resultados 
+                                </div>
+                            </div>
+          <?php }?>
       </div>
     </section>
     

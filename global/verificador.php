@@ -80,7 +80,7 @@
     #echo $Mpaypal;
 ?>
 
-<div class="jumbotron text-center">
+<div class="jumbotron text-center" style="margin-top:4.5rem">
     <h1 class="display-4">Estatus de pago</h1>
     <hr class="my-4">
     <p class="lead"><?php echo $Mpaypal?></p>

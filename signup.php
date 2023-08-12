@@ -4,7 +4,7 @@
     include('./helpers/loader.php');
 
 ?>
- <div class="signup-form">
+ <div class="signup-form" style="margin-top:5rem">
     
  <form action="" method="POST"  class="registro">
         <div class="form">

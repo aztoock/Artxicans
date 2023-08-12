@@ -1,4 +1,5 @@
 <?php 
+    error_reporting(0);
     include('../global/conexion.php');
     session_start();
     # Cuando se presiona el boton para mandar los datos, hacemos lo que hay dentro del if
@@ -9,10 +10,16 @@
         $stars = $_POST['estrellas']; # Estrellas que ingreso
         $comment = $_POST['comment']; # Comentario
         
+        /* if($stars == 0){
+        
+        mysqli_query($conn,"INSERT INTO profile_comments VALUES(NULL,'1','$comment','$seller','$id_user')");
+        echo("<script>location.href = '../index.php';</script>");
+        }else{ */   
         # Insertamos los datos en la tabla profile_comments
         mysqli_query($conn,"INSERT INTO profile_comments VALUES(NULL,'$stars','$comment','$seller','$id_user')");
-        echo("<script>location.href = '../profile-seller.php?seller_data=".$seller."';</script>");
-    
+        echo("<script>location.href = '../profile-seller.php?seller_data=".$seller."';</script>"); 
+        
+       /*  } */
     }
 
 ?>

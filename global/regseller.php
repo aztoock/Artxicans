@@ -79,7 +79,7 @@
                             $result = mysqli_query($conn,$sql);
                             if ($result)
                                 {
-                                    echo("<script>location.href = 'profile.php';</script>");
+                                    echo("<script>location.href = 'reg_seller.php';</script>");
                                 }
                         }
                 }

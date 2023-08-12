@@ -80,6 +80,7 @@
     <script type="text/javascript" src="./js/Loader.js"></script>
     <script type="text/javascript" src="./js/Translate.js"></script>
     <script type="text/javascript" src="./js/OnLoad.js"></script>
+    <script type="text/javascript" src="./js/Navbar.js"></script>
     
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script  src="./js/Swipper.js"></script>

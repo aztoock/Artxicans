@@ -13,7 +13,7 @@
 ?>
 <div id="chat-id"></div>
 <!-- Header del chat, mostrando con que usuario estan chateando-->
-   <div class="header-chat" align="center">
+   <div class="header-chat" align="center" style="mergin-top:4.5rem">
             <?php echo $data['Nombre']?>
         </div>
 <section class="toChat" style="color:grey">

@@ -50,7 +50,7 @@
     $data2 = mysqli_fetch_array($query2);
 ?>
 
-<section class="edit-profile-seller">
+<section class="edit-profile-seller" style="margin-top:4.5rem">
         <h1 align="center">Editar perfil</h1>
     <form  method="POST" class="form-data">
         <div class="seller-data-1" style="margin-top:1.5rem">

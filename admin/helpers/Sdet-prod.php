@@ -1,11 +1,46 @@
 <?php 
-$id_product = $_GET['product'];
-if(isset($_POST['delete-seller']))
-    {
-        $id_product = $_POST['delete-seller'];
-        $conn->query("UPDATE `products` SET `stock` = '0' WHERE `products`.`id_product` = $id_product");
-        header("Location: ../products.php");
-    }
+$id_product = $_GET['id_product'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST')
+        {
+            if ( isset($_POST['Aceptar']) )
+                {
+                    $mensaje = $_POST['mensaje'];           # Obtengo datos del formulario
+                    $id_usuario = $_POST['id_usuario'];     # Obtengo datos del formulario
+                    $query = (" UPDATE `products` 
+                                SET `estatus` = 'Aprobado'
+                                WHERE `products`.`id_product` = '$id_product';");
+                        # Actualizo el estatus del vendedor
+                    $result = mysqli_query($conn,$query);
+                    
+                    $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `titulo`, `notification`, `tipo`, `ID_registro`) 
+                    VALUES (NULL, 'Peticion de articulo aprobada', '$mensaje', '1', '$id_usuario')");
+                        # Se agrega la notificacion a la tbl
+                    $result = mysqli_query($conn,$updatenotify);
+                    echo("<script>location.href = '../reg-productos.php';</script>");
+                }
+            elseif ( isset($_POST['Rechazar']) )
+                {
+                    $mensaje = $_POST['mensaje'];       # Obtengo datos del formulario
+                    $id_usuario = $_POST['id_usuario']; # Obtengo datos del formulario
+                    $mensaje = $_POST['mensaje'];
+                    $query = (" UPDATE `products` 
+                                SET `estatus` = 'Rechazado'
+                                WHERE `products`.`id_product` = '$id_product';");
+                        # Actualizo el estatus del vendedor
+                    $result = mysqli_query($conn,$query);
+
+                    $updatenotify = ("  INSERT INTO `notifications` (`id_notif`, `titulo`, `notification`, `tipo`, `ID_registro`) 
+                    VALUES (NULL, 'Peticion de articulo rechazada', '$mensaje', '1', '$id_usuario')");
+                        # Se agrega la notificacion a la tbl
+                    $result = mysqli_query($conn,$updatenotify);
+
+                    $updatestock = ("  UPDATE `products` SET `stock` = '0' 
+                                        WHERE `products`.`id_product` = $id_product");
+                        # Se agrega la notificacion a la tbl
+                    $result = mysqli_query($conn,$updatestock);
+                    echo("<script>location.href = '../reg-productos.php';</script>");
+                }
+        }
 ?>
 
 <div class="table-data">
@@ -41,6 +76,11 @@ if(isset($_POST['delete-seller']))
                         </tr>
                         <tr>
                             <td>
+                                <p><strong>Cantidad:</strong><?php echo $data['stock']?></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                                 <p><strong>Descripcion:</strong><?php echo $data['description']?></p>
                             </td>
                         </tr>
@@ -51,8 +91,11 @@ if(isset($_POST['delete-seller']))
                         </tr>
                         </tbody>
                     </table>
-                    <form method="post">
-				    <button type="submit" class="btn-choose decline" name="delete-seller" value="<?php echo $data['id_product']; ?>">Eliminar producto</button>
-                    </form>
+                    <form method="POST" class="form-vend">
+					    <textarea class="txt-send" name="mensaje" placeholder="Escribe un mensaje al usuario."></textarea>
+                        <input type="hidden" name="id_usuario" value=" <?php echo $data['ID_registro']; ?> ">
+					    <input class="btn-choose decline" type="submit" name="Rechazar" value="Rechazar">
+					    <input class="btn-choose accept" type="submit" name="Aceptar" value="Aceptar">
+				    </form>
                 </div>
 				</div>

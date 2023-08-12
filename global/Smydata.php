@@ -68,7 +68,7 @@
         }
 ?>
 
-<section class="mydata">
+<section class="mydata" style="margin-top:4.5rem">
     <h1 align="center">Mis datos</h1>
     <br>
     

@@ -7,7 +7,7 @@
     }
     $id_user = $_SESSION['id'];
 ?>
-    <section class="choose-chat">
+    <section class="choose-chat" style="margin-top:4.5rem">
     <h2 align="center">Lista de Chats</h2>
         <div class="chats-container">
        

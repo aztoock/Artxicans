@@ -13,7 +13,7 @@
     <!-- esto vendra si es vendedor -->
     <p class="title-help">Ventas</p>
     <ul class="compras-help">
-        <li><a data-bs-toggle="modal" data-bs-target="#ModalReportS">Reportar comprador <i class='bx bxs-chevron-right'> </i></a></li>
+        <!-- <li><a data-bs-toggle="modal" data-bs-target="#ModalReportS">Reportar comprador <i class='bx bxs-chevron-right'> </i></a></li> -->
         <li><a href="./seller.php">Administrar publicaciones <i class='bx bxs-chevron-right'> </i></a></li>
         <li><a data-bs-toggle="modal" data-bs-target="#ModalQuestionS">Preguntas frecuentes sobre ventas <i class='bx bxs-chevron-right'> </i></a></li>
     </ul>

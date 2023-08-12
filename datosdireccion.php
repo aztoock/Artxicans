@@ -8,10 +8,11 @@
   }
 ?>
   
-<section class="reg_seller">
+<section class="reg_seller" style="margin-top:4.5rem">
+
   <form action="" method="post" class="form-reg" enctype="multipart/form-data">
 
-      <h1 class="text-center">Datos de envio</h1>
+      <h1 class="text-center">Datos de envío</h1>
   
          <?php
           include('./global/direcciones.php');
@@ -40,11 +41,11 @@
          <input type="text" name="nombre" id="nombre">
       </div>
       <div class="input-group">
-        <label for="direccion1">Direccion 1</label>
+        <label for="direccion1">Dirección 1</label>
         <input type="text" name="direccion1" id="direccion1">
       </div>
       <div class="input-group">
-        <label for="direccion2">Direccion 2</label>
+        <label for="direccion2">Dirección 2</label>
         <input type="text" name="direccion2" id="direccion2" >
         <small>*Introduce tus datos verdaderos.</small>
       </div>
@@ -60,7 +61,7 @@
           <input type="text" name="ciudad" id="ciudad" />
         </div>
         <div class="input-group">
-          <label for="estado">Estado/Provincia/Region</label>
+          <label for="estado">Estado/Provincia/Región</label>
           <input type="text" name="estado" id="estado" />
         </div>
         <div class="input-group">
@@ -68,7 +69,7 @@
           <input type="text" name="pais" id="pais" /> 
         </div>
         <div class="input-group">
-          <label for="cp">Codigo postal</label>
+          <label for="cp">Código postal</label>
           <input type="text" name="cp" id="cp" />
         </div>
         <div class="btns-group">
@@ -80,7 +81,7 @@
       <!-- Step 3 -->
       <div class="form-step">
       <div class="input-group">
-        <label for="telefono">Numero de telefono</label>
+        <label for="telefono">Número de teléfono</label>
         <input type="text" name="telefono" id="telefono">
       </div>
       <div class="input-group">

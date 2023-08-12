@@ -1,15 +1,21 @@
 <?php 
     include('./global/conexion.php');
     include('./templates/cabecera.php');
-    /* include('./helpers/loader.php'); */
+    include('./helpers/loader.php');
     if(@!$_SESSION['user']){
         echo("<script>location.href = 'login.php';</script>");
     }
 ?>
-    <section class="notifications">
+    <section class="notifications " style="margin-top:4.5rem">
         <h2 align="center">Notificaciones</h2>
         
         <div class="table-notifications table-responsive">
+<?php 
+   $id_user = $_SESSION['id'];
+   $check_notif = mysqli_query($conn,"SELECT * FROM notifications WHERE ID_registro = $id_user");
+   if($check_notif->num_rows > 0){
+?>
+
         <table class="table">
   <thead>
     <tr>
@@ -51,6 +57,17 @@
     <?php }}?>
   </tbody>
 </table>
+          <?php }else{?>
+            <div class="m-0  row justify-content-center align-items-center mt-3">
+                                <div class="alert alert-dark text-center p-5 col-auto" role="alert">
+                                    Sin notificaciones
+                                </div>
+                            </div>
+
+          <?php }?>  
+          <center class="mt-3">
+                    <button class="btn btn-secondary" onclick="location.href='profile.php'">Regresar</button>
+                </center>
         </div>
     </section>
 

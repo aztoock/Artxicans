@@ -18,7 +18,7 @@
             if (!empty($_SESSION['cart']))
                 {
 ?>
-                    <section class="cart">
+                    <section class="cart" style="margin-top:4.4rem">
                         <h2 align="center">Carrito de Compras</h2>
                         
                         <div class="mt-2  row justify-content-center align-items-center">

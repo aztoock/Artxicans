@@ -45,7 +45,7 @@
     
 </style>
 
-<div class="jumbotron text-center">
+<div class="jumbotron text-center" style="margin-top:4.5rem">
     <br><br>
     <h1 class="display-4">Realiza tu pago</h1>
     <hr class="my-4">

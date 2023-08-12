@@ -4,12 +4,12 @@ include('templates/cabecera.php');
 include('./helpers/loader.php');
 ?>
 
-<section class="categorias"> 
+<section class="categorias" style="margin-top:5rem"> 
 <h2>Lista de Categorias</h2>
 
 <div class="grid-responsive">
 
-<a href="pcategoria.php?op=Alebrije" class="cat-item">
+<a href="pcategoria.php?op=Alebrijes" class="cat-item">
     <div class="overlay-cat"></div>
         <img src="./assets/utilities/alebrijes.jpg" alt="alebrijes" >
     <div class="cat-container">
@@ -18,7 +18,7 @@ include('./helpers/loader.php');
         </div>
     </div>
 </a>
-<a href="pcategoria.php?op=Huichol" class="cat-item">
+<a href="pcategoria.php?op=Arte Huichol" class="cat-item">
     <div class="overlay-cat"></div>
         <img src="./assets/utilities/huichol.jpg" alt="alebrijes" >
     <div class="cat-container">
@@ -63,7 +63,7 @@ include('./helpers/loader.php');
         </div>
     </div>
 </a>
-<a href="pcategoria.php?op=Sombrero" class="cat-item">
+<a href="pcategoria.php?op=Sombreros" class="cat-item">
     <div class="overlay-cat"></div>
         <img src="./assets/utilities/sombrero.jpg" alt="alebrijes" >
     <div class="cat-container">

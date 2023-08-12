@@ -4,7 +4,7 @@
   include('./helpers/loader.php');
 ?>
     <!-- Sell page -->
-    <section class="sell">
+    <section class="sell" style="margin-top:4rem">
         <div class="overlay"></div>
         <img src="assets/utilities/bg_sell_1.jpg" alt="">
         <div class="sellContent container">
@@ -24,7 +24,7 @@
 <!-- Modal -->
 <?php if(@!$_SESSION['user']){?>
   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="staticBackdropLabel">Registrate</h1>
@@ -43,7 +43,7 @@
   <?php }else{ ?>
 
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="staticBackdropLabel">Comienza a vender</h1>

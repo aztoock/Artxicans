@@ -7,7 +7,7 @@
     }
     $id_user = $_SESSION['id'];
 ?>
-    <section class="my-orders">
+    <section class="my-orders" style="margin-top:4.5rem">
         <h2 align="center">Mis Pedidos</h2>
         <div class="order-seller-table row d-flex justify-content-center">
         <table class="table table-responsive w-75">

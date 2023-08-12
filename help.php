@@ -4,8 +4,8 @@
     include('./helpers/loader.php');
 ?>
 
-<section class="help">
-    <h2>¿En que podemos ayudarte? </h2>
+<section class="help" style="margin-top:5rem">
+    <h2>¿En qué podemos ayudarte? </h2>
     
     <p class="title-help">Compras</p>
     <ul class="compras-help">
@@ -31,7 +31,7 @@
     <ul class="compras-help">
         <li><a href="./profile.php"> Mi cuenta</a></li>
         <li><a data-bs-toggle="modal" data-bs-target="#ModalPrivacidad" >Aviso de privacidad</a></li>
-        <li><a data-bs-toggle="modal" data-bs-target="#ModalPrivacidad" >Términos y condiciones</a></li>
+        <li><a data-bs-toggle="modal" data-bs-target="#ModalTerminos" >Términos y condiciones</a></li>
         
     </ul>
     

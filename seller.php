@@ -7,11 +7,9 @@
   } 
   $id_user = $_SESSION['id'];
 
-
 ?>
 
-
-<section class="seller_true" >
+<section class="seller_true" style="margin-top:5rem">
     <h2>Bienvenido a la sección de vender</h2>
     <div class="seller-buttons container-buttons-seller">
     

@@ -6,7 +6,7 @@
       echo("<script>location.href = './index.php';</script>");
     } 
 ?>
-    <section class="add-proudcts">
+    <section class="add-proudcts" style="margin-top:4.5rem">
 
 
     <form action="" method="post" class="form-reg form-resize" enctype="multipart/form-data" style="margin-top:2">

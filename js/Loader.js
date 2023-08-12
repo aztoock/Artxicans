@@ -6,14 +6,12 @@ const loader = document.getElementById('loader');
 loader.style.display = 'none';
 /*    loadmore.style.display = 'block';  */
 /* Loader */
-
 $(document).ready(function(){
 
 /* Funcion de evento click del boton ver mas */
   $(document).on('click', '#load-more', function(e){
     /* Cancelamos el evento por defecto */
     e.preventDefault();
-    
 /* Loader */
 /* Mostramos al loader */
   loader.style.display = 'block';

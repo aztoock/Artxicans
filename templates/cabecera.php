@@ -39,9 +39,11 @@
     <link rel="stylesheet" href="./styles/pages/about.css?v=2" />
     <link rel="stylesheet" href="./styles/pages/orders.css?v=2" />
     <link rel="stylesheet" href="./styles/pages/cart.css?v=2" />
+  <!--   <link rel="stylesheet" href="./styles/header/header2.css?v=2" /> -->
     <link rel="stylesheet" href="index.css?v=2" />
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    
     <!-- GoogleIcons -->
     <link
       rel="stylesheet"
@@ -54,104 +56,76 @@
     <title>Artxicans</title>
   </head>
   <body>
+   
     <!-- Header and Navbar -->
-    <header class="header">
-      <nav class="navigation">
-        <div class="logo">
-          <a href="index.php"> <img src="./assets/logo/3.png"  "/> </a>
-        </div>
-        <button class="burger-btn">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="30"
-            viewBox="0 0 24 24"
-          >
-            <path d="M4 6H20V8H4zM4 11H20V13H4zM4 16H20V18H4z" />
-          </svg>
-          <svg
-            class="none"
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="30"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z"
-            />
-          </svg>
-        </button>
-        <div class="navbar" id="navbar">
-          <ul class="navList">
-            <li class="navItem"><a href="index.php">Inicio</a></li>
-            <li class="navItem dropdown set-categories">
-              <a
-                href=""
-                class="dropdown-toggle"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                >Categorias</a
-              >
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="pcategoria.php?op=Alebrije">Alebrijes</a></li>
-                <li><a class="dropdown-item" href="pcategoria.php?op=Huichol">Arte Huichol</a></li>
-                <li><a class="dropdown-item" href="pcategoria.php?op=Juguetes">Juguetes</a></li>
-                <li><a class="dropdown-item" href="pcategoria.php?op=Joyeria">Joyeria</a></li>
-                <li><a class="dropdown-item" href="pcategoria.php?op=Ropa">Ropa</a></li>
-                <li><a class="dropdown-item" href="pcategoria.php?op=Rebozos">Rebozos</a></li>
-                <li><a class="dropdown-item" href="pcategoria.php?op=Sombreros">Sombreros</a></li>
-                <li><a class="dropdown-item" href="pcategoria.php?op=Zapatos">Zapatos</a></li>
-                <li><a class="dropdown-item" href="pcategoria.php?op=Otros">Otros...</a></li>
+    <nav class="navigation">
+        <div class="nav-bar logo">
+            <i class='bx bx-menu sidebarOpen' ></i>
+            <a href="index.php"> <img src="./assets/logo/3.png"  "/> </a>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="#">Artxicans</a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="index.php">Inicio</a></li>
+                    <li>
+                        <a  href="categories.php"
+                            >Categorías</a>
+                        <!--   <ul class="dropdown-menu">
+                                <li><a href="" class="dropdown-item">Alebrijes</a></li>
+                                <li><a href="" class="dropdown-item">Arte Huichol</a></li>
+                                <li><a href="" class="dropdown-item">Ropa</a></li>
+                                <li><a href="" class="dropdown-item">Otros</a></li>
+                            </ul> -->
+                </li>
+                    <li><a href="helpers/validate-seller.php">Vender</a></li>
+                    
+                    <li><a href="help.php">Ayuda</a></li>
+                    <li><a data-bs-toggle="modal" class="idioma" data-bs-target="#translateModal" style="cursor:pointer;">Idioma</a></li>
+                    <li class="navItem"><a href="cart.php" class="position-relative"><i class='bx bxs-cart bx-sm' >
+              
+              </i>
+               <span class="position-absolute top-0 right-0 start-100 translate-middle badge rounded-pill bg-danger" style="margin-top:0.4rem;">
+        <?php echo (empty($_SESSION['cart']))?0: count($_SESSION['cart']); ?>
+      <span class="visually-hidden">unread messages</span>
+    </span>
+             
+      <!-- (<?php echo (empty($_SESSION['cart']))?0: count($_SESSION['cart']); ?>) --></a></li>
                 
-              </ul>
-            </li>
-            <li class="navItem mob-categories"><a href="categories.php">Categorias</a></li>
-            <li class="navItem"><a href="helpers/validate-seller.php">Vender</a></li>
-            <li class="navItem"><a href="help.php">Ayuda</a></li>
-            <li class="navItem"><a href="cart.php" class="position-relative"><i class='bx bxs-cart bx-sm' >
-              
-            </i>
-             <span class="position-absolute top-0 right-0 start-100 translate-middle badge rounded-pill bg-danger">
-      <?php echo (empty($_SESSION['cart']))?0: count($_SESSION['cart']); ?>
-    <span class="visually-hidden">unread messages</span>
-  </span>
-           
-    <!-- (<?php echo (empty($_SESSION['cart']))?0: count($_SESSION['cart']); ?>) --></a></li>
-            <li class="navItem"><a data-bs-toggle="modal" data-bs-target="#translateModal" style="cursor:pointer;">Idioma</a></li> 
-            <?php if(@!$_SESSION['user']){?>
-            <div class="headerBtn">
-              
-              <button class="loginBtn" onclick="location.href='login.php'">
-                <a>Ingresa</a>
-              </button>
-              
-              <button class="btn-header2 signBtn" onclick="location.href='signup.php'">
-                <a>Regístrate</a>
-              </button>
+                  </ul>
             </div>
-            <?php }else{?>
 
-              <a href="profile.php" class="cuenta" style="display:flex;align-items:cneter;justify-content:center;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="25" fill="#ffff" style="cursor:pointer;"  class="bi bi-person-fill" viewBox="0 0 16 16">
-                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
-              </svg>              
-              </a>
-              <style>.cuenta{color:black; font-size:0.9rem; background:var(--second-alpha-color); padding:0 0.4rem; border-radius:10px}</style>
-              <?php }?>
-          </ul>
+            <div class="darkLight-searchBox">
+                <a href="./profile.php" class="dark-light">
+                  <i class='bx bxs-user-circle'></i>
+                </a>
+
+                <div class="searchBox">
+                   <div class="searchToggle">
+                    <i class='bx bx-x cancel'></i>
+                    <i class='bx bx-search search'></i>
+                   </div>
+
+                    <form class="search-field" action="search.php" method="GET" >
+                        <input type="text" placeholder="Buscar" name="fetch">
+                        <button class="searchButton">
+                        <i type="submit" class='bx bx-search' style="margin-top:46px"></i>
+</button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </nav>
-    </header>
-
-
-
+    </nav>
 
 
 
 
     <!-- Modal --> 
     <div class="modal fade" id="translateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Idioma</h1>
@@ -172,5 +146,3 @@
   </div>
 </div>
 
-
-  

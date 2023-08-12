@@ -1,6 +1,8 @@
 <?php 
+    error_reporting(0);
     include('global/conexion.php');
     include('templates/cabecera.php');
+    include('./helpers/loader.php');
     include('global/querycart.php');
     include('global/cart.php');
     //obtener id del producto
@@ -18,7 +20,7 @@
     }
 ?>
   <!-- Card para mostrar los datos del producto detallados. -->
-<div class="card mb-3 mx-auto card-product" style="width: 85vw;margin-top:2rem">
+<div class="card mb-3 mx-auto card-product" style="width: 85vw;margin-top:5rem">
   <div class="row g-0">
     <div class="col-md-4">
       <div id="carouselExampleIndicators" class="carousel slide">
@@ -131,7 +133,7 @@
     
     <a  data-bs-toggle="modal" data-bs-target="#ModalProductReport-<?php echo $row[0]?>" style="display:flex;justify-content: end; padding :1rem;cursor:pointer;" class="report-container"><i class='bx bx-error bx-md'></i></a>
   <div class="modal fade" id="ModalProductReport-<?php echo $row[0]?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Reportar Productos</h1>
@@ -361,7 +363,7 @@
         
         <!-- Modal to Report Comment-->
         <div class="modal fade" id="ModalReport-<?php echo $data['id_star']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Reportar Comentario</h1>
@@ -436,6 +438,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        
         <button type="button" class="btn btn-danger" onclick="location.href='./helpers/delete-comment.php?id_com=<?php echo $data2['id_star'];?>'">Eliminar</button>
       </div>
     </div>

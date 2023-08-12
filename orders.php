@@ -9,7 +9,7 @@ $query = mysqli_query($conn,"SELECT * FROM products INNER JOIN detalleventa
                             detalleventa.id_venta = ventas.id_venta WHERE detalleventa.ID_registro = $id_u");
 
 ?>
-<section class="orders">
+<section class="orders" style="margin-top:4.5rem">
     <h2 align="center">Mis pedidos</h2>
     <?php 
         if($query->num_rows > 0){

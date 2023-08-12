@@ -14,7 +14,7 @@ $data = mysqli_fetch_array($query);
 
 
 <!-- Mostramos nickname del vendedor -->
-<div class="header-chat" align="center">
+<div class="header-chat" align="center" style="margin-top:4.5rem">
     <?php echo $data['nickname']?>
 </div>
 <div id="chat-id"></div>

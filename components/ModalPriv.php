@@ -1,5 +1,5 @@
-<div class="modal fade" id="ModalPrivacidad" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog  modal-dialog-scrollable">
+<div class="modal fade" id="ModalPrivacidad" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 2.8rem;">
+  <div class="modal-dialog  modal-dialog-scrollable modal-dialog-centered ">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Aviso de privacidad</h1>
